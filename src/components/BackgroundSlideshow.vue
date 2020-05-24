@@ -1,11 +1,12 @@
 <template>
   <div class="h-screen min-h-screen">
     <transition-group name="fade-transition" tag="div">
-      <div v-for="i in [currentIndex]" :key="i" quality="0">
+      <div v-for="i in [currentIndex]" :key="i">
         <g-image
           class="object-cover h-screen"
           :immediate="true"
           :src="currentImg"
+          :quality="0"
         />
       </div>
     </transition-group>
@@ -33,8 +34,10 @@ export default {
       return this.images[Math.abs(this.currentIndex) % this.images.length];
     },
   },
-  mounted: function () {
-    this.startSlide();
+  mounted() {
+    setTimeout(() => {
+      this.startSlide();
+    }, 2000);
   },
   methods: {
     startSlide: function () {
