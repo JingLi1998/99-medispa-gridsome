@@ -1,15 +1,19 @@
 <template>
   <div class="h-screen min-h-screen">
-    <transition-group name="fade-transition" tag="div">
-      <div v-for="i in [currentIndex]" :key="i">
-        <g-image
-          class="object-cover h-screen"
-          :immediate="true"
-          :src="currentImg"
-          :quality="0"
-        />
-      </div>
-    </transition-group>
+    <transition
+      v-for="(image, index) in images"
+      :key="index"
+      name="fade-transition"
+      tag="div"
+    >
+      <g-image
+        v-show="index === currentIndex"
+        class="object-cover h-screen"
+        :immediate="true"
+        :src="image"
+        :quality="0"
+      />
+    </transition>
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->
     <!-- <a class="next" @click="next">&#10095; Next</a> -->
   </div>
@@ -26,26 +30,24 @@ export default {
         "/images/slideshow3.webp",
       ],
       timer: null,
+      show: false,
       currentIndex: 0,
     };
   },
-  computed: {
-    currentImg: function () {
-      return this.images[Math.abs(this.currentIndex) % this.images.length];
-    },
-  },
   mounted() {
     setTimeout(() => {
-      this.startSlide();
-    }, 2000);
+      this.show = true;
+    }, 500);
+    this.startSlide();
   },
   methods: {
     startSlide: function () {
       this.timer = setInterval(this.next, 4000);
     },
-
     next: function () {
-      this.currentIndex += 1;
+      this.currentIndex < this.images.length - 1
+        ? (this.currentIndex += 1)
+        : (this.currentIndex = 0);
     },
     prev: function () {
       this.currentIndex -= 1;
