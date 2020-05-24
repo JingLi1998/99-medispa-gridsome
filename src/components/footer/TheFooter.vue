@@ -44,7 +44,7 @@
     </footer-section>
 
     <footer-section class="pt-3 md:pl-10 lg:pl-0">
-      <img src="/images/QR.png" class="object-contain w-32" alt="QR Code" />
+      <g-image src="/images/QR.png" class="object-contain w-32" alt="QR Code" />
     </footer-section>
   </footer>
 </template>

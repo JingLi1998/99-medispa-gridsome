@@ -21,8 +21,10 @@ export default {
       src: "",
     };
   },
-  created() {
-    this.src = this.url;
+  mounted() {
+    setTimeout(() => {
+      this.src = this.url;
+    }, 1000);
   },
 };
 </script>
