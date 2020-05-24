@@ -10,7 +10,8 @@ module.exports = {
   purge: {
     content: ["./**/*.vue"],
     options: {
-      whitelistPatterns: [/svg.*/, /fa.*/],
+      whitelist: ["svg-inline--fa"],
+      whitelistPatterns: [/svg.*/, /fa.*/, /shiki/, /fa-$/],
     },
   },
   theme: {
