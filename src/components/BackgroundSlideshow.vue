@@ -2,7 +2,7 @@
   <div class="h-screen min-h-screen">
     <transition-group name="fade-transition" tag="div">
       <div v-for="i in [currentIndex]" :key="i">
-        <img class="object-cover h-screen" :src="currentImg" />
+        <g-image class="object-cover h-screen" :src="currentImg" />
       </div>
     </transition-group>
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->
