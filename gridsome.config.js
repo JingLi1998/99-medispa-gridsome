@@ -1,0 +1,24 @@
+// This is where project configuration and plugin options are located.
+// Learn more: https://gridsome.org/docs/config
+
+// Changes here require a server restart.
+// To restart press CTRL + C in terminal and run `gridsome develop`
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
+module.exports = {
+  siteName: "Gridsome",
+  plugins: [
+    {
+      use: "gridsome-plugin-tailwindcss",
+    },
+  ],
+
+  chainWebpack: (config) => {
+    if (process.env.NODE_ENV === "production") {
+      config
+        .plugin("BundleAnalyzerPlugin")
+        .use(BundleAnalyzerPlugin, [{ analyzerMode: "static" }]);
+    }
+  },
+};
