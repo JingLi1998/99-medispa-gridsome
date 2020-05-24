@@ -13,10 +13,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 library.add(faFacebookSquare, faInstagram);
 
-export default function (Vue, { head }) {
-  head.script.push({
-    src: "https://cdn.lightwidget.com/widgets/lightwidget.js",
-  });
+export default function (Vue) {
   // Set default layout as a global component
   Vue.component("font-awesome", FontAwesomeIcon);
   Vue.component("Layout", DefaultLayout);

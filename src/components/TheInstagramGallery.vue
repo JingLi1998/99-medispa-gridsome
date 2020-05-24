@@ -9,3 +9,16 @@
     ></iframe>
   </div>
 </template>
+
+<script>
+export default {
+  metaInfo: {
+    script: [
+      {
+        src: "https://cdn.lightwidget.com/widgets/lightwidget.js",
+        defer: true,
+      },
+    ],
+  },
+};
+</script>
