@@ -8,7 +8,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   purge: {
-    content: ["./**/*.vue"],
+    content: ["src/assets/**/*.css", "src/**/*.vue", "src/**/*.js"],
     options: {
       whitelist: ["svg-inline--fa"],
       whitelistPatterns: [/svg.*/, /fa.*/, /shiki/, /fa-$/],
