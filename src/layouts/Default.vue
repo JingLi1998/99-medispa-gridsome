@@ -2,18 +2,15 @@
   <div>
     <the-navbar />
     <slot />
-    <the-footer />
   </div>
 </template>
 
 <script>
 import TheNavbar from "../components/TheNavbar";
-import TheFooter from "../components/footer/TheFooter";
 
 export default {
   components: {
     TheNavbar,
-    TheFooter,
   },
 };
 </script>

@@ -5,7 +5,6 @@
       :key="index"
       name="fade-transition"
       tag="div"
-      appear
     >
       <g-image
         v-show="index === currentIndex"
