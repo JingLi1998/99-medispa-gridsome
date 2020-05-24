@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen min-h-screen">
     <transition-group name="fade-transition" tag="div">
-      <div v-for="i in [currentIndex]" :key="i">
+      <div v-for="i in [currentIndex]" :key="i" quality="0">
         <g-image
           class="object-cover h-screen"
           :immediate="true"
