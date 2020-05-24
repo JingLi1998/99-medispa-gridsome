@@ -16,13 +16,9 @@
     <index-section class="bg-pink-100">
       <div class="w-10/12 m-auto sm:w-8/12 md:w-6/12">
         <div class="relative pb-wide">
-          <iframe
-            class="absolute inset-0 w-full h-full"
-            frameborder="0"
-            src="https://www.youtube.com/embed/kL8Bwz63zBo"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <index-section-video
+            url="https://www.youtube.com/embed/kL8Bwz63zBo"
+          />
         </div>
       </div>
     </index-section>
@@ -55,12 +51,14 @@
 <script>
 import BackgroundSlideshow from "../components/BackgroundSlideshow";
 import IndexSection from "../components/index/IndexSection";
+import IndexSectionVideo from "../components/index/IndexSectionVideo";
 import TheInstagramGallery from "../components/TheInstagramGallery";
 
 export default {
   components: {
     BackgroundSlideshow,
     IndexSection,
+    IndexSectionVideo,
     TheInstagramGallery,
   },
   data() {

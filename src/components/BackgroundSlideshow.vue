@@ -2,7 +2,11 @@
   <div class="h-screen min-h-screen">
     <transition-group name="fade-transition" tag="div">
       <div v-for="i in [currentIndex]" :key="i">
-        <g-image class="object-cover h-screen" :src="currentImg" />
+        <g-image
+          class="object-cover h-screen"
+          :immediate="true"
+          :src="currentImg"
+        />
       </div>
     </transition-group>
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->
@@ -16,9 +20,9 @@ export default {
   data() {
     return {
       images: [
-        "/images/slideshow1.png",
-        "/images/slideshow2.png",
-        "/images/slideshow3.png",
+        "/images/slideshow1.webp",
+        "/images/slideshow2.webp",
+        "/images/slideshow3.webp",
       ],
       timer: null,
       currentIndex: 0,
