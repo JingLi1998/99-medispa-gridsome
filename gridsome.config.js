@@ -7,7 +7,8 @@
 //   .BundleAnalyzerPlugin;
 
 module.exports = {
-  siteName: "Gridsome",
+  siteName: "99 Medispa",
+  titleTemplate: "%s | 99 Medispa",
   plugins: [
     {
       use: "gridsome-plugin-tailwindcss",

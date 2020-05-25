@@ -13,7 +13,18 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 library.add(faFacebookSquare, faInstagram);
 
-export default function (Vue) {
+export default function (Vue, { head }) {
+  head.link.push(
+    {
+      rel: "stylesheet",
+      href:
+        "https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&amp;display=swap",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Courgette&display=swap",
+    }
+  );
   // Set default layout as a global component
   Vue.component("font-awesome", FontAwesomeIcon);
   Vue.component("Layout", DefaultLayout);

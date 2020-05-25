@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Barlow", "Roboto", ...defaultTheme.fontFamily.sans],
+        fancy: ["Times New Roman"],
       },
       padding: {
         wide: "56.25%",

@@ -1,5 +1,5 @@
 <template>
-  <div class="py-24 lg:py-48">
+  <div>
     <slot />
   </div>
 </template>

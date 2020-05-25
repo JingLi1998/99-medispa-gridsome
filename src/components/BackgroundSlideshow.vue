@@ -11,7 +11,7 @@
         class="object-cover h-screen"
         :immediate="true"
         :src="image"
-        :quality="0"
+        quality="0"
       />
     </transition>
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->

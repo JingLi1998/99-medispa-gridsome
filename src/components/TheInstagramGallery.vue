@@ -1,7 +1,7 @@
 <template>
   <div>
     <iframe
-      src="//lightwidget.com/widgets/566f958ad4d55b36bdebaf35a7208e7e.html"
+      src="//lightwidget.com/widgets/db2194b6e7055ff891c3b06708fb718e.html"
       scrolling="no"
       allowtransparency="true"
       class="lightwidget-widget"
