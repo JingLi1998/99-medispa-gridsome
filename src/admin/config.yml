@@ -6,13 +6,49 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "posts"
+  - name: "treatments"
+    label: "Treatments"
+    folder: "content/treatments"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Excerpt", name: "excerpt", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "date" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Laser Treatment", value: "laserTreatment" }
+          - { label: "Cosmetic Injection", value: "cosmeticInjection" }
+          - { label: "Skin Treatment", value: "skinTreatment" }
+          - { label: "Body Treatment", value: "bodyTreatment" }
+          - { label: "Traditional Medicine", value: "traditionalMedicine" }
+          - { label: "Plastic Surgery", value: "plasticSurgery" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "price"
+    label: "Prices"
+    folder: "content/prices"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Laser Treatment", value: "laserTreatment" }
+          - { label: "Cosmetic Injection", value: "cosmeticInjection" }
+          - { label: "Skin Treatment", value: "skinTreatment" }
+          - { label: "Body Treatment", value: "bodyTreatment" }
+          - { label: "Traditional Medicine", value: "traditionalMedicine" }
+          - { label: "Plastic Surgery", value: "plasticSurgery" }
+      - label: "Treatments"
+        name: "treatments"
+        widget: "list"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - label: "Name"
+            name: "name"
+            widget: "number"
+            valueType: "float"
