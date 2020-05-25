@@ -9,6 +9,16 @@
 module.exports = {
   siteName: "99 Medispa",
   titleTemplate: "%s | 99 Medispa",
+  transformers: {
+    remark: {
+      externalLinksTarget: "_blank",
+      externalLinksRel: ["nofollow", "noopener", "noreferrer"],
+      anchorClassName: "icon icon-link",
+      plugins: [
+        // ...global plugins
+      ],
+    },
+  },
   plugins: [
     {
       use: "gridsome-plugin-tailwindcss",
@@ -18,6 +28,24 @@ module.exports = {
           whitelist: ["svg-inline--fa"],
           whitelistPatterns: [/svg.*/, /fa.*/, /shiki/, /fa-$/],
         },
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "posts/**/*.md",
+        typeName: "Post",
+        remark: {
+          plugins: [
+            // ...local plugins
+          ],
+        },
+      },
+    },
+    {
+      use: `gridsome-plugin-netlify-cms`,
+      options: {
+        publicPath: `/admin`,
       },
     },
   ],
