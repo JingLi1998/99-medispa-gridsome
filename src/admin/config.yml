@@ -17,12 +17,14 @@ collections:
         name: "type"
         widget: "select"
         options:
-          - { label: "Laser Treatment", value: "laserTreatment" }
-          - { label: "Cosmetic Injection", value: "cosmeticInjection" }
-          - { label: "Skin Treatment", value: "skinTreatment" }
-          - { label: "Body Treatment", value: "bodyTreatment" }
-          - { label: "Traditional Medicine", value: "traditionalMedicine" }
-          - { label: "Plastic Surgery", value: "plasticSurgery" }
+          [
+            "Laser Treatment",
+            "Cosmetic Injection",
+            "Skin Treatment",
+            "Body Treatment",
+            "Traditional Medicine",
+            "Plastic Surgery",
+          ]
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
 
@@ -37,12 +39,14 @@ collections:
         name: "type"
         widget: "select"
         options:
-          - { label: "Laser Treatment", value: "laserTreatment" }
-          - { label: "Cosmetic Injection", value: "cosmeticInjection" }
-          - { label: "Skin Treatment", value: "skinTreatment" }
-          - { label: "Body Treatment", value: "bodyTreatment" }
-          - { label: "Traditional Medicine", value: "traditionalMedicine" }
-          - { label: "Plastic Surgery", value: "plasticSurgery" }
+          [
+            "Laser Treatment",
+            "Cosmetic Injection",
+            "Skin Treatment",
+            "Body Treatment",
+            "Traditional Medicine",
+            "Plastic Surgery",
+          ]
       - label: "Treatments"
         name: "treatments"
         widget: "list"
