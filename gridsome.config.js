@@ -33,8 +33,20 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "content/**/*.md",
-        typeName: "Content",
+        path: "content/treatments/*.md",
+        typeName: "Treatments",
+        remark: {
+          plugins: [
+            // ...local plugins
+          ],
+        },
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "content/prices/*.md",
+        typeName: "Prices",
         remark: {
           plugins: [
             // ...local plugins

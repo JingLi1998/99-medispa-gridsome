@@ -26,6 +26,8 @@ module.exports = {
       },
       padding: {
         wide: "56.25%",
+        "7/10": "70%",
+        full: "100%",
       },
     },
     maxHeight: {
