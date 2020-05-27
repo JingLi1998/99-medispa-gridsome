@@ -2,6 +2,7 @@
 title: Platelet Rich Plasma
 type: Cosmetic Injection
 image: /uploads/cosmetic_1.webp
+altText: Woman receiving injection to her eyebrow section
 ---
 Platelet-Rich Plasma (PRP) is the latest medical hair and skin rejuvenation technology that uses your body’s own cells to rejuvenate the hair, skin and slow down the ageing process. As well as assisting blood clotting, platelets also release growth factors that assist the human body to repair itself by stimulating cells to regenerate new tissues.
 
