@@ -1,6 +1,6 @@
 <template>
   <div>
-    <br /><br /><br /><br /><br />
+    <background-image v-bind="backgroundInfo" />
     <information-panel
       v-for="(edge, index) in $page.treatments.edges"
       :key="index"
@@ -25,16 +25,18 @@ query {
 </page-query>
 
 <script>
+import BackgroundImage from "../components/BackgroundImage";
 import InformationPanel from "../components/InformationPanel";
 
 export default {
   components: {
+    BackgroundImage,
     InformationPanel,
   },
   data() {
     return {
       backgroundInfo: {
-        imageSrc: "/imgs/backgrounds/laser_background.png",
+        imageSrc: "/images/laser_background.png",
         title: "Laser Treatment",
         subtitle:
           "99 Medispa is equipped with the world’s top laser equipment. Our American TDA and Australian FDA certified instruments will bring you an unparalleled beauty experience",
@@ -51,3 +53,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.bg-header {
+  background: url(/images/laser_background.png) center center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>

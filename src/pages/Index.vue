@@ -2,7 +2,7 @@
   <div>
     <background-slideshow />
 
-    <index-section class="flex flex-col items-center py-48 bg-white">
+    <section class="flex flex-col items-center py-48 bg-white">
       <div class="w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12">
         <h1
           class="mb-4 text-6xl font-medium text-center font-fancy text-secondary"
@@ -13,9 +13,9 @@
           {{ introText }}
         </p>
       </div>
-    </index-section>
+    </section>
 
-    <index-section class="py-48 bg-pink-100">
+    <section class="py-48 bg-pink-100">
       <div class="w-10/12 m-auto sm:w-8/12 md:w-6/12 lg:w-5/12">
         <div class="relative pb-wide">
           <index-section-video
@@ -23,9 +23,9 @@
           />
         </div>
       </div>
-    </index-section>
+    </section>
 
-    <index-section id="counter" class="px-4 pt-16 text-white bg-black">
+    <section id="counter" class="px-4 pt-16 text-white bg-black">
       <div class="grid grid-cols-1 row-gap-24 text-center md:grid-cols-3">
         <div>
           <p class="text-5xl font-semibold">{{ targets[0].current }}+</p>
@@ -50,9 +50,9 @@
           * Contact us to find out more about our special VIP membership plan
         </p>
       </div>
-    </index-section>
+    </section>
 
-    <index-section class="py-16">
+    <section class="py-16">
       <h1
         class="mb-4 text-6xl font-medium text-center font-fancy text-secondary"
       >
@@ -63,9 +63,9 @@
         on Instagram!
       </p>
       <the-instagram-gallery />
-    </index-section>
+    </section>
 
-    <index-section class="py-24 text-white bg-pink-100">
+    <section class="py-24 text-white bg-pink-100">
       <h1
         class="mb-4 text-6xl font-medium text-center text-secondary font-fancy"
       >
@@ -84,13 +84,12 @@
           Contact Us
         </button>
       </div>
-    </index-section>
+    </section>
   </div>
 </template>
 
 <script>
 import BackgroundSlideshow from "../components/BackgroundSlideshow";
-import IndexSection from "../components/index/IndexSection";
 import IndexSectionVideo from "../components/index/IndexSectionVideo";
 import TheInstagramGallery from "../components/TheInstagramGallery";
 
@@ -100,7 +99,6 @@ export default {
   },
   components: {
     BackgroundSlideshow,
-    IndexSection,
     IndexSectionVideo,
     TheInstagramGallery,
   },

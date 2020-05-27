@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-    <layout>
-      <transition name="page" appear>
-        <div v-show="show">
-          <router-view />
-          <the-footer />
-        </div>
-      </transition>
-    </layout>
+    <the-navbar />
+    <transition name="page" appear>
+      <div v-show="show">
+        <router-view />
+        <the-footer />
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
+import TheNavbar from "./components/TheNavbar";
 import TheFooter from "./components/footer/TheFooter";
 
 export default {
   components: {
+    TheNavbar,
     TheFooter,
   },
   data() {

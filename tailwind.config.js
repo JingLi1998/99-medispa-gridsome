@@ -29,6 +29,9 @@ module.exports = {
         "7/10": "70%",
         full: "100%",
       },
+      zIndex: {
+        "-10": -10,
+      },
     },
     maxHeight: {
       "0": "0",

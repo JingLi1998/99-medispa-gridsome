@@ -33,6 +33,18 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
+        path: "content/backgrounds/*.md",
+        typeName: "Backgrounds",
+        remark: {
+          plugins: [
+            // ...local plugins
+          ],
+        },
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
         path: "content/treatments/*.md",
         typeName: "Treatments",
         remark: {
