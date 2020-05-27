@@ -8,7 +8,7 @@ public_folder: "/uploads"
 collections:
   - name: "backgrounds"
     label: "Backgrounds"
-    folder: "content/folders"
+    folder: "content/backgrounds"
     create: true
     slut: "{{slug}}"
     fields:
