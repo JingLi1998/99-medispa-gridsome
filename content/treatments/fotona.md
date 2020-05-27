@@ -2,6 +2,7 @@
 title: Fotona
 type: Laser Treatment
 image: /uploads/laser_fotona.webp
+altText: Fotona machine displayed against black background
 ---
 Fotona is founded in 1964, only four years after the invention of the very first laser, Fotona is one of the most experienced developers of high-technology laser systems, recognized for the design, manufacture, and support of advanced solid-state laser systems for medicine, aesthetics, surgery, gynecology and dentistry.  
 
