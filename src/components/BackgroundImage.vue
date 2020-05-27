@@ -1,6 +1,10 @@
 <template>
   <div class="relative h-screen">
-    <g-image :src="imageSrc" class="fixed object-cover w-full h-full -z-10" />
+    <g-image
+      :src="image"
+      :alt="altText"
+      class="fixed object-cover w-full h-full -z-10"
+    />
     <div class="absolute inset-0 flex items-center justify-center">
       <div
         class="z-10 w-10/12 p-10 text-justify bg-white rounded-lg md:text-center md:w-5/12 md:p-12"
@@ -18,7 +22,7 @@
 <script>
 export default {
   props: {
-    imageSrc: {
+    image: {
       type: String,
       required: true,
     },
@@ -27,6 +31,10 @@ export default {
       required: true,
     },
     subtitle: {
+      type: String,
+      required: true,
+    },
+    altText: {
       type: String,
       required: true,
     },

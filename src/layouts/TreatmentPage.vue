@@ -1,10 +1,10 @@
 <template>
   <div>
-    <background-image v-bind="backgroundInfo" />
+    <background-image v-bind="backgroundNode" />
     <information-panel
       v-for="(edge, index) in treatmentQueryEdges"
       :key="index"
-      :treatment="edge.node"
+      v-bind="edge.node"
       :reverse="index % 2 !== 0"
     />
   </div>
@@ -20,7 +20,7 @@ export default {
     InformationPanel,
   },
   props: {
-    backgroundInfo: {
+    backgroundNode: {
       type: Object,
       required: true,
     },

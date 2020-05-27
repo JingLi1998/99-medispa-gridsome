@@ -8,7 +8,7 @@
           >
             <h1
               class="text-5xl font-bold uppercase font-fancy text-secondary"
-              v-html="treatment.title"
+              v-html="title"
             />
             <p class="my-2 text-justify lg:my-6" v-html="treatmentContent" />
             <button
@@ -20,7 +20,11 @@
         </div>
       </aspect-ratio>
       <aspect-ratio class="w-full lg:w-1/2">
-        <g-image class="object-cover w-full h-full" :src="treatment.image" />
+        <g-image
+          class="object-cover w-full h-full"
+          :src="image"
+          :alt="altText"
+        />
       </aspect-ratio>
     </div>
   </div>
@@ -34,8 +38,20 @@ export default {
     AspectRatio,
   },
   props: {
-    treatment: {
-      type: Object,
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    altText: {
+      type: String,
       required: true,
     },
     reverse: {
@@ -45,7 +61,7 @@ export default {
   },
   computed: {
     treatmentContent() {
-      return this.treatment.content.replace(/(?:\r\n|\r|\n)/g, "<br>");
+      return this.content.replace(/(?:\r\n|\r|\n)/g, "<br>");
     },
   },
 };
