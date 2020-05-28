@@ -4,6 +4,7 @@
       :src="image"
       :alt="altText"
       class="fixed object-cover w-full h-full -z-10"
+      :immediate="true"
     />
     <div class="absolute inset-0 flex items-center justify-center">
       <div
