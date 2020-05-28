@@ -3,7 +3,7 @@
     class="fixed top-0 z-20 flex flex-wrap items-center justify-between w-full p-6 bg-white border-b border-gray-300"
   >
     <!-- LOGO -->
-    <img src="/images/logo_small.webp" alt="99 Medispa Logo" />
+    <img src="/images/logo_small.jpg" alt="99 Medispa Logo" />
 
     <!-- DESKTOP NAVBAR -->
     <div class="hidden md:block">

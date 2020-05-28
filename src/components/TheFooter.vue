@@ -3,7 +3,7 @@
     class="grid grid-cols-1 row-gap-10 px-10 py-10 bg-black md:px-16 lg:py-20 md:grid-cols-2 text-secondary lg:grid-cols-4"
   >
     <section class="flex flex-col items-start justify-start text-sm lg:mx-auto">
-      <img class="mb-4" src="/images/logo_small.webp" alt="Logo" />
+      <img class="mb-4" src="/images/logo_small.jpg" alt="Logo" />
       <p class="mb-4">
         Address: Suite 1304, 99 York St, Sydney, NSW, 2000
       </p>
@@ -48,11 +48,7 @@
     <section
       class="flex flex-col items-start justify-start pt-3 text-sm md:pl-10 lg:pl-0 lg:mx-auto"
     >
-      <g-image
-        src="/images/QR.webp"
-        class="object-contain w-32"
-        alt="QR Code"
-      />
+      <g-image src="/images/QR.jpg" class="object-contain w-32" alt="QR Code" />
     </section>
   </footer>
 </template>
