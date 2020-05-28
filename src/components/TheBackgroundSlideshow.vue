@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       images: [
-        "/images/slideshow1.webp",
-        "/images/slideshow2.webp",
-        "/images/slideshow3.webp",
+        "/images/slideshow1.jpg",
+        "/images/slideshow2.jpg",
+        "/images/slideshow3.jpg",
       ],
       timer: null,
       currentIndex: 0,
