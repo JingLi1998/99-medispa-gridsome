@@ -1,5 +1,5 @@
 <template>
-  <treatment-page
+  <treatment-layout
     :background-node="$page.background.edges[0].node"
     :treatment-query-edges="$page.treatments.edges"
   />
@@ -7,7 +7,7 @@
 
 <page-query>
 query {
-  treatments: allTreatments(filter: {type: {eq:"Skin Treatment"}}) {
+  treatments: allTreatments(filter: {type: {eq:"Laser Treatment"}}) {
     edges {
       node {
         title
@@ -17,7 +17,7 @@ query {
       }
     }
   }
-  background: allBackgrounds(filter: {title: {eq: "Skin Treatment"}}) {
+  background: allBackgrounds(filter: {title: {eq: "Laser Treatment"}}) {
     edges {
       node {
         title
@@ -31,11 +31,11 @@ query {
 </page-query>
 
 <script>
-import TreatmentPage from "../layouts/TreatmentPage";
+import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   components: {
-    TreatmentPage,
+    TreatmentLayout,
   },
 };
 </script>

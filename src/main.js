@@ -24,6 +24,7 @@ export default function (Vue, { head }) {
       href: "https://fonts.googleapis.com/css2?family=Courgette&display=swap",
     }
   );
+
   // Set default layout as a global component
   Vue.component("font-awesome", FontAwesomeIcon);
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <background-slideshow />
+    <the-background-slideshow />
 
     <section class="flex flex-col items-center py-48 bg-white">
       <div class="w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12">
@@ -18,9 +18,7 @@
     <section class="py-48 bg-pink-100">
       <div class="w-10/12 m-auto sm:w-8/12 md:w-6/12 lg:w-5/12">
         <div class="relative pb-wide">
-          <index-section-video
-            url="https://www.youtube.com/embed/kL8Bwz63zBo"
-          />
+          <the-youtube-video url="https://www.youtube.com/embed/kL8Bwz63zBo" />
         </div>
       </div>
     </section>
@@ -89,8 +87,8 @@
 </template>
 
 <script>
-import BackgroundSlideshow from "../components/BackgroundSlideshow";
-import IndexSectionVideo from "../components/index/IndexSectionVideo";
+import TheBackgroundSlideshow from "../components/TheBackgroundSlideshow";
+import TheYoutubeVideo from "../components/TheYoutubeVideo";
 import TheInstagramGallery from "../components/TheInstagramGallery";
 
 export default {
@@ -98,8 +96,8 @@ export default {
     title: "Home",
   },
   components: {
-    BackgroundSlideshow,
-    IndexSectionVideo,
+    TheBackgroundSlideshow,
+    TheYoutubeVideo,
     TheInstagramGallery,
   },
   data() {

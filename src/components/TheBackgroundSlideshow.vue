@@ -32,14 +32,10 @@ export default {
         "/images/slideshow3.webp",
       ],
       timer: null,
-      show: false,
       currentIndex: 0,
     };
   },
   mounted() {
-    setTimeout(() => {
-      this.show = true;
-    }, 500);
     this.startSlide();
   },
   methods: {

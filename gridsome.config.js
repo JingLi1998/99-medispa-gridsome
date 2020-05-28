@@ -3,8 +3,8 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-//   .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = {
   siteName: "99 Medispa",
@@ -74,11 +74,11 @@ module.exports = {
     },
   ],
 
-  // chainWebpack: (config) => {
-  //   if (process.env.NODE_ENV === "production") {
-  //     config
-  //       .plugin("BundleAnalyzerPlugin")
-  //       .use(BundleAnalyzerPlugin, [{ analyzerMode: "static" }]);
-  //   }
-  // },
+  chainWebpack: (config) => {
+    if (process.env.NODE_ENV === "production") {
+      config
+        .plugin("BundleAnalyzerPlugin")
+        .use(BundleAnalyzerPlugin, [{ analyzerMode: "static" }]);
+    }
+  },
 };

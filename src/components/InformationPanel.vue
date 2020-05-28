@@ -7,10 +7,10 @@
             class="flex flex-col justify-center w-10/12 h-full mx-auto xl:w-7/12"
           >
             <h1
-              class="text-5xl font-bold uppercase font-fancy text-secondary"
+              class="text-4xl font-bold uppercase font-fancy text-secondary"
               v-html="title"
             />
-            <p class="my-2 text-justify lg:my-6" v-html="treatmentContent" />
+            <p class="mt-2 mb-6 text-justify" v-html="treatmentContent" />
             <button
               class="w-40 py-2 font-normal text-white uppercase rounded-lg bg-secondary"
             >
@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     treatmentContent() {
-      return this.content.replace(/(?:\r\n|\r|\n)/g, "<br>");
+      return this.content.slice(0, -2).replace(/(?:\r\n|\r|\n)/g, "<br>");
     },
   },
 };

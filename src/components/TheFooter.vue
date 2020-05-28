@@ -2,8 +2,8 @@
   <footer
     class="grid grid-cols-1 row-gap-10 px-10 py-10 bg-black md:px-16 lg:py-20 md:grid-cols-2 text-secondary lg:grid-cols-4"
   >
-    <footer-section>
-      <img class="mb-4" src="/images/logo_small.png" alt="Logo" />
+    <section class="flex flex-col items-start justify-start text-sm lg:mx-auto">
+      <img class="mb-4" src="/images/logo_small.webp" alt="Logo" />
       <p class="mb-4">
         Address: Suite 1304, 99 York St, Sydney, NSW, 2000
       </p>
@@ -11,9 +11,11 @@
         Wechat: AestheticsMedical888 | Tel: 0466 698 696
       </p>
       <p>Email: 99medispa.sydney@gmail.com</p>
-    </footer-section>
+    </section>
 
-    <footer-section class="md:pl-10 lg:pl-0">
+    <section
+      class="flex flex-col items-start justify-start text-sm md:pl-10 lg:pl-0 lg:mx-auto"
+    >
       <h1 class="mb-4 text-2xl">Follow Us</h1>
       <div class="flex">
         <a href="https://www.facebook.com/99medispa/">
@@ -31,9 +33,9 @@
           />
         </a>
       </div>
-    </footer-section>
+    </section>
 
-    <footer-section>
+    <section class="flex flex-col items-start justify-start text-sm lg:mx-auto">
       <h1 class="mb-2 text-2xl">Site Navigation</h1>
       <ul>
         <li>Home</li>
@@ -41,27 +43,19 @@
         <li>Cosmetic Injectables</li>
         <li>Contact Us</li>
       </ul>
-    </footer-section>
+    </section>
 
-    <footer-section class="pt-3 md:pl-10 lg:pl-0">
+    <section
+      class="flex flex-col items-start justify-start pt-3 text-sm md:pl-10 lg:pl-0 lg:mx-auto"
+    >
       <g-image
         src="/images/QR.webp"
         class="object-contain w-32"
         alt="QR Code"
       />
-    </footer-section>
+    </section>
   </footer>
 </template>
-
-<script>
-import FooterSection from "./FooterSection";
-
-export default {
-  components: {
-    FooterSection,
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 footer {
