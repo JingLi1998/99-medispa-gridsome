@@ -44,10 +44,7 @@
         <p class="text-lg">{{ subtitle }}</p>
       </div> -->
     </div>
-    <div
-      class="absolute inset-0 z-10 w-full h-full bg-black"
-      style="opacity: 30%;"
-    />
+    <div class="absolute inset-0 z-10 w-full h-full bg-black opacity-30" />
   </div>
 </template>
 
