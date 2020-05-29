@@ -8,7 +8,7 @@
     >
       <g-image
         v-show="index === currentIndex"
-        class="object-cover h-screen"
+        class="object-cover w-full h-screen"
         :immediate="true"
         :src="image"
         quality="0"
@@ -53,6 +53,8 @@ export default {
         "/images/slideshow1.jpg",
         "/images/slideshow2.jpg",
         "/images/slideshow3.jpg",
+        "/images/slideshow4.jpg",
+        "/images/slideshow5.jpg",
       ],
       captions: [
         {
@@ -66,6 +68,14 @@ export default {
         {
           title: "Cutting Edge Laser Treatments",
           subtitle: "We use only the latest FDA and TGA approved treatments",
+        },
+        {
+          title: "Birthday Packages Available",
+          subtitle: "Plan your next best birthday with us",
+        },
+        {
+          title: "VIP Membership Options",
+          subtitle: "Join our membership club to receive extra benefits",
         },
       ],
       timer: null,
