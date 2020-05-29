@@ -1,11 +1,23 @@
 <template>
   <div class="flex flex-col items-center w-full py-20 mx-auto bg-white rounded">
-    <h1 class="mb-6 text-6xl font-bold text-center font-fancy text-secondary">
+    <h1
+      class="text-5xl font-bold text-center sm:mb-3 sm:text-6xl font-fancy text-secondary"
+    >
       Enquiry Form
     </h1>
-    <form class="w-4/12" @submit.prevent="submitForm">
-      <div class="flex w-full">
-        <div class="w-1/2 px-2">
+    <form
+      class="w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12"
+      @submit.prevent="submitForm"
+    >
+      <div class="h-10">
+        <transition name="fade">
+          <p v-show="error != ''" class="px-2 text-sm text-center text-red-400">
+            {{ error }}
+          </p>
+        </transition>
+      </div>
+      <div class="w-full sm:flex">
+        <div class="w-full px-2 sm:w-1/2">
           <label class="block text-sm" for="fullName">Full Name</label>
           <input
             id="fullName"
@@ -14,7 +26,7 @@
             type="text"
           />
         </div>
-        <div class="w-1/2 px-2">
+        <div class="w-full px-2 sm:w-1/2">
           <label class="block text-sm" for="gender">Gender</label>
           <v-select
             v-model="formData.gender"
@@ -44,8 +56,8 @@
         </div> -->
       <!-- </div> -->
 
-      <div class="flex w-full my-6">
-        <div class="w-1/2 px-2">
+      <div class="w-full sm:my-6 sm:flex">
+        <div class="w-full px-2 sm:w-1/2">
           <label class="block text-sm" for="phone">Phone Number</label>
           <input
             id="phone"
@@ -55,7 +67,7 @@
           />
         </div>
         <!-- <div class="w-full px-2 my-6"> -->
-        <div class="w-1/2 px-2">
+        <div class="w-full px-2 sm:w-1/2">
           <label class="block text-sm" for="fullName">Email Address</label>
           <input
             id="fullName"
@@ -66,7 +78,7 @@
         </div>
       </div>
 
-      <div class="w-full px-2 my-6">
+      <div class="w-full px-2 sm:my-6">
         <label class="block text-sm" for="treatment">Treatments</label>
         <input
           id="treatment"
@@ -76,7 +88,7 @@
         />
       </div>
 
-      <div class="w-full px-2 my-6">
+      <div class="w-full px-2 mb-3 sm:my-6">
         <label class="block text-sm" for="comments">
           Further Comments / Preferred Dates
         </label>
@@ -97,18 +109,27 @@
         </button>
       </div>
     </form>
+
+    <snackbar
+      :show="show"
+      text="Thanks for submitting. We will be in contact with you shortly!"
+    />
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 import vSelect from "vue-select";
 // import "vue-select/dist/vue-select.scss";
 import "vue-select/src/scss/vue-select.scss";
 // import DatePicker from "v-calendar/lib/components/date-picker.umd";
+import Snackbar from "./Snackbar";
 
 export default {
   components: {
     vSelect,
+    Snackbar,
     // DatePicker,
   },
   data() {
@@ -117,16 +138,41 @@ export default {
         name: null,
         gender: null,
         treatment: null,
-        date: null,
         phone: null,
         email: null,
         comments: null,
       },
+      show: false,
+      error: "",
     };
   },
   methods: {
-    submitForm() {
-      console.log(this.formData);
+    async submitForm() {
+      if (
+        this.formData.name &&
+        this.formData.gender &&
+        this.formData.treatment &&
+        this.formData.phone &&
+        this.formData.email &&
+        this.formData.comments
+      ) {
+        this.error = "";
+        try {
+          await axios.post(
+            "https://dicwjr8992.execute-api.ap-southeast-2.amazonaws.com/dev/email/send",
+            this.formData
+          );
+          this.show = true;
+          Object.keys(this.formData).forEach((k) => (this.formData[k] = ""));
+          setTimeout(() => {
+            this.show = false;
+          }, 5000);
+        } catch (error) {
+          this.error = "Something went wrong, please try again";
+        }
+      } else {
+        this.error = "Please fill in all required fields before submitting";
+      }
     },
   },
 };
@@ -142,5 +188,13 @@ export default {
 .v-select .vs__selected {
   padding: 0;
   margin: 0;
+}
+
+.fade-enter-active,
+.shake-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
