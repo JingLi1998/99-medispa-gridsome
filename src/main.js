@@ -12,7 +12,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 library.add(faFacebookSquare, faInstagram);
 
-export default function (Vue, { head }) {
+export default function (Vue, { head, router }) {
   head.link.push(
     {
       rel: "stylesheet",
@@ -24,6 +24,7 @@ export default function (Vue, { head }) {
       href: "https://fonts.googleapis.com/css2?family=Courgette&display=swap",
     }
   );
+  router.addRoutes([{ path: "**", redirect: "/" }]);
 
   // Set default layout as a global component
   Vue.component("font-awesome", FontAwesomeIcon);
