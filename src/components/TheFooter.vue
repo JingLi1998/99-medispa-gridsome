@@ -3,7 +3,7 @@
     class="grid grid-cols-1 row-gap-10 px-10 py-10 bg-black md:px-16 lg:py-20 md:grid-cols-2 text-secondary lg:grid-cols-4"
   >
     <section class="flex flex-col items-start justify-start text-sm lg:mx-auto">
-      <img class="mb-4" src="/images/logo_small.jpg" alt="Logo" />
+      <img class="mb-4" src="/images/logo_small.png" alt="Logo" />
       <p class="mb-4">
         Address: Suite 1304, 99 York St, Sydney, NSW, 2000
       </p>
