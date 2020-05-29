@@ -24,6 +24,22 @@ module.exports = {
         sans: ["Barlow", "Roboto", ...defaultTheme.fontFamily.sans],
         fancy: ["Times New Roman"],
       },
+      fontSize: {
+        "7xl": "5rem",
+        "8xl": "6rem",
+      },
+      opacity: {
+        "10": ".1",
+        "20": ".2",
+        "30": ".3",
+        "40": ".4",
+        "50": ".5",
+        "60": ".6",
+        "70": ".7",
+        "80": ".8",
+        "90": ".9",
+        "100": "1",
+      },
       padding: {
         wide: "56.25%",
         "7/10": "70%",

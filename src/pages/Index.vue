@@ -9,7 +9,7 @@
         >
           {{ title }}
         </h1>
-        <p class="px-10 text-xl font-light text-justify">
+        <p class="px-10 text-xl font-light text-center sm:text-justify">
           {{ introText }}
         </p>
       </div>
@@ -50,9 +50,9 @@
       </div>
     </section>
 
-    <section class="py-16">
+    <section class="px-2 py-16">
       <h1
-        class="mb-4 text-6xl font-medium text-center font-fancy text-secondary"
+        class="mb-4 text-4xl font-medium text-center sm:text-5xl md:text-6xl font-fancy text-secondary"
       >
         Follow Our Journey
       </h1>
@@ -65,22 +65,29 @@
 
     <section class="py-24 text-white bg-pink-100">
       <h1
-        class="mb-4 text-6xl font-medium text-center text-secondary font-fancy"
+        class="w-10/12 mx-auto mb-4 text-4xl font-medium text-center lg:6/12 sm:text-5xl md:text-6xl font-fancy text-secondary"
       >
         Complimentary Consultation
       </h1>
-      <p class="w-5/12 mx-auto mb-16 text-center text-black">
+      <p class="w-10/12 mx-auto mb-16 text-center text-black lg:w-6/12">
         Book a free consultation with one of our experienced professionals to
         help us help you decide which treatment options are best suited for your
         unique skin type and beauty goals.
       </p>
-      <div class="flex items-center justify-center h-40 mx-auto gray lg:w-8/12">
-        <h1 class="mr-8 text-4xl font-semibold">For Bookings and Enquiries</h1>
-        <button
-          class="px-6 py-2 text-3xl font-medium border-2 border-white rounded-md"
+      <div
+        class="flex flex-col items-center justify-center w-10/12 h-40 py-4 mx-auto md:flex-row gray md:py-0 lg:w-8/12"
+      >
+        <h1
+          class="mb-2 text-2xl font-semibold text-center sm:mb-0 sm:mr-8 md:text-left sm:text-3xl lg:text-4xl"
+        >
+          For Bookings and Enquiries
+        </h1>
+        <g-link
+          class="px-6 py-2 text-2xl font-medium text-center border-2 border-white rounded-md sm:text-3xl focus:outline-none"
+          :to="'contact/#contactForm'"
         >
           Contact Us
-        </button>
+        </g-link>
       </div>
     </section>
   </div>
@@ -127,11 +134,6 @@ export default {
     };
   },
   mounted() {
-    // const callback = (entries) => {
-    //   if (entries[0].isIntersecting) {
-    //     this.startCounter();
-    //   }
-    // };
     this.observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) this.startCounter();

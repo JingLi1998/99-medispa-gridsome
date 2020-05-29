@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-0 z-20 flex flex-wrap items-center justify-between w-full p-6 bg-white border-b border-gray-300"
+    class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full p-6 bg-white border-b border-gray-300"
   >
     <!-- LOGO -->
     <img src="/images/logo_small.jpg" alt="99 Medispa Logo" />
@@ -210,7 +210,9 @@ export default {
           this.extendedOffers = false;
           break;
         case "close":
-          this.extendedNavbar = this.extendedTreatments = this.extendedOffers = false;
+          this.extendedNavbar = false;
+          this.extendedTreatments = false;
+          this.extendedOffers = false;
       }
     },
   },

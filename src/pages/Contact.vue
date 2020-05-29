@@ -24,6 +24,9 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import TheContactForm from "../components/TheContactForm";
 
 export default {
+  metaInfo: {
+    title: "Contact Us",
+  },
   components: {
     DefaultLayout,
     TheContactForm,

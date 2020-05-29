@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col items-center w-full py-20 mx-auto bg-white rounded">
+  <div
+    id="contactForm"
+    class="flex flex-col items-center w-full py-20 mx-auto bg-white rounded"
+  >
     <h1
       class="text-5xl font-bold text-center sm:mb-3 sm:text-6xl font-fancy text-secondary"
     >
@@ -102,7 +105,7 @@
 
       <div class="px-2">
         <button
-          class="block w-full p-2 text-white uppercase rounded bg-secondary"
+          class="block w-full p-2 text-white uppercase rounded submit focus:outline-none bg-secondary"
           type="submit"
         >
           Submit Form
@@ -191,10 +194,17 @@ export default {
 }
 
 .fade-enter-active,
-.shake-leave-active {
+.fade-leave-active {
   transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+.submit {
+  transition: all 0.3s;
+  position: relative;
+}
+.submit:active {
+  top: 2px;
 }
 </style>

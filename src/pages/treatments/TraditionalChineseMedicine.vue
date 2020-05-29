@@ -7,7 +7,7 @@
 
 <page-query>
 query {
-  treatments: allTreatments(filter: {type: {eq:"Traditional Chinese Medicine"}}) {
+  treatments: allTreatments(filter: {type: {eq:"Traditional Medicine"}}) {
     edges {
       node {
         title
@@ -34,6 +34,9 @@ query {
 import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
+  metaInfo: {
+    title: "Traditional Chinese Medicine",
+  },
   components: {
     TreatmentLayout,
   },

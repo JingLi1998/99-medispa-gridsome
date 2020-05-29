@@ -7,15 +7,19 @@
             class="flex flex-col justify-center w-10/12 h-full mx-auto xl:w-7/12"
           >
             <h1
-              class="text-4xl font-bold uppercase font-fancy text-secondary"
+              class="text-2xl font-bold uppercase sm:text-4xl font-fancy text-secondary"
               v-html="title"
             />
-            <p class="mt-2 mb-6 text-justify" v-html="treatmentContent" />
-            <button
-              class="w-40 py-2 font-normal text-white uppercase rounded-lg bg-secondary"
+            <p
+              class="text-xs text-justify sm:mt-2 sm:mb-6 sm:text-base"
+              v-html="treatmentContent"
+            />
+            <g-link
+              :to="'contact/#contactForm'"
+              class="hidden w-40 py-2 font-normal text-center text-white uppercase rounded-lg sm:block focus:outline-none bg-secondary"
             >
               Enquire Now
-            </button>
+            </g-link>
           </div>
         </div>
       </aspect-ratio>

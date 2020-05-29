@@ -34,6 +34,9 @@ query {
 import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
+  metaInfo: {
+    title: "Cosmetic Injection",
+  },
   components: {
     TreatmentLayout,
   },

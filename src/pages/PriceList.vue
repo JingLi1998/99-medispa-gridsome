@@ -102,6 +102,9 @@ import DefaultLayout from "../layouts/DefaultLayout";
 import ThePriceList from "../components/ThePriceList";
 
 export default {
+  metaInfo: {
+    title: "Price List",
+  },
   components: {
     DefaultLayout,
     ThePriceList,

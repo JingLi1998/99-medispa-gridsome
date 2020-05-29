@@ -34,6 +34,9 @@ import DefaultLayout from "../../layouts/DefaultLayout";
 import InformationPanel from "../../components/InformationPanel";
 
 export default {
+  metaInfo: {
+    title: "Birthday Packages",
+  },
   components: {
     DefaultLayout,
     InformationPanel,
