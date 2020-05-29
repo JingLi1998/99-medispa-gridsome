@@ -11,20 +11,20 @@
       content="Every pamper package includes nail and eyelash services. Additionally, each guest gets to choose one 99 Medispa treatment of their choice. Fotona, AquaPeel, Endymed, the choices are endless!/n"
       reverse
       image="/images/spa.jpg"
-      alt-text="Pink flowers"
+      alt-text="Spa treatment utensils"
     />
     <information-panel
       title="Satisfy those cravings..."
       content="Grazing boards? Pastries? No matter your preference we'll help you satisfy those cravings. Just let us know your preference and we'll include some of your favourite foods as part of the pamper package!/n"
       image="/images/fruit_platter.jpg"
-      alt-text="Pink flowers"
+      alt-text="Grazing board with assorted fruits"
     />
     <information-panel
       title="Girls Night Out?"
       content="Located at the heart of the Sydney CBD next to QVB, 99 Medispa is the ideal place to begin your girl's night out. Spend the afternoon relaxing with our services and indulging in the festivities. When the sun goes down, it'll be prime time to hit your favourite clubs and bars! /n"
       reverse
       image="/images/silver_dress.jpg"
-      alt-text="Pink flowers"
+      alt-text="Model in silver dress standing next to birthdya decorations"
     />
   </default-layout>
 </template>
