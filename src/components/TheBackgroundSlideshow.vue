@@ -40,10 +40,7 @@
         ></div> -->
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->
     <!-- <a class="next" @click="next">&#10095; Next</a> -->
-    <div
-      class="absolute inset-0 z-10 w-full h-full bg-black"
-      style="opacity: 30%;"
-    />
+    <div class="absolute inset-0 z-10 w-full h-full bg-black opacity-30" />
   </div>
 </template>
 
