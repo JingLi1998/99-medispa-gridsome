@@ -15,7 +15,7 @@
               v-html="treatmentContent"
             />
             <g-link
-              :to="'contact/#contactForm'"
+              :to="'contact'"
               class="hidden w-40 py-2 font-normal text-center text-white uppercase rounded-lg sm:block focus:outline-none bg-secondary"
             >
               Enquire Now

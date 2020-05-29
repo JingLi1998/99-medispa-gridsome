@@ -1,11 +1,13 @@
 <template>
-  <transition name="page" appear>
-    <div id="app">
-      <the-navbar />
-      <router-view v-cloak />
-      <the-footer />
-    </div>
-  </transition>
+  <div id="app">
+    <the-navbar />
+    <transition name="page" appear>
+      <router-view v-show="show" />
+    </transition>
+    <transition name="page" appear>
+      <the-footer v-show="show" />
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -22,22 +24,22 @@ export default {
       show: false,
     };
   },
-  // mounted() {
-  //   this.showPage();
-  // },
-  // methods: {
-  //   showPage() {
-  //     setTimeout(() => {
-  //       this.show = true;
-  //     }, 500);
-  //   },
-  // },
+  mounted() {
+    this.showPage();
+  },
+  methods: {
+    showPage() {
+      setTimeout(() => {
+        this.show = true;
+      }, 500);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .page-enter-active {
-  transition: opacity 0.75s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 .page-enter {
   opacity: 0;

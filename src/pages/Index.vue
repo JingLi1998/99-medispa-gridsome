@@ -84,7 +84,7 @@
         </h1>
         <g-link
           class="px-6 py-2 text-2xl font-medium text-center border-2 border-white rounded-md sm:text-3xl focus:outline-none"
-          :to="'contact/#contactForm'"
+          :to="'contact'"
         >
           Contact Us
         </g-link>
