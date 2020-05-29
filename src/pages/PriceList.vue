@@ -1,5 +1,6 @@
 <template>
   <default-layout :background-node="$page.background.edges[0].node">
+    <the-price-list :price-edges="priceEdges" />
   </default-layout>
 </template>
 
@@ -15,7 +16,19 @@ query {
       }
     }
   }
-  laserTreatments: allPrices(filter: {type: {eq: "Laser Treatment"}}) {
+  # prices: allPrices {
+  #   edges {
+  #     node {
+  #       title
+  #       type
+  #       treatments {
+  #         name
+  #         price
+  #       }
+  #     }
+  #   }
+  # }
+  laserTreatment: allPrices(filter: {type: {eq: "Laser Treatment"}}) {
     edges {
       node {
         title
@@ -26,7 +39,7 @@ query {
       }
     }
   }
-  skinTreatments: allPrices(filter: {type: {eq: "Skin Treatment"}}) {
+  skinTreatment: allPrices(filter: {type: {eq: "Skin Treatment"}}) {
     edges {
       node {
         title
@@ -37,7 +50,7 @@ query {
       }
     }
   }
-  bodyTreatments: allPrices(filter: {type: {eq: "Body Treatment"}}) {
+  bodyTreatment: allPrices(filter: {type: {eq: "Body Treatment"}}) {
     edges {
       node {
         title
@@ -86,10 +99,24 @@ query {
 
 <script>
 import DefaultLayout from "../layouts/DefaultLayout";
+import ThePriceList from "../components/ThePriceList";
 
 export default {
   components: {
     DefaultLayout,
+    ThePriceList,
+  },
+  computed: {
+    priceEdges() {
+      return {
+        laserTreatment: this.$page.laserTreatment.edges,
+        skinTreatment: this.$page.skinTreatment.edges,
+        bodyTreatment: this.$page.bodyTreatment.edges,
+        hairRemoval: this.$page.hairRemoval.edges,
+        microPlasticInjection: this.$page.microPlasticInjection.edges,
+        plasticSurgery: this.$page.plasticSurgery.edges,
+      };
+    },
   },
 };
 </script>
