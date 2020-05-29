@@ -8,7 +8,7 @@
         Address: Suite 1304, 99 York St, Sydney, NSW, 2000
       </p>
       <p class="mb-4">
-        Wechat: AestheticsMedical888 | Tel: 0466 698 696
+        Wechat: AestheticsMedical888 | Tel: 0452 008 115
       </p>
       <p>Email: 99medispa.sydney@gmail.com</p>
     </section>
