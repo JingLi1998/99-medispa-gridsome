@@ -2,20 +2,24 @@
   <div>
     <the-background-slideshow />
 
-    <section class="flex flex-col items-center py-48 bg-white">
-      <div class="w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12">
+    <!-- INTRODUCTION -->
+    <section
+      class="flex flex-col items-center py-10 bg-white sm:py-16 md:py-24 lg:py-32 xl:py-40"
+    >
+      <div class="w-10/12 sm:w-8/12 lg:w-7/12 xl:w-6/12">
         <h1
-          class="mb-4 text-6xl font-medium text-center font-fancy text-secondary"
+          class="text-4xl font-medium font-fancy text-secondary md:text-5xl lg:text-6xl"
         >
           {{ title }}
         </h1>
-        <p class="px-10 text-xl font-light text-center sm:text-justify">
+        <p class="text-sm font-light md:text-base lg:text-lg xl:text-xl">
           {{ introText }}
         </p>
       </div>
     </section>
 
-    <section class="py-48 bg-pink-100">
+    <!-- YOUTUBE -->
+    <section class="py-10 bg-pink-100 sm:py-16 md:py-24 lg:py-32 xl:py-40">
       <div class="w-10/12 m-auto sm:w-8/12 md:w-6/12 lg:w-5/12">
         <div class="relative pb-wide">
           <the-youtube-video url="https://www.youtube.com/embed/kL8Bwz63zBo" />
@@ -23,67 +27,83 @@
       </div>
     </section>
 
-    <section id="counter" class="px-4 pt-16 text-white bg-black">
-      <div class="grid grid-cols-1 row-gap-24 text-center md:grid-cols-3">
+    <!-- COUNTER -->
+    <section id="counter" class="px-4 pt-10 text-white bg-black lg:pt-16">
+      <div class="grid grid-cols-1 row-gap-10 text-center md:grid-cols-3">
         <div>
-          <p class="text-5xl font-semibold">{{ targets[0].current }}+</p>
-          <p class="text-2xl">Years of Experience</p>
+          <p class="text-4xl font-semibold sm:text-5xl">
+            {{ targets[0].current }}+
+          </p>
+          <p class="text-xl sm:text-2xl">Years of Experience</p>
         </div>
         <div>
-          <p class="text-5xl font-semibold">
+          <p class="text-4xl font-semibold sm:text-5xl">
             {{ targets[1].current }}
           </p>
-          <p class="text-2xl">VIP Clients*</p>
+          <p class="text-xl sm:text-2xl">VIP Clients*</p>
         </div>
         <div>
-          <p class="text-5xl font-semibold">
+          <p class="text-4xl font-semibold sm:text-5xl">
             {{ targets[2].current }}
           </p>
-          <p class="text-2xl">FDA TGA Approved Machines</p>
+          <p class="mx-12 text-xl sm:mx-2 sm:text-2xl">
+            FDA/TGA Approved Machines
+          </p>
         </div>
       </div>
 
       <div class="pt-10 pb-4">
-        <p class="text-sm text-center font-fancy">
+        <p class="text-xs text-center xl:text-sm font-fancy">
           * Contact us to find out more about our special VIP membership plan
         </p>
       </div>
     </section>
 
-    <section class="px-2 py-16">
-      <h1
-        class="mb-4 text-4xl font-medium text-center sm:text-5xl md:text-6xl font-fancy text-secondary"
-      >
-        Follow Our Journey
-      </h1>
-      <p class="mb-16 text-center">
-        Stay up to date with our latest treatments and services by following us
-        on Instagram!
-      </p>
-      <the-instagram-gallery />
+    <!-- INSTAGRAM -->
+    <section class="py-10 sm:py-16 md:py-24 lg:py-32 xl:py-40">
+      <div class="mb-4 text-center lg:mb-10">
+        <h1
+          class="text-4xl font-medium leading-tight font-fancy text-secondary md:text-5xl lg:text-6xl"
+        >
+          Follow Our Journey
+        </h1>
+        <p class="mx-5 text-sm font-light md:text-base lg:text-lg xl:text-xl">
+          Stay up to date with our latest treatments and services by following
+          us on Instagram!
+        </p>
+      </div>
+
+      <div class="w-10/12 mx-auto">
+        <the-instagram-gallery />
+      </div>
     </section>
 
-    <section class="py-24 text-white bg-pink-100">
-      <h1
-        class="w-10/12 mx-auto mb-4 text-4xl font-medium text-center lg:6/12 sm:text-5xl md:text-6xl font-fancy text-secondary"
-      >
-        Complimentary Consultation
-      </h1>
-      <p class="w-10/12 mx-auto mb-16 text-center text-black lg:w-6/12">
-        Book a free consultation with one of our experienced professionals to
-        help us help you decide which treatment options are best suited for your
-        unique skin type and beauty goals.
-      </p>
+    <!-- CONSULTATION -->
+    <section class="py-10 bg-pink-100 xl:py-24">
+      <div class="w-10/12 mx-auto mb-10 lg:mb-16 sm:w-8/12 lg:w-7/12 xl:w-6/12">
+        <h1
+          class="text-4xl font-medium font-fancy text-secondary md:text-5xl lg:text-6xl"
+        >
+          Free Consultation
+        </h1>
+        <p class="text-sm font-light md:text-base lg:text-lg xl:text-xl">
+          All customers receive a complimentary consultation with our
+          experienced professionals. This allows us to best align the most
+          suitable treatments with your personal goals and unique skin and body
+          situation. Book a free consultation today and help us help you begin
+          your journey towards better health, wellbeing and beauty.
+        </p>
+      </div>
       <div
-        class="flex flex-col items-center justify-center w-10/12 h-40 py-4 mx-auto md:flex-row gray md:py-0 lg:w-8/12"
+        class="flex flex-col justify-center w-10/12 p-3 mx-auto leading-tight text-white gray sm:p-4 sm:flex-row md:py-10 sm:w-8/12"
       >
         <h1
-          class="mb-2 text-2xl font-semibold text-center sm:mb-0 sm:mr-8 md:text-left sm:text-3xl lg:text-4xl"
+          class="py-1 mx-auto mb-4 mr-0 text-xl font-medium text-center sm:mb-0 md:text-2xl lg:text-4xl"
         >
           For Bookings and Enquiries
         </h1>
         <g-link
-          class="px-6 py-2 text-2xl font-medium text-center border-2 border-white rounded-md sm:text-3xl focus:outline-none"
+          class="w-auto px-5 py-1 mx-auto text-xl font-medium text-center border-2 border-white rounded md:text-2xl lg:text-4xl"
           :to="'contact'"
         >
           Contact Us

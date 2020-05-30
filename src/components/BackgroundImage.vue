@@ -19,14 +19,16 @@
       </div> -->
 
       <div
-        class="relative flex flex-col w-11/12 p-2 sm:text-justify md:p-10 md:text-center lg:w-9/12"
+        class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
       >
         <h1
-          class="z-30 text-5xl font-semibold text-white uppercase sm:text-6xl md:text-7xl lg:text-8xl opacity-90"
+          class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
         >
           {{ title }}
         </h1>
-        <p class="z-30 text-2xl font-medium text-white opacity-90">
+        <p
+          class="z-30 w-8/12 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
+        >
           {{ subtitle }}
         </p>
         <!-- <div

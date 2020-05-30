@@ -1,46 +1,51 @@
 <template>
-  <div class="h-screen min-h-screen">
+  <div class="relative h-screen">
+    <!-- slideshow images -->
     <transition
       v-for="(image, index) in images"
       :key="index"
-      name="fade-transition"
+      name="slideshow"
       tag="div"
     >
       <g-image
         v-show="index === currentIndex"
-        class="object-cover w-full h-screen"
+        class="object-cover w-full h-full"
         :immediate="true"
         :src="image"
         quality="0"
       />
     </transition>
+
+    <!-- slideshow captions -->
     <div
       v-for="(caption, index2) in captions"
       :key="index2"
-      class="absolute inset-0 z-30 flex flex-col items-center justify-center h-full p-4 mx-auto md:10/12 lg:w-8/12 sm:text-justify md:p-10 md:text-center"
+      class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
     >
       <transition name="fade">
-        <div v-show="index2 === currentIndex">
+        <div
+          v-show="index2 === currentIndex"
+          class="w-full md:w-10/12 xl:w-10/12"
+        >
           <h1
-            class="z-30 text-5xl font-semibold text-white uppercase sm:text-6xl md:text-7xl lg:text-8xl opacity-90"
-          >
-            {{ caption.title }}
-          </h1>
+            class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
+            v-html="caption.title"
+          ></h1>
           <p
-            class="z-30 text-2xl font-medium text-white sm:text-3xl md:text-4xl opacity-90"
+            class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
           >
             {{ caption.subtitle }}
           </p>
         </div>
       </transition>
     </div>
-    <!-- <div
-          class="absolute inset-0 z-20 w-full h-full bg-white rounded-lg"
-          style="opacity: 90%;"
-        ></div> -->
+
+    <!-- transparent overlay -->
+    <div class="absolute inset-0 z-10 bg-black opacity-30" />
+
+    <!-- navigation menu -->
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->
     <!-- <a class="next" @click="next">&#10095; Next</a> -->
-    <div class="absolute inset-0 z-10 w-full h-full bg-black opacity-30" />
   </div>
 </template>
 
@@ -58,23 +63,23 @@ export default {
       ],
       captions: [
         {
-          title: "Welcome to 99 Medispa",
-          subtitle: "Sydney's Pioneering Laser and Beauty Clinic",
+          title: "Welcome to 99&nbsp;Medispa",
+          subtitle: "Sydney's Pioneer Laser and Beauty Clinic",
         },
         {
-          title: "Enjoy a peaceful moment in the CBD",
-          subtitle: "Take time to relax and unwind with our luxury services",
+          title: "Located in the Sydney CBD",
+          subtitle: "Situated right next to Town Hall and the QVB",
         },
         {
-          title: "Cutting Edge Laser Treatments",
+          title: "State of the Art Laser Treatments",
           subtitle: "We use only the latest FDA and TGA approved treatments",
         },
         {
-          title: "Birthday Packages Available",
+          title: "Birthday Pamper Packages",
           subtitle: "Plan your next best birthday with us",
         },
         {
-          title: "VIP Membership Options",
+          title: "VIP Membership Available",
           subtitle: "Join our membership club to receive extra benefits",
         },
       ],
@@ -131,8 +136,8 @@ export default {
 //   background-color: rgba(0, 0, 0, 0.9);
 // }
 
-.fade-transition-enter-active,
-.fade-transition-leave-active {
+.slideshow-enter-active,
+.slideshow-leave-active {
   transition: all 0.9s ease;
   overflow: hidden;
   visibility: visible;
@@ -141,8 +146,8 @@ export default {
   opacity: 1;
 }
 
-.fade-transition-enter,
-.fade-transition-leave-to {
+.slideshow-enter,
+.slideshow-leave-to {
   visibility: hidden;
   width: 100%;
   opacity: 0;
@@ -151,7 +156,8 @@ export default {
 .fade-leave-active {
   transition: opacity 0.9s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

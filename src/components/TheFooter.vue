@@ -37,12 +37,11 @@
 
     <section class="flex flex-col items-start justify-start text-sm lg:mx-auto">
       <h1 class="mb-2 text-2xl">Site Navigation</h1>
-      <ul>
-        <li>Home</li>
-        <li>Laser</li>
-        <li>Cosmetic Injectables</li>
-        <li>Contact Us</li>
-      </ul>
+      <g-link :to="'/'">Home</g-link>
+      <g-link :to="'price-list'">Price List</g-link>
+      <g-link :to="'offers/birthday-packages'">Birthday Packages</g-link>
+      <g-link :to="'offers/vip-membership'">VIP Membership</g-link>
+      <g-link :to="'contact'">Contact Us</g-link>
     </section>
 
     <section
