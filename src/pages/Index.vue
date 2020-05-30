@@ -98,7 +98,7 @@
         class="flex flex-col justify-center w-10/12 p-3 mx-auto leading-tight text-white gray sm:p-4 sm:flex-row md:py-10 sm:w-8/12"
       >
         <h1
-          class="py-1 mx-auto mb-4 mr-0 text-xl font-medium text-center sm:mb-0 md:text-2xl lg:text-4xl"
+          class="py-1 mx-auto mb-4 text-xl font-medium text-center sm:mb-0 md:text-2xl lg:text-4xl"
         >
           For Bookings and Enquiries
         </h1>
