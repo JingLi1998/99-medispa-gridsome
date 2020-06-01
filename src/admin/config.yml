@@ -16,25 +16,19 @@ collections:
       - { label: "Subtitle", name: "subtitle", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Image Alt Text", name: "altText", widget: "string" }
-      - {
-          label: "Position",
-          name: "position",
-          widget: "number",
-          valueType: "int",
-          step: "1",
-        }
-      - {
-          label: "Button Text",
-          name: "buttonText",
-          widget: "string",
-          required: "false",
-        }
-      - {
-          label: "Button To",
-          name: "buttonTo",
-          widget: "string",
-          required: "false",
-        }
+      - label: "Position"
+        name: "position"
+        widget: "number"
+        valueType: "int"
+        step: "1"
+      - label: "Button Text"
+        name: "buttonText"
+        widget: "string"
+        required: "false"
+      - label: "Button To"
+        name: "buttonTo"
+        widget: "string"
+        required: "false"
 
   - name: "backgrounds"
     label: "Backgrounds"
