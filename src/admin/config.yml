@@ -24,11 +24,11 @@ collections:
       - label: "Button Text"
         name: "buttonText"
         widget: "string"
-        required: "false"
+        required: false
       - label: "Button To"
         name: "buttonTo"
         widget: "string"
-        required: "false"
+        required: false
 
   - name: "backgrounds"
     label: "Backgrounds"
