@@ -8,7 +8,7 @@
     >
       <div class="w-10/12 sm:w-8/12 lg:w-7/12 xl:w-6/12">
         <h1
-          class="text-4xl font-medium font-fancy text-secondary md:text-5xl lg:text-6xl"
+          class="text-4xl font-medium xl:text-center font-fancy text-secondary md:text-5xl lg:text-6xl"
         >
           {{ title }}
         </h1>
@@ -82,7 +82,7 @@
     <section class="py-10 bg-pink-100 xl:py-24">
       <div class="w-10/12 mx-auto mb-10 lg:mb-16 sm:w-8/12 lg:w-7/12 xl:w-6/12">
         <h1
-          class="text-4xl font-medium font-fancy text-secondary md:text-5xl lg:text-6xl"
+          class="text-4xl font-medium font-fancy xl:text-center text-secondary md:text-5xl lg:text-6xl"
         >
           Free Consultation
         </h1>
