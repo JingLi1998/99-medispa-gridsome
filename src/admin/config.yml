@@ -6,11 +6,41 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
+  - name: "slideshow"
+    label: "Slideshow"
+    folder: "content/slideshow"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Image Alt Text", name: "altText", widget: "string" }
+      - {
+          label: "Position",
+          name: "position",
+          widget: "number",
+          valueType: "int",
+          step: "1",
+        }
+      - {
+          label: "Button Text",
+          name: "buttonText",
+          widget: "string",
+          required: "false",
+        }
+      - {
+          label: "Button To",
+          name: "buttonTo",
+          widget: "string",
+          required: "false",
+        }
+
   - name: "backgrounds"
     label: "Backgrounds"
     folder: "content/backgrounds"
     create: true
-    slut: "{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Subtitle", name: "subtitle", widget: "markdown" }
@@ -35,6 +65,8 @@ collections:
             "Body Treatment",
             "Traditional Medicine",
             "Plastic Surgery",
+            "Birthday Package",
+            "VIP Membership",
           ]
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
