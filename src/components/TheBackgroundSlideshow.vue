@@ -1,43 +1,79 @@
 <template>
   <div class="relative h-screen">
     <!-- slideshow images -->
-    <transition
-      v-for="(image, index) in images"
-      :key="index"
-      name="slideshow"
-      tag="div"
-    >
-      <g-image
-        v-show="index === currentIndex"
-        class="object-cover w-full h-full"
-        :immediate="true"
-        :src="image"
-        quality="0"
-      />
-    </transition>
-
-    <!-- slideshow captions -->
     <div
-      v-for="(caption, index2) in captions"
-      :key="index2"
-      class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
+      v-for="(edge, index) in $static.slides.edges"
+      :key="index"
+      class="absolute w-full h-full"
     >
-      <transition name="fade">
-        <div
-          v-show="index2 === currentIndex"
-          class="w-full md:w-10/12 xl:w-10/12"
-        >
-          <h1
-            class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
-            v-html="caption.title"
-          ></h1>
-          <p
-            class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
-          >
-            {{ caption.subtitle }}
-          </p>
-        </div>
+      <!-- <transition
+        v-for="(edge, index) in $static.slides.edges"
+        :key="index"
+        name="slideshow"
+        tag="div"
+      >
+        <g-image
+          v-show="index === currentIndex"
+          class="object-cover w-full h-full"
+          :immediate="true"
+          :src="image"
+          quality="0"
+        />
+      </transition> -->
+      <transition name="slideshow">
+        <g-image
+          v-show="index === currentIndex"
+          class="object-cover w-full h-full"
+          :immediate="true"
+          :src="edge.node.image"
+          quality="0"
+          :alt="edge.node.altText"
+        />
       </transition>
+
+      <!-- slideshow captions -->
+      <!-- <div
+        v-for="(caption, index2) in captions"
+        :key="index2"
+        class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
+      >
+        <transition name="fade">
+          <div
+            v-show="index2 === currentIndex"
+            class="w-full md:w-10/12 xl:w-10/12"
+          >
+            <h1
+              class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
+              v-html="caption.title"
+            ></h1>
+            <p
+              class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
+            >
+              {{ caption.subtitle }}
+            </p>
+          </div>
+        </transition>
+      </div> -->
+      <div
+        class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
+      >
+        <transition name="fade">
+          <div
+            v-show="index === currentIndex"
+            class="w-full md:w-10/12 xl:w-10/12"
+          >
+            <h1
+              class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
+              v-html="edge.node.title"
+            ></h1>
+            <p
+              class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
+            >
+              {{ edge.node.subtitle }}
+            </p>
+          </div>
+        </transition>
+      </div>
     </div>
 
     <!-- transparent overlay -->
@@ -48,6 +84,21 @@
     <!-- <a class="next" @click="next">&#10095; Next</a> -->
   </div>
 </template>
+
+<static-query>
+query {
+   slides: allSlideshow (sortBy: "position", order: ASC) {
+    edges{
+      node {
+				title
+        subtitle
+        image
+        altText
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 export default {

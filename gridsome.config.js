@@ -45,6 +45,30 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
+        path: "content/offers/*.md",
+        typeName: "Offers",
+        remark: {
+          plugins: [
+            // ...local plugins
+          ],
+        },
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "content/slideshow/*.md",
+        typeName: "Slideshow",
+        remark: {
+          plugins: [
+            // ...local plugins
+          ],
+        },
+      },
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
         path: "content/treatments/*.md",
         typeName: "Treatments",
         remark: {

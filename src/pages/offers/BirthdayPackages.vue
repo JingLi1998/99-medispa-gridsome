@@ -1,5 +1,5 @@
 <template>
-  <default-layout :background-node="backgroundNode">
+  <default-layout :background-node="$page.background.edges[0].node">
     <information-panel
       title="Pamper Up!"
       content="Our Birthday Pamper Packages are the ideal way to celebrate your next big day! Bring up to 5 friends and celebrate your birthday in luxury, style and comfort./n"
@@ -29,6 +29,21 @@
   </default-layout>
 </template>
 
+<page-query>
+query {
+    background: allBackgrounds(filter: {title: {eq: "Birthday Pamper Packages"}}) {
+    edges {
+      node {
+        title
+        subtitle
+        image
+        altText
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 import DefaultLayout from "../../layouts/DefaultLayout";
 import InformationPanel from "../../components/InformationPanel";
@@ -40,16 +55,6 @@ export default {
   components: {
     DefaultLayout,
     InformationPanel,
-  },
-  data() {
-    return {
-      backgroundNode: {
-        title: "Birthday Pamper Packages",
-        subtitle: "Celebrate your next birthday in luxury and comfort",
-        image: "/images/baked_pastries.jpg",
-        altText: "Baked pastries on table",
-      },
-    };
   },
 };
 </script>
