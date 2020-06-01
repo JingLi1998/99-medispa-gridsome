@@ -7,11 +7,11 @@
             class="flex flex-col justify-center w-10/12 h-full mx-auto xl:w-7/12"
           >
             <h1
-              class="text-2xl font-bold uppercase sm:text-4xl font-fancy text-secondary"
+              class="text-xl font-bold uppercase sm:text-4xl font-fancy text-secondary"
               v-html="title"
             />
             <p
-              class="text-xs text-justify sm:mt-2 sm:mb-6 sm:text-base"
+              class="text-xs leading-tight sm:leading-normal sm:mt-2 sm:mb-6 sm:text-base"
               v-html="treatmentContent"
             />
             <g-link

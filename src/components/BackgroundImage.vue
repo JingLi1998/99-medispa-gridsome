@@ -27,7 +27,7 @@
           {{ title }}
         </h1>
         <p
-          class="z-30 w-8/12 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
+          class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
         >
           {{ subtitle }}
         </p>
