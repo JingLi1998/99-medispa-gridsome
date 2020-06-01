@@ -1,25 +1,11 @@
 <template>
   <div class="relative h-screen">
-    <!-- slideshow images -->
     <div
       v-for="(edge, index) in $static.slides.edges"
       :key="index"
       class="absolute w-full h-full"
     >
-      <!-- <transition
-        v-for="(edge, index) in $static.slides.edges"
-        :key="index"
-        name="slideshow"
-        tag="div"
-      >
-        <g-image
-          v-show="index === currentIndex"
-          class="object-cover w-full h-full"
-          :immediate="true"
-          :src="image"
-          quality="0"
-        />
-      </transition> -->
+      <!-- IMAGES -->
       <transition name="slideshow">
         <g-image
           v-show="index === currentIndex"
@@ -31,29 +17,7 @@
         />
       </transition>
 
-      <!-- slideshow captions -->
-      <!-- <div
-        v-for="(caption, index2) in captions"
-        :key="index2"
-        class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
-      >
-        <transition name="fade">
-          <div
-            v-show="index2 === currentIndex"
-            class="w-full md:w-10/12 xl:w-10/12"
-          >
-            <h1
-              class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
-              v-html="caption.title"
-            ></h1>
-            <p
-              class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
-            >
-              {{ caption.subtitle }}
-            </p>
-          </div>
-        </transition>
-      </div> -->
+      <!-- CAPTIONS -->
       <div
         class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
       >
@@ -76,7 +40,7 @@
       </div>
     </div>
 
-    <!-- transparent overlay -->
+    <!-- OVERLAY -->
     <div class="absolute inset-0 z-10 bg-black opacity-30" />
 
     <!-- navigation menu -->
@@ -102,38 +66,8 @@ query {
 
 <script>
 export default {
-  name: "Slider",
   data() {
     return {
-      images: [
-        "/images/slideshow1.jpg",
-        "/images/slideshow2.jpg",
-        "/images/slideshow3.jpg",
-        "/images/slideshow4.jpg",
-        "/images/slideshow5.jpg",
-      ],
-      captions: [
-        {
-          title: "Welcome to 99&nbsp;Medispa",
-          subtitle: "Sydney's Pioneer Laser and Beauty Clinic",
-        },
-        {
-          title: "Located in the Sydney CBD",
-          subtitle: "Situated right next to Town Hall and the QVB",
-        },
-        {
-          title: "State of the Art Laser Treatments",
-          subtitle: "We use only the latest FDA and TGA approved treatments",
-        },
-        {
-          title: "Birthday Pamper Packages",
-          subtitle: "Plan your next best birthday with us",
-        },
-        {
-          title: "VIP Membership Available",
-          subtitle: "Join our membership club to receive extra benefits",
-        },
-      ],
       timer: null,
       currentIndex: 0,
     };
