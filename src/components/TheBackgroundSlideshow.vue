@@ -80,7 +80,7 @@ export default {
       this.timer = setInterval(this.next, 4000);
     },
     next: function () {
-      this.currentIndex < this.images.length - 1
+      this.currentIndex < this.$static.slides.edges.length - 1
         ? (this.currentIndex += 1)
         : (this.currentIndex = 0);
     },

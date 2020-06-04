@@ -24,6 +24,11 @@ export default function (Vue, { head, router }) {
       href: "https://fonts.googleapis.com/css2?family=Courgette&display=swap",
     }
   );
+  head.script.push({
+    src: "https://connect.facebook.net/en_US/sdk.js",
+    defer: true,
+    async: true,
+  });
   router.addRoutes([{ path: "**", redirect: "/" }]);
 
   // Set default layout as a global component
