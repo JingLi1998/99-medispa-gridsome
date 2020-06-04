@@ -36,8 +36,6 @@ export default {
   },
   mounted() {
     this.showPage();
-  },
-  created() {
     window.fbAsyncInit = function () {
       // eslint-disable-next-line
       FB.init({
