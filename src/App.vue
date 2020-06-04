@@ -13,7 +13,7 @@
     <!-- Your Chat Plugin code -->
     <div
       class="fb-customerchat"
-      attribution="setup_tool"
+      attribution="install_email"
       page_id="330611607561168"
       theme_color="#d4a88c"
     ></div>
@@ -36,6 +36,8 @@ export default {
   },
   mounted() {
     this.showPage();
+  },
+  created() {
     window.fbAsyncInit = function () {
       // eslint-disable-next-line
       FB.init({
