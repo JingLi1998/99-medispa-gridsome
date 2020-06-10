@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full p-6 bg-white border-b border-gray-300"
+    class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full px-8 py-6 mt-8 bg-white border-b border-gray-300"
   >
     <!-- LOGO -->
     <img src="/images/logo_small.jpg" alt="99 Medispa Logo" />
@@ -11,7 +11,7 @@
 
       <navbar-link-dropdown>
         <template #link>
-          <navbar-link name="Treatments" to="/treatments" disabled />
+          <navbar-link name="Treatments" to="/treatments/" disabled />
         </template>
         <template #dropdown>
           <div class="px-4 border border-gray-300">
@@ -29,11 +29,11 @@
         </template>
       </navbar-link-dropdown>
 
-      <navbar-link name="Price List" exact to="price-list" />
+      <navbar-link name="Price List" exact to="/price-list/" />
 
       <navbar-link-dropdown>
         <template #link>
-          <navbar-link name="Offers" to="/offers" disabled />
+          <navbar-link name="Offers" to="/offers/" disabled />
         </template>
         <template #dropdown>
           <div class="px-4 border border-gray-300">
@@ -42,20 +42,21 @@
               dropdown
               exact
               name="Birthday Packages"
-              to="offers/birthday-packages"
+              to="/offers/birthday-packages/"
             />
             <navbar-link
               class="my-4"
               dropdown
               exact
               name="VIP Membership"
-              to="offers/vip-membership"
+              to="/offers/vip-membership/"
             />
           </div>
         </template>
       </navbar-link-dropdown>
 
-      <navbar-link name="Contact" exact to="contact" />
+      <navbar-link name="Products" exact to="products" />
+      <navbar-link name="Contact" exact to="/contact/" />
     </div>
 
     <!-- MOBILE NAVBAR -->
@@ -84,7 +85,7 @@
       </g-link>
 
       <g-link
-        :to="'treatments'"
+        :to="'/treatments/'"
         event=""
         class="block mt-6 border-b border-black"
         @click.native.prevent="extendNavbar('treatments')"
@@ -106,12 +107,12 @@
         </g-link>
       </div>
 
-      <g-link :to="'price-list'" class="block mt-6 border-b border-black">
+      <g-link :to="'/price-list/'" class="block mt-6 border-b border-black">
         Price List
       </g-link>
 
       <g-link
-        :to="'offers'"
+        :to="'/offers/'"
         event=""
         class="block mt-6 border-b border-black"
         @click.native.prevent="extendNavbar('offers')"
@@ -124,20 +125,20 @@
         class="block w-11/12 overflow-hidden md:hidden max-h-0 collapsible"
       >
         <g-link
-          :to="'offers/birthday-packages'"
+          :to="'/offers/birthday-packages/'"
           class="block mt-3 ml-2 text-sm border-b border-black"
         >
           Birthday Packages
         </g-link>
         <g-link
-          :to="'offers/vip-membership'"
+          :to="'/offers/vip-membership/'"
           class="block mt-3 ml-2 text-sm border-b border-black"
         >
           VIP Membership
         </g-link>
       </div>
 
-      <g-link :to="'contact'" class="block mt-6 border-b border-black">
+      <g-link :to="'/contact/'" class="block mt-6 border-b border-black">
         Contact
       </g-link>
     </div>
@@ -159,13 +160,13 @@ export default {
       extendedTreatments: false,
       extendedOffers: false,
       links: [
-        { name: "Price List", to: "price-list" },
-        { name: "Contact", to: "contact" },
+        { name: "Price List", to: "/price-list/" },
+        { name: "Contact", to: "/contact/" },
       ],
       treatments: [
         {
           name: "Laser Treatment",
-          to: "treatments/laser-treatment",
+          to: "/treatments/laser-treatment/",
         },
         {
           name: "Cosmetic Injection",
@@ -173,19 +174,19 @@ export default {
         },
         {
           name: "Skin Treatment",
-          to: "treatments/skin-treatment",
+          to: "/treatments/skin-treatment/",
         },
         {
           name: "Body Treatment",
-          to: "treatments/body-treatment",
+          to: "/treatments/body-treatment/",
         },
         {
           name: "Traditional Medicine",
-          to: "treatments/traditional-chinese-medicine",
+          to: "/treatments/traditional-chinese-medicine/",
         },
         {
           name: "Plastic Surgery",
-          to: "treatments/plastic-surgery",
+          to: "/treatments/plastic-surgery/",
         },
       ],
     };

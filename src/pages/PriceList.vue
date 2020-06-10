@@ -1,6 +1,6 @@
 <template>
   <default-layout :background-node="$page.background.edges[0].node">
-    <the-price-list :price-edges="priceEdges" />
+    <price-list :price-edges="priceEdges" />
   </default-layout>
 </template>
 
@@ -99,7 +99,7 @@ query {
 
 <script>
 import DefaultLayout from "../layouts/DefaultLayout";
-import ThePriceList from "../components/ThePriceList";
+import PriceList from "../domain/priceList/PriceList";
 
 export default {
   metaInfo: {
@@ -107,7 +107,7 @@ export default {
   },
   components: {
     DefaultLayout,
-    ThePriceList,
+    PriceList,
   },
   computed: {
     priceEdges() {

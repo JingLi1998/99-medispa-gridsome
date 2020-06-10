@@ -1,18 +1,48 @@
-// This is the main.js file. Import global CSS and scripts here.
-// The Client API can be used here. Learn more: gridsome.org/docs/client-api
-
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+// IMPORT FONTAWESOME LIBRARY
 import { config, library } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import {
   faFacebookSquare,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import {
+  faShoppingCart,
+  faShoppingBag,
+  faShoppingBasket,
+  faMobileAlt,
+  faLocationArrow,
+  faMapMarker,
+  faMapMarkerAlt,
+  faCalendar,
+  faCalendarAlt,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
+
+// IMPORT VUEX STORE
+import store from "./store";
+
+// IMPORT GLOBAL COMPONENTS
+import { Fragment } from "vue-fragment";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import VButton from "./components/VButton";
 
 config.autoAddCss = false;
-library.add(faFacebookSquare, faInstagram);
+library.add(
+  faFacebookSquare,
+  faInstagram,
+  faShoppingCart,
+  faShoppingBag,
+  faShoppingBasket,
+  faMobileAlt,
+  faLocationArrow,
+  faMapMarker,
+  faMapMarkerAlt,
+  faCalendar,
+  faArrowLeft,
+  faCalendarAlt
+);
 
-export default function (Vue, { head, router }) {
+export default function (Vue, { head, router, appOptions }) {
   head.link.push(
     {
       rel: "stylesheet",
@@ -31,6 +61,9 @@ export default function (Vue, { head, router }) {
   });
   router.addRoutes([{ path: "**", redirect: "/" }]);
 
-  // Set default layout as a global component
+  appOptions.store = store;
+
+  Vue.component("fragment", Fragment);
   Vue.component("font-awesome", FontAwesomeIcon);
+  Vue.component("v-button", VButton);
 }

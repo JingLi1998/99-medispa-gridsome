@@ -127,7 +127,7 @@ import vSelect from "vue-select";
 // import "vue-select/dist/vue-select.scss";
 import "vue-select/src/scss/vue-select.scss";
 // import DatePicker from "v-calendar/lib/components/date-picker.umd";
-import Snackbar from "./Snackbar";
+import Snackbar from "../../components/Snackbar";
 
 export default {
   components: {

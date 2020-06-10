@@ -1,6 +1,5 @@
 <template>
   <default-layout :background-node="$page.background.edges[0].node">
-    <contact-form />
   </default-layout>
 </template>
 
@@ -21,15 +20,13 @@ query {
 
 <script>
 import DefaultLayout from "../layouts/DefaultLayout";
-import ContactForm from "../domain/contact/ContactForm";
 
 export default {
   metaInfo: {
-    title: "Contact Us",
+    title: "Make a Booking",
   },
   components: {
     DefaultLayout,
-    ContactForm,
   },
 };
 </script>

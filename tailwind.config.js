@@ -19,6 +19,7 @@ module.exports = {
       colors: {
         primary: "#1976D2",
         secondary: "#C79E81",
+        grey: "#bababa",
       },
       fontFamily: {
         sans: ["Barlow", "Roboto", ...defaultTheme.fontFamily.sans],
@@ -40,6 +41,9 @@ module.exports = {
         "90": ".9",
         "100": "1",
       },
+      height: {
+        "800": "800px",
+      },
       padding: {
         wide: "56.25%",
         "7/10": "70%",
@@ -47,6 +51,11 @@ module.exports = {
       },
       zIndex: {
         "-10": -10,
+        "60": 60,
+        "70": 70,
+        "80": 80,
+        "90": 90,
+        "100": 100,
       },
     },
     maxHeight: {
@@ -54,6 +63,8 @@ module.exports = {
       full: "100%",
     },
   },
-  variants: {},
+  variants: {
+    // opacity: ["responsive", "hover", "focus", "disabled"],
+  },
   plugins: [],
 };

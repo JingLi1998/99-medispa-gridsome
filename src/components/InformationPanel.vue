@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <fragment>
     <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
       <aspect-ratio class="w-full lg:w-1/2">
         <div class="w-full h-full bg-white">
@@ -31,7 +31,7 @@
         />
       </aspect-ratio>
     </div>
-  </div>
+  </fragment>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .dropdown-content {
   transition: max-height 0.75s ease-in-out;
   left: -1rem;

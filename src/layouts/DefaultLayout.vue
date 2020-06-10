@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="defaultLayout">
     <background-image v-bind="backgroundNode" />
     <slot />
   </div>

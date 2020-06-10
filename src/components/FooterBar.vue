@@ -52,7 +52,7 @@
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 footer {
   min-height: 320px;
 }

@@ -1,70 +1,87 @@
 <template>
   <div id="app">
-    <the-navbar />
-    <transition name="page" appear>
-      <router-view v-show="show" />
-    </transition>
-    <transition name="page" appear>
-      <the-footer v-show="show" />
-    </transition>
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
+    <top-navbar @openCart="openCart" @openMap="openMap" />
+    <navbar />
 
-    <!-- Your Chat Plugin code -->
-    <div
-      class="fb-customerchat"
-      attribution="install_email"
-      page_id="330611607561168"
-      theme_color="#d4a88c"
-    ></div>
+    <transition name="page" appear>
+      <router-view v-show="showPage" />
+    </transition>
+
+    <transition name="page" appear>
+      <footer-bar v-show="showPage" />
+    </transition>
+
+    <shopping-cart
+      :show="showCart"
+      class="cursor-pointer"
+      @closeCart="closeCart"
+    />
+
+    <map-panel :show="showMap" @closeMap="closeMap" />
+
+    <v-notification />
+
+    <facebook-chat />
   </div>
 </template>
 
 <script>
-import TheNavbar from "./components/TheNavbar";
-import TheFooter from "./components/TheFooter";
+import { mapActions } from "vuex";
+import "@stripe/stripe-js";
+
+import FacebookChat from "./components/FacebookChat";
+import FooterBar from "./components/FooterBar";
+import Navbar from "./components/Navbar";
+import TopNavbar from "./components/TopNavbar";
+import ShoppingCart from "./domain/shoppingCart/ShoppingCart";
+import MapPanel from "./domain/map/MapPanel";
+import VNotification from "./components/VNotification";
 
 export default {
   components: {
-    TheNavbar,
-    TheFooter,
+    Navbar,
+    FacebookChat,
+    ShoppingCart,
+    FooterBar,
+    TopNavbar,
+    VNotification,
+    MapPanel,
   },
   data() {
     return {
-      show: false,
+      showPage: false,
+      showCart: false,
+      showMap: false,
     };
   },
   mounted() {
-    this.showPage();
-    window.fbAsyncInit = function () {
-      // eslint-disable-next-line
-      FB.init({
-        xfbml: true,
-        version: "v7.0",
-      });
-    };
-
-    (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+    this.loadPage();
+    this.setStripe();
   },
   methods: {
-    showPage() {
+    ...mapActions(["setStripe"]),
+    openMap() {
+      this.showMap = true;
+    },
+    closeMap() {
+      this.showMap = false;
+    },
+    openCart() {
+      this.showCart = true;
+    },
+    closeCart() {
+      this.showCart = false;
+    },
+    loadPage() {
       setTimeout(() => {
-        this.show = true;
+        this.showPage = true;
       }, 500);
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .page-enter-active {
   transition: opacity 0.8s ease-in-out;
 }
