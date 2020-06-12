@@ -39,6 +39,7 @@ module.exports = {
             "vs__open-indicator",
             "vs__spinner",
             "vs1__listbox",
+            "vs__dropdown-menu",
           ],
           whitelistPatterns: [/svg.*/, /fa.*/, /shiki/, /fa-$/],
         },
