@@ -181,18 +181,7 @@ export default {
 };
 </script>
 
-<style>
-.v-select .vs__dropdown-toggle {
-  border-color: #e2e8f0;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.75rem;
-}
-.v-select .vs__selected {
-  padding: 0;
-  margin: 0;
-}
-
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
