@@ -1,38 +1,24 @@
 <template>
-  <div
-    class="relative flex flex-col text-center transition transition-shadow duration-100 border border-gray-300 card hover:shadow-lg"
+  <g-link
+    :to="`/products/${productNode.slug}/`"
+    class="relative flex flex-col transition transition-shadow duration-100 border-b border-r border-gray-300 card hover:shadow-lg"
   >
+    <!-- PRODUCT IMAGE -->
     <div class="mt-1 card-image">
       <g-image
         :src="productNode.images[0]"
         class="object-contain w-full h-full"
       />
     </div>
-    <div class="flex flex-col flex-grow h-full py-2 justify-evenly card-items">
-      <p>{{ productNode.name }}</p>
-      <p>{{ convertStripeAmount(productNode.amount) }}</p>
-      <div>
-        <v-button
-          class="w-32 px-2 py-1 mx-auto mr-1 text-white capitalize bg-secondary hover:bg-opacity-50"
-        >
-          <g-link :to="`/products/${productNode.slug}/`">
-            View Product
-          </g-link>
-        </v-button>
-        <v-button
-          :class="{
-            'opacity-50 cursor-default': inCart,
-            'hover:bg-opacity-50': !inCart,
-          }"
-          class="w-32 px-2 py-1 mx-auto ml-1 text-white capitalize bg-secondary"
-          :disabled="inCart"
-          @click="$emit('addLineItem')"
-        >
-          {{ inCart ? "Added" : "Add to cart" }}
-        </v-button>
-      </div>
+
+    <!-- PRODUCT DESCRIPTION -->
+    <div class="h-full px-4">
+      <p class="my-2 text-sm font-medium uppercase md:mt-8">
+        {{ productNode.name }}
+      </p>
+      <p>{{ convertStripeAmount(productNode.amount) }} AUD</p>
     </div>
-  </div>
+  </g-link>
 </template>
 
 <script>
@@ -57,9 +43,26 @@ export default {
 
 <style scoped>
 .card {
-  height: 450px;
+  height: 300px;
 }
 .card-image {
-  min-height: 275px;
+  height: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    height: 350px;
+  }
+  .card-image {
+    height: 250px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .card {
+    height: 400px;
+  }
+  .card-image {
+    height: 300px;
+  }
 }
 </style>

@@ -3,9 +3,15 @@
 // SAVE TO STATIC FOLDER
 // RECONFIGURE EACH IMAGE TO HAVE UPDATED STATIC FILE FOR G-IMAGE
 
-const stripe = require("stripe")(
-  "sk_test_51GqzvrLfMbezZRstkwlZ9KtjiHb8VbV9MSF00Etq0LgZyKeqFcZnJIVfD0yCSjiiB8ILDajkAXqx7s83pE0xykQS001TY6oetE"
-);
+const fs = require("fs");
+const request = require("request");
+const stripe = require("stripe")(process.env.SECRET_KEY);
+
+const downloadImage = (url, path, callback) => {
+  request.head(url, () => {
+    request(url).pipe(fs.createWriteStream(path)).on("close", callback);
+  });
+};
 
 module.exports = function (api) {
   api.loadSource(async (actions) => {
@@ -16,9 +22,16 @@ module.exports = function (api) {
 
     prices.forEach((price) => {
       const product = products.find((product) => product.id === price.product);
+      const url = product.images[0];
+      const name = url.substring(31);
+      const path = `./static/stripeImages/${name}.jpg`;
+      downloadImage(url, path, () => {
+        console.log(`${url} finished downloading`);
+      });
+
       merged.push({
         ...price,
-        images: product.images,
+        images: [path.substring(8)],
         name: product.name,
         description: product.description,
         slug: product.name.replace(/ /g, "-"),

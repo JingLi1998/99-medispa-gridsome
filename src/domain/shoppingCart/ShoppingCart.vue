@@ -9,7 +9,7 @@
     </transition>
 
     <transition name="slide">
-      <shopping-cart-items
+      <shopping-cart-list
         v-if="show"
         class="cursor-default"
         @closeCart="$emit('closeCart')"
@@ -20,12 +20,12 @@
 
 <script>
 import Overlay from "../../components/Overlay";
-import ShoppingCartItems from "./ShoppingCartItems";
+import ShoppingCartList from "./ShoppingCartList";
 
 export default {
   components: {
     Overlay,
-    ShoppingCartItems,
+    ShoppingCartList,
   },
   props: {
     show: {

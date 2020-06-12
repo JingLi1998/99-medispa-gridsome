@@ -1,10 +1,10 @@
 <template>
   <div
-    class="fixed top-0 right-0 w-full h-screen overflow-y-auto bg-white lg:w-4/12 z-60"
+    class="fixed top-0 right-0 w-full h-screen overflow-y-auto bg-white scrollbar-hidden sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-5/12 z-60"
   >
     <!-- SHOPPING CART HEADER -->
     <div class="flex justify-between h-24 border-b border-gray-300">
-      <h1 class="my-auto ml-8 text-3xl font-semibold uppercase">
+      <h1 class="my-auto ml-8 text-xl font-semibold uppercase lg:text-3xl">
         Your Shopping Cart
       </h1>
       <div class="flex w-24 h-full border-l border-gray-300">
@@ -18,25 +18,14 @@
     </div>
 
     <!-- SHOPPING CART lIST -->
-    <div class="p-8">
+    <div class="p-2 sm:p-8">
       <p v-if="!lineItems.length">
         Your cart is currently empty.
       </p>
       <template v-else>
-        <div v-for="(lineItem, index) in lineItems" :key="lineItem.price">
+        <div v-for="(item, index) in lineItems" :key="item.lineItem.price">
           <hr v-if="index !== 0" class="my-2" />
-          <div class="flex justify-between">
-            <p class="my-auto uppercase">
-              <img
-                class="inline object-contain w-32 h-24"
-                :src="lineItem.images[0]"
-              />
-              {{ lineItem.name }}
-            </p>
-            <p class="my-auto mr-10">
-              {{ insertDecimal(lineItem.amount) }}
-            </p>
-          </div>
+          <shopping-cart-list-item v-bind="item" />
         </div>
       </template>
       <hr class="my-8" />
@@ -46,7 +35,7 @@
         <p class="my-auto text-xl font-bold uppercase">Total</p>
         <p class="my-auto text-3xl uppercase">{{ total }} AUD</p>
       </div>
-      <shopping-cart-button />
+      <shopping-cart-list-button />
     </div>
   </div>
 </template>
@@ -54,11 +43,14 @@
 <script>
 import { mapState } from "vuex";
 
-import ShoppingCartButton from "./ShoppingCartButton";
+import ShoppingCartListButton from "./ShoppingCartListButton";
+import ShoppingCartListItem from "./ShoppingCartListItem";
+import { convertStripeAmount } from "../../utils/stripeUtils";
 
 export default {
   components: {
-    ShoppingCartButton,
+    ShoppingCartListButton,
+    ShoppingCartListItem,
   },
   computed: {
     ...mapState(["lineItems"]),
@@ -66,18 +58,25 @@ export default {
       let total = 0;
       if (this.lineItems.length) {
         this.lineItems.forEach(
-          (lineItem) => (total += Number(lineItem.amount))
+          (item) => (total += Number(item.lineItem.amount) * item.quantity)
         );
-        return this.insertDecimal(total.toString());
+        return this.convertStripeAmount(total.toString());
       } else {
         return "$0.00";
       }
     },
   },
   methods: {
-    insertDecimal(s) {
-      return `$${s.slice(0, -2)}.${s.slice(-2)}`;
-    },
+    convertStripeAmount,
   },
 };
 </script>
+
+<style scoped>
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+}
+</style>

@@ -57,6 +57,7 @@ export default {
   mounted() {
     this.loadPage();
     this.setStripe();
+    document.body.classList.add("scrollbar-hidden");
   },
   methods: {
     ...mapActions(["setStripe"]),
@@ -87,5 +88,11 @@ export default {
 }
 .page-enter {
   opacity: 0;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
 }
 </style>

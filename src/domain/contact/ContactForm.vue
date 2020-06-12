@@ -181,7 +181,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .v-select .vs__dropdown-toggle {
   border-color: #e2e8f0;
   padding-top: 0.25rem;

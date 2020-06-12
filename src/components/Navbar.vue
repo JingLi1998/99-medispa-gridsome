@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full px-8 py-6 mt-8 bg-white border-b border-gray-300"
+    class="fixed top-0 z-50 flex flex-wrap items-center justify-between w-full px-8 py-6 mt-8 bg-white border-b border-gray-300 min-h-24"
   >
     <!-- LOGO -->
     <img src="/images/logo_small.jpg" alt="99 Medispa Logo" />

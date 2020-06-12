@@ -14,8 +14,8 @@ const store = new Vuex.Store({
   getters: {
     checkoutItems(state) {
       const checkoutItems = state.lineItems.map((item) => ({
-        price: item.price,
-        quantity: 1,
+        price: item.lineItem.price,
+        quantity: item.quantity,
       }));
       return checkoutItems;
     },
@@ -24,20 +24,18 @@ const store = new Vuex.Store({
     ADD_LINE_ITEM(state, lineItem) {
       if (!state.lineItems.includes(lineItem)) {
         let newLineItems = [...state.lineItems];
-        newLineItems.push(lineItem);
+        newLineItems.push({ lineItem, quantity: 1 });
         state.lineItems = newLineItems;
       }
     },
     REMOVE_LINE_ITEM(state, lineItem) {
       let newLineItems = [...state.lineItems];
-      newLineItems = newLineItems.filter((item) => item !== lineItem);
+      newLineItems = newLineItems.filter((item) => item.lineItem !== lineItem);
       state.lineItems = newLineItems;
     },
     SET_STRIPE(state) {
       // eslint-disable-next-line
-      state.stripe = Stripe(
-        "pk_test_51GqzvrLfMbezZRstzh4aiqz8q8xcP8yJ14oijiY8zuXOqZidR9drTQ6uQbyDjeKzfy3bAzpp5ab8LWvvnInruDp500LmW9lnEE"
-      );
+      state.stripe = Stripe(process.env.GRIDSOME_SECRET_KEY);
     },
     SET_NOTIFICATION_ITEM(state, notificationItem) {
       state.notificationItem = notificationItem;

@@ -1,26 +1,42 @@
 <template>
-  <div class="w-6/12 mx-auto mt-40 mb-10">
-    <div class="flex justify-between card">
-      <div class="relative">
-        <g-image
-          class="object-contain h-full border border-gray-300 shadow-md image"
-          :src="$context.images[0]"
-        />
-        <div
-          class="absolute inset-0 flex w-16 h-16 transition duration-300 bg-black bg-opacity-0 border-b border-r border-gray-300 cursor-pointer hover:bg-opacity-10 transition:opacity"
-          @click="$router.go(-1)"
-        >
-          <span class="m-auto text-xl">&larr;</span>
-        </div>
-      </div>
-      <div class="w-4/12 h-full p-4 border border-gray-300 shadow-md">
-        <h1>{{ $context.name }}</h1>
-        <p>{{ convertStripeAmount($context.amount) }}</p>
-        <v-button @click="addLineItem($context)">Add To Cart</v-button>
+  <div
+    class="w-full mx-auto mt-32 lg:w-10/12 lg:mt-40 lg:mb-8 md:grid md:grid-cols-2 md:border xl:w-8/12"
+  >
+    <!-- PRODUCT IMAGE -->
+    <div class="relative">
+      <g-image
+        class="object-cover h-full mx-auto image"
+        :src="$context.images[0]"
+      />
+      <div
+        class="absolute inset-0 flex w-16 h-16 transition duration-300 bg-black bg-opacity-0 border-b border-r cursor-pointer hover:bg-opacity-10 transition:opacity"
+        @click="$router.go(-1)"
+      >
+        <span class="m-auto text-xl">&larr;</span>
       </div>
     </div>
-    <div class="w-full p-4 mt-8 border border-gray-300 shadow-md card">
-      <p>{{ $context.description }}</p>
+
+    <!-- PRODUCT NAME AND PRICE -->
+    <div class="px-6 border-l md:py-10">
+      <h1 class="mb-8 text-2xl font-bold uppercase md:text-3xl">
+        {{ $context.name }}
+      </h1>
+      <p class="text-xl font-medium">
+        {{ convertStripeAmount($context.amount) }} AUD
+      </p>
+      <v-button
+        class="w-full py-2 my-4 text-center text-white bg-secondary"
+        :class="{
+          'opacity-50 cursor-default': inCart,
+          'hover:bg-opacity-50': !inCart,
+        }"
+        :disabled="inCart"
+        @click="addLineItem($context)"
+      >
+        {{ inCart ? "Added To Cart" : "Add To Cart" }}
+      </v-button>
+      <hr />
+      <p class="mt-4 mb-10 font-light">{{ $context.description }}</p>
     </div>
   </div>
 </template>
@@ -31,8 +47,18 @@ import { mapActions, mapState } from "vuex";
 import { convertStripeAmount } from "../utils/stripeUtils";
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$context.name,
+    };
+  },
   computed: {
     ...mapState(["lineItems"]),
+    inCart() {
+      return !!this.lineItems.filter(
+        (item) => item.lineItem.name === this.$context.name
+      ).length;
+    },
   },
   methods: {
     ...mapActions(["addLineItem"]),
@@ -49,6 +75,6 @@ export default {
   height: 500px;
 }
 .image {
-  width: 600px;
+  width: 400px;
 }
 </style>
