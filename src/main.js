@@ -1,6 +1,8 @@
 // IMPORT FONTAWESOME LIBRARY
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "vue-select/dist/vue-select.css";
+
 import {
   faFacebookSquare,
   faInstagram,
