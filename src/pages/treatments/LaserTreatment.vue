@@ -35,7 +35,15 @@ import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   metaInfo: {
-    title: "Laser Treatment",
+    title: "Laser Treatment Sydney",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "Using the best TGA and FDA approved technologies such as Picosure and Fotona, we at 99 Medispa provide an array of Laser Treatments at our clinic including Laser Hair Removal, Laser Tatoo Removal and reduce pigmentation and acne scars.",
+      },
+    ],
   },
   components: {
     TreatmentLayout,

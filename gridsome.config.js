@@ -26,7 +26,7 @@ module.exports = {
         purgeConfig: {
           content: ["src/assets/**/*.css", "src/**/*.vue", "src/**/*.js"],
           whitelist: ["svg-inline--fa"],
-          whitelistPatterns: [/svg.*/, /fa.*/, /shiki/, /fa-$/],
+          whitelistPatterns: [/svg.*/, /fa.*/, /v-.*/, /vs.*/, /shiki/, /fa-$/],
         },
       },
     },

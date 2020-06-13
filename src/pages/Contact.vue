@@ -26,6 +26,14 @@ import TheContactForm from "../components/TheContactForm";
 export default {
   metaInfo: {
     title: "Contact Us",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "04512 008 115 | 99medispa.sydney@gmail.com | Contact us now online to book a consultation with our experienced physicians. We'll help you discover the best cosmetic laser treatments for your unique skin type.",
+      },
+    ],
   },
   components: {
     DefaultLayout,

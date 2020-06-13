@@ -35,7 +35,15 @@ import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   metaInfo: {
-    title: "Cosmetic Injection",
+    title: "Cosmetic Injection Sydney",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "Our experienced physicians provide a range of popular cosmetic injection treatments including Botox, PRP Tubes and similar dermal fillers to help you achieve your desired state of beauty. Consult with us today to find out which one is best for you.",
+      },
+    ],
   },
   components: {
     TreatmentLayout,

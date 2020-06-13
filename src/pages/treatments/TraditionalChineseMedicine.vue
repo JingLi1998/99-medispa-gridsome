@@ -35,7 +35,15 @@ import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   metaInfo: {
-    title: "Traditional Chinese Medicine",
+    title: "Traditional Chinese Medicine Sydney",
+    meta: [
+      {
+        name: "description",
+        key: "description",
+        content:
+          "Chinese medicine follows the traditions of yin and yang. Cultivate the body and mind in the most traditional and ancient way.",
+      },
+    ],
   },
   components: {
     TreatmentLayout,

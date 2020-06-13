@@ -36,7 +36,15 @@ import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   metaInfo: {
-    title: "Birthday Packages",
+    title: "Birthday Party Packages",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "Celebrate your next Birthday Party with one of our Luxury Birthday Packages. Whether it's a girls night out or even a relaxing night in, we'll provide you with an outting to remember. Indulge in food, drinks and complimentary treatments at our Laser Clinic located right in the Sydney CBD Australia!",
+      },
+    ],
   },
   components: {
     TreatmentLayout,

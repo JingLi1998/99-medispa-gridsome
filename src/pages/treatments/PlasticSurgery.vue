@@ -35,7 +35,15 @@ import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   metaInfo: {
-    title: "Plastic Surgery",
+    title: "Plastic Surgery Sydney",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "If our non-invasive Laser Treatments provided at our clinic don't happen to suit your needs, we also provide a range of plastic surgery options. Our experienced physicians will help you achieve your desired look today!",
+      },
+    ],
   },
   components: {
     TreatmentLayout,

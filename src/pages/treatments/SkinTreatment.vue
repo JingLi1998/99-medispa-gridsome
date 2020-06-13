@@ -35,7 +35,15 @@ import TreatmentLayout from "../../layouts/TreatmentLayout";
 
 export default {
   metaInfo: {
-    title: "Skin Treatment",
+    title: "Skin Treatment Sydney",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "99 Medispa provides numerous skin treatments to help rejuvenate your skin, returning to its youthful state, at an affordable price!",
+      },
+    ],
   },
   components: {
     TreatmentLayout,

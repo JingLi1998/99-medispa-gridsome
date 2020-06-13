@@ -121,6 +121,15 @@ import TheInstagramGallery from "../components/TheInstagramGallery";
 export default {
   metaInfo: {
     title: "Home",
+    titleTemplate: "%s | Cosmetic Laser Treatment Clinic Australia",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "With over 20 years of experience as a Laser Clinic in Australia, we at 99 Medispa take pride in providing our customers with a range of non-invasive cosmetic treatments. We use only TGA and FDA approved technologies including Picosure, Fotona, Ultherapy, Endymed, AquaPure, Coolsculpting and many more. ",
+      },
+    ],
   },
   components: {
     TheBackgroundSlideshow,
