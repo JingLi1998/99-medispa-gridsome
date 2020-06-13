@@ -104,6 +104,14 @@ import PriceList from "../domain/priceList/PriceList";
 export default {
   metaInfo: {
     title: "Price List",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "Our 99 Medispa price list includes the best and safest FDA and TGA approved technologies in the Australian Laser Clinic market. Prices may vary based on treatment duration, so please book a consultation to further decide which treatment best suits you skincare needs.",
+      },
+    ],
   },
   components: {
     DefaultLayout,

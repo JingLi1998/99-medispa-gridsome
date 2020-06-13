@@ -28,7 +28,15 @@ import ProductList from "../domain/products/ProductList";
 
 export default {
   metaInfo: {
-    title: "Products",
+    title: "Buy Skincare Products Online",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "Browse our online store to view our range of beauty and cosmetic skincare products. A good skincare routine is essential for maintaining your youthful complexion. We stock the best brands including Jansenn, Skinceuticals and more!",
+      },
+    ],
   },
   components: {
     ProductList,
