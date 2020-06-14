@@ -8,7 +8,7 @@
 
 module.exports = {
   siteName: "99 Medispa",
-  siteUrl: "https://99medispa.com.au",
+  siteUrl: "https://www.99medispa.com.au",
   titleTemplate: "%s | 99 Medispa",
   transformers: {
     remark: {
