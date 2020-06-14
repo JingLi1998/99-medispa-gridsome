@@ -120,7 +120,7 @@ import TheInstagramGallery from "../components/TheInstagramGallery";
 
 export default {
   metaInfo: {
-    title: "Home",
+    title: "99 Medispa",
     titleTemplate: "%s | Cosmetic Laser Treatment Clinic Australia",
     meta: [
       {
