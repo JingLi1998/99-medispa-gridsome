@@ -1,6 +1,6 @@
 <template>
   <default-layout :background-node="backgroundNode">
-    <information-panel
+    <v-information-panel
       v-for="(edge, index) in treatmentQueryEdges"
       :key="index"
       v-bind="edge.node"
@@ -11,12 +11,12 @@
 
 <script>
 import DefaultLayout from "./DefaultLayout";
-import InformationPanel from "../components/InformationPanel";
+import VInformationPanel from "../components/VInformationPanel";
 
 export default {
   components: {
     DefaultLayout,
-    InformationPanel,
+    VInformationPanel,
   },
   props: {
     backgroundNode: {

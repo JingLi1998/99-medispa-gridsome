@@ -1,16 +1,16 @@
 <template>
   <div id="defaultLayout">
-    <background-image v-bind="backgroundNode" />
+    <v-background-image v-bind="backgroundNode" />
     <slot />
   </div>
 </template>
 
 <script>
-import BackgroundImage from "../components/BackgroundImage";
+import VBackgroundImage from "../components/VBackgroundImage";
 
 export default {
   components: {
-    BackgroundImage,
+    VBackgroundImage,
   },
   props: {
     backgroundNode: {

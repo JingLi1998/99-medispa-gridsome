@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
-      <aspect-ratio class="w-full lg:w-1/2">
+      <v-aspect-ratio class="w-full lg:w-1/2">
         <div class="w-full h-full bg-white">
           <div
             class="flex flex-col justify-center w-10/12 h-full mx-auto xl:w-7/12"
@@ -22,24 +22,24 @@
             </g-link>
           </div>
         </div>
-      </aspect-ratio>
-      <aspect-ratio class="w-full lg:w-1/2">
+      </v-aspect-ratio>
+      <v-aspect-ratio class="w-full lg:w-1/2">
         <g-image
           class="object-cover w-full h-full"
           :src="image"
           :alt="altText"
         />
-      </aspect-ratio>
+      </v-aspect-ratio>
     </div>
   </fragment>
 </template>
 
 <script>
-import AspectRatio from "./AspectRatio";
+import VAspectRatio from "./VAspectRatio";
 
 export default {
   components: {
-    AspectRatio,
+    VAspectRatio,
   },
   props: {
     title: {

@@ -113,7 +113,7 @@
       </div>
     </form>
 
-    <snackbar
+    <v-snackbar
       :show="show"
       text="Thanks for submitting. We will be in contact with you shortly!"
     />
@@ -125,12 +125,12 @@ import axios from "axios";
 
 import vSelect from "vue-select";
 // import DatePicker from "v-calendar/lib/components/date-picker.umd";
-import Snackbar from "../../components/Snackbar";
+import VSnackbar from "../../components/VSnackbar";
 
 export default {
   components: {
     vSelect,
-    Snackbar,
+    VSnackbar,
     // DatePicker,
   },
   data() {
