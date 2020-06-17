@@ -2,7 +2,7 @@
   <div class="relative inline-block dropdown">
     <slot name="link" />
     <div
-      class="absolute ml-12 overflow-hidden bg-white max-h-0 dropdown-content"
+      class="absolute ml-8 overflow-hidden bg-white max-h-0 dropdown-content"
     >
       <slot name="dropdown" />
     </div>

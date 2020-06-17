@@ -34,7 +34,7 @@ module.exports = function (api) {
         images: [path.substring(8)],
         name: product.name,
         description: product.description,
-        slug: product.name.replace(/ /g, "-"),
+        slug: product.name.replace(/ /g, "-").toLowerCase(),
       });
     });
 
