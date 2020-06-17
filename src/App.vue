@@ -23,7 +23,7 @@
 
     <v-notification />
 
-    <facebook-chat />
+    <v-facebook-chat />
   </div>
 </template>
 
@@ -31,8 +31,8 @@
 import { mapActions } from "vuex";
 import "@stripe/stripe-js";
 
-import FacebookChat from "./components/FacebookChat";
-import FooterBar from "./components/FooterBar";
+import VFacebookChat from "./components/VFacebookChat";
+import FooterBar from "./domain/footer/FooterBar";
 import NavbarDesktop from "./domain/navbar/NavbarDesktop";
 import NavbarMobile from "./domain/navbar/NavbarMobile";
 import ShoppingCart from "./domain/shoppingCart/ShoppingCart";
@@ -43,7 +43,7 @@ export default {
   components: {
     NavbarDesktop,
     NavbarMobile,
-    FacebookChat,
+    VFacebookChat,
     ShoppingCart,
     FooterBar,
     VNotification,

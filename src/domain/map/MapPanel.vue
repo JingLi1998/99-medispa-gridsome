@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <overlay
+      <v-overlay
         v-if="show"
         class="cursor-default"
         @clicked="$emit('closeMap')"
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import Overlay from "../../components/Overlay";
+import VOverlay from "../../components/VOverlay";
 
 export default {
   components: {
-    Overlay,
+    VOverlay,
   },
   props: {
     show: {

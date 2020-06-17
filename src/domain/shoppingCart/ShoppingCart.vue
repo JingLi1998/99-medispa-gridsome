@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <overlay
+      <v-overlay
         v-if="show"
         class="cursor-default"
         @clicked="$emit('closeCart')"
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import Overlay from "../../components/Overlay";
+import VOverlay from "../../components/VOverlay";
 import ShoppingCartList from "./ShoppingCartList";
 
 export default {
   components: {
-    Overlay,
+    VOverlay,
     ShoppingCartList,
   },
   props: {
