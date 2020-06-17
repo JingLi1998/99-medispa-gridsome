@@ -8,6 +8,14 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
+<<<<<<< HEAD
+=======
+  purge: ["src/assets/**/*.css", "src/**/*.vue", "src/**/*.js"],
+  options: {
+    whitelist: ["svg-inline--fa"],
+    whitelistPatterns: [/svg.*/, /fa.*/, /v-.*/, /vs.*/, /shiki/, /fa-$/],
+  },
+>>>>>>> master
   theme: {
     extend: {
       colors: {

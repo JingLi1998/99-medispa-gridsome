@@ -8,6 +8,7 @@
 
 module.exports = {
   siteName: "99 Medispa",
+  siteUrl: "https://www.99medispa.com.au",
   titleTemplate: "%s | 99 Medispa",
   transformers: {
     remark: {
@@ -96,6 +97,8 @@ module.exports = {
         publicPath: `/admin`,
       },
     },
+    "@gridsome/plugin-sitemap",
+    "gridsome-plugin-robots-txt",
   ],
 
   // chainWebpack: (config) => {
