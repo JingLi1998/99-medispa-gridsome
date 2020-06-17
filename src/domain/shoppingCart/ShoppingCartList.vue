@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-0 right-0 w-full h-screen overflow-y-auto bg-white scrollbar-hidden sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-5/12 z-60"
+    class="fixed top-0 right-0 z-30 w-full h-screen overflow-y-auto bg-white scrollbar-hidden sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-5/12"
   >
     <!-- SHOPPING CART HEADER -->
     <div class="flex justify-between h-24 border-b border-gray-300">

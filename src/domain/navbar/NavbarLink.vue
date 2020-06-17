@@ -5,7 +5,7 @@
     :to="to"
     :exact="exact"
     :event="disabled ? '' : 'click'"
-    :class="{ 'cursor-default': disabled, 'mr-10': !dropdown }"
+    :class="{ 'cursor-default': disabled, 'ml-5': !dropdown }"
   >
     {{ name }}
   </g-link>

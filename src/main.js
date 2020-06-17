@@ -19,6 +19,7 @@ import {
   faCalendarAlt,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import { faFrown } from "@fortawesome/free-regular-svg-icons";
 
 // IMPORT VUEX STORE
 import store from "./store";
@@ -41,10 +42,11 @@ library.add(
   faMapMarkerAlt,
   faCalendar,
   faArrowLeft,
-  faCalendarAlt
+  faCalendarAlt,
+  faFrown
 );
 
-export default function (Vue, { head, router, appOptions }) {
+export default function (Vue, { head, appOptions }) {
   head.link.push(
     {
       rel: "stylesheet",
@@ -61,7 +63,7 @@ export default function (Vue, { head, router, appOptions }) {
     defer: true,
     async: true,
   });
-  router.addRoutes([{ path: "**", redirect: "/" }]);
+  // router.addRoutes([{ path: "**", component: Error }]);
 
   appOptions.store = store;
 

@@ -2,7 +2,7 @@
   <transition name="notification">
     <div
       v-if="showNotification"
-      class="fixed bottom-0 z-40 h-40 p-4 bg-white border notification sm:h-48 sm:top-0 sm:right-0 sm:mt-40 sm:mr-8"
+      class="fixed bottom-0 h-40 p-4 bg-white border notification sm:h-48 sm:top-0 sm:right-0 sm:mt-40 sm:mr-8"
     >
       <!-- NOTIFICATION TEXT -->
       <h1 class="my-auto text-lg font-semibold uppercase sm:mr-32 sm:text-xl">

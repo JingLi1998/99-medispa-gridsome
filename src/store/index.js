@@ -34,8 +34,11 @@ const store = new Vuex.Store({
       state.lineItems = newLineItems;
     },
     SET_STRIPE(state) {
-      // eslint-disable-next-line
-      state.stripe = Stripe(process.env.GRIDSOME_SECRET_KEY);
+      const timer = setInterval(() => {
+        // eslint-disable-next-line
+        state.stripe = Stripe(process.env.GRIDSOME_SECRET_KEY);
+        if (state.stripe) clearInterval(timer);
+      }, 500);
     },
     SET_NOTIFICATION_ITEM(state, notificationItem) {
       state.notificationItem = notificationItem;

@@ -19,7 +19,7 @@
 
       <!-- CAPTIONS -->
       <div
-        class="absolute inset-0 z-30 flex flex-col justify-center w-10/12 mx-auto mt-20"
+        class="absolute inset-0 z-10 flex flex-col justify-center w-10/12 mx-auto mt-20"
       >
         <transition name="fade">
           <div
@@ -27,11 +27,11 @@
             class="w-full md:w-10/12 xl:w-10/12"
           >
             <h1
-              class="z-30 text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
+              class="text-4xl font-semibold leading-tight text-white uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl opacity-90"
               v-html="edge.node.title"
             ></h1>
             <p
-              class="z-30 text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
+              class="text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl opacity-90"
             >
               {{ edge.node.subtitle }}
             </p>
@@ -41,7 +41,7 @@
     </div>
 
     <!-- OVERLAY -->
-    <div class="absolute inset-0 z-10 bg-black opacity-30" />
+    <div class="absolute inset-0 bg-black opacity-30" />
 
     <!-- navigation menu -->
     <!-- <a class="prev" @click="prev">&#10094; Previous</a> -->

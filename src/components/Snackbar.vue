@@ -2,7 +2,7 @@
   <transition name="fade">
     <div
       v-if="show"
-      class="fixed z-20 py-4 mx-auto text-center text-white rounded-lg shadow-2xl bg-secondary"
+      class="fixed py-4 mx-auto text-center text-white rounded-lg shadow-2xl bg-secondary"
       style="width: 60vh; top: 125px;"
     >
       {{ text }}

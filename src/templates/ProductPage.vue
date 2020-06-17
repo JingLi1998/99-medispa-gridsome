@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full mx-auto mt-32 lg:w-10/12 lg:mt-40 lg:mb-8 md:grid md:grid-cols-2 md:border xl:w-8/12"
+    class="w-full mx-auto mt-20 md:mt-32 lg:w-10/12 lg:mt-40 lg:mb-8 md:grid md:grid-cols-2 md:border xl:w-8/12"
   >
     <!-- PRODUCT IMAGE -->
     <div class="relative">

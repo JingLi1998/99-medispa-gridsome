@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <top-navbar @openCart="openCart" @openMap="openMap" />
-    <navbar />
+    <!-- <top-navbar @openCart="openCart" @openMap="openMap" />
+    <navbar /> -->
+    <navbar-desktop @openCart="openCart" @openMap="openMap" />
+    <navbar-mobile @openCart="openCart" @openMap="openMap" />
 
     <transition name="page" appear>
       <router-view v-show="showPage" />
@@ -31,19 +33,19 @@ import "@stripe/stripe-js";
 
 import FacebookChat from "./components/FacebookChat";
 import FooterBar from "./components/FooterBar";
-import Navbar from "./components/Navbar";
-import TopNavbar from "./components/TopNavbar";
+import NavbarDesktop from "./domain/navbar/NavbarDesktop";
+import NavbarMobile from "./domain/navbar/NavbarMobile";
 import ShoppingCart from "./domain/shoppingCart/ShoppingCart";
 import MapPanel from "./domain/map/MapPanel";
 import VNotification from "./components/VNotification";
 
 export default {
   components: {
-    Navbar,
+    NavbarDesktop,
+    NavbarMobile,
     FacebookChat,
     ShoppingCart,
     FooterBar,
-    TopNavbar,
     VNotification,
     MapPanel,
   },

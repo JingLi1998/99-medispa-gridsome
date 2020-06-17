@@ -4,7 +4,7 @@
     class="flex flex-col items-center w-full py-20 mx-auto bg-white rounded"
   >
     <h1
-      class="text-5xl font-bold text-center sm:mb-3 sm:text-6xl font-fancy text-secondary"
+      class="text-4xl font-bold text-center sm:mb-3 sm:text-5xl md:text-6xl font-fancy text-secondary"
     >
       Enquiry Form
     </h1>

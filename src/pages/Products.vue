@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <product-list :product-edges="$page.products.edges" />
-  </div>
+  <product-list :product-edges="$page.products.edges" />
 </template>
 
 <page-query>
