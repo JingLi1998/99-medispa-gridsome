@@ -23,8 +23,8 @@ export default {
         .redirectToCheckout({
           lineItems: this.checkoutItems,
           mode: "payment",
-          successUrl: "http://localhost:8080/success",
-          cancelUrl: "http://localhost:8080/canceled",
+          successUrl: "https://dev--99medispa.netlify.app/success",
+          cancelUrl: "https://dev--99medispa.netlify.app/cancelled",
           shippingAddressCollection: {
             allowedCountries: ["AU"],
           },

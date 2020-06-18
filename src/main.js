@@ -19,7 +19,11 @@ import {
   faCalendarAlt,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { faFrown } from "@fortawesome/free-regular-svg-icons";
+import {
+  faFrown,
+  faCheckCircle,
+  faTimesCircle,
+} from "@fortawesome/free-regular-svg-icons";
 
 // IMPORT VUEX STORE
 import store from "./store";
@@ -43,7 +47,9 @@ library.add(
   faCalendar,
   faArrowLeft,
   faCalendarAlt,
-  faFrown
+  faFrown,
+  faCheckCircle,
+  faTimesCircle
 );
 
 export default function (Vue, { head, appOptions }) {
@@ -63,7 +69,17 @@ export default function (Vue, { head, appOptions }) {
     defer: true,
     async: true,
   });
-  // router.addRoutes([{ path: "**", component: Error }]);
+  // router.addRoutes([
+  //   {
+  //     path: "/success",
+  //     component: Success,
+  //     beforeEnter: (to, from, next) => {
+  //       console.log(to);
+  //       console.log(from);
+  //       next();
+  //     },
+  //   },
+  // ]);
 
   appOptions.store = store;
 
