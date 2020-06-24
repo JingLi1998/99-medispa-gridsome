@@ -28,9 +28,11 @@ const store = new Vuex.Store({
         state.lineItems = newLineItems;
       }
     },
-    REMOVE_LINE_ITEM(state, lineItem) {
+    REMOVE_LINE_ITEM(state, removeIndex) {
       let newLineItems = [...state.lineItems];
-      newLineItems = newLineItems.filter((item) => item.lineItem !== lineItem);
+      newLineItems = newLineItems.filter(
+        (item, index) => index !== removeIndex
+      );
       state.lineItems = newLineItems;
     },
     SET_STRIPE(state) {
@@ -74,8 +76,8 @@ const store = new Vuex.Store({
       }, 2000);
       dispatch("setNotificationTimer", timer);
     },
-    removeLineItem({ commit }, lineItem) {
-      commit("REMOVE_LINE_ITEM", lineItem);
+    removeLineItem({ commit }, index) {
+      commit("REMOVE_LINE_ITEM", index);
     },
     setStripe({ commit }) {
       commit("SET_STRIPE");

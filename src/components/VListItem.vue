@@ -1,5 +1,26 @@
 <template>
-  <div class="w-full p-2 bg-black bg-opacity-0 hover:bg-opacity-25">
+  <div
+    :class="classes"
+    class="flex flex-row items-center justify-between w-full p-2"
+  >
     <slot />
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    hover: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      classes: {
+        "bg-black bg-opacity-0 hover:bg-opacity-10": this.hover,
+      },
+    };
+  },
+};
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="py-1">
+  <div class="flex-grow">
     <slot />
   </div>
 </template>

@@ -23,6 +23,7 @@ import {
   faFrown,
   faCheckCircle,
   faTimesCircle,
+  faTrashAlt,
 } from "@fortawesome/free-regular-svg-icons";
 
 // IMPORT VUEX STORE
@@ -49,7 +50,8 @@ library.add(
   faCalendarAlt,
   faFrown,
   faCheckCircle,
-  faTimesCircle
+  faTimesCircle,
+  faTrashAlt
 );
 
 export default function (Vue, { head, appOptions }) {

@@ -7,12 +7,10 @@
     <br />
     <div class="w-3/12 rounded shadow">
       <v-list>
-        <template #header>
-          <div class="px-2 text-lg">
-            Consultation
-          </div>
-        </template>
-        <v-list-item>Hello</v-list-item>
+        <v-list-header>Consultation</v-list-header>
+        <v-list-item>
+          Hello
+        </v-list-item>
         <v-list-item>World</v-list-item>
       </v-list>
     </div>
@@ -36,6 +34,7 @@ query {
 
 <script>
 import VList from "../components/VList";
+import VListHeader from "../components/VListHeader";
 import VListItem from "../components/VListItem";
 // import DefaultLayout from "../layouts/DefaultLayout";
 
@@ -46,6 +45,7 @@ export default {
   components: {
     // DefaultLayout,
     VList,
+    VListHeader,
     VListItem,
   },
 };

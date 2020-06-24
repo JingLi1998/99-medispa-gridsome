@@ -1,21 +1,29 @@
 <template>
-  <div class="flex justify-between">
-    <img class="object-contain w-24 h-24" :src="lineItem.images[0]" />
-    <div class="flex-grow my-auto">
-      <p class="my-auto font-semibold uppercase">
+  <v-list-item>
+    <g-image class="object-contain w-24 h-24" :src="lineItem.images[0]" />
+    <v-list-item-content>
+      <p class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0">
         {{ lineItem.name }}
       </p>
-      <p class="my-auto">Quantity: {{ quantity }}</p>
-    </div>
-    <p class="my-auto mr-10">
+      <p>Quantity: {{ quantity }}</p>
+    </v-list-item-content>
+    <p class="mr-4">
       {{ convertStripeAmount(lineItem.amount) }}
     </p>
-  </div>
+  </v-list-item>
 </template>
 
 <script>
 import { convertStripeAmount } from "../../utils/stripeUtils";
+
+import VListItem from "../../components/VListItem";
+import VListItemContent from "../../components/VListItemContent";
+
 export default {
+  components: {
+    VListItem,
+    VListItemContent,
+  },
   props: {
     lineItem: {
       type: Object,

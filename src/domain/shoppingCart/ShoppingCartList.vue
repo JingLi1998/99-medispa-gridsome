@@ -23,19 +23,21 @@
         Your cart is currently empty.
       </p>
       <template v-else>
-        <div v-for="(item, index) in lineItems" :key="item.lineItem.price">
-          <hr v-if="index !== 0" class="my-2" />
-          <shopping-cart-list-item v-bind="item" />
-        </div>
+        <v-list>
+          <template v-for="(item, index) in lineItems">
+            <hr v-if="index !== 0" :key="item.lineItem.price" class="my-2" />
+            <shopping-cart-list-item :key="item.lineItem.price" v-bind="item" />
+          </template>
+        </v-list>
       </template>
-      <hr class="my-8" />
+      <hr class="mt-2 mb-8" />
 
       <!-- SHOPPING CART CHECKOUT -->
       <div class="flex justify-between">
         <p class="my-auto text-xl font-bold uppercase">Total</p>
         <p class="my-auto text-3xl uppercase">{{ total }} AUD</p>
       </div>
-      <shopping-cart-list-button />
+      <shopping-cart-list-button @closeCart="$emit('closeCart')" />
     </div>
   </div>
 </template>
@@ -46,11 +48,13 @@ import { mapState } from "vuex";
 import ShoppingCartListButton from "./ShoppingCartListButton";
 import ShoppingCartListItem from "./ShoppingCartListItem";
 import { convertStripeAmount } from "../../utils/stripeUtils";
+import VList from "../../components/VList";
 
 export default {
   components: {
     ShoppingCartListButton,
     ShoppingCartListItem,
+    VList,
   },
   computed: {
     ...mapState(["lineItems"]),
