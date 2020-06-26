@@ -14,15 +14,15 @@
       <div class="flex justify-between">
         <img
           class="object-contain w-24 h-16 sm:w-32 sm:h-24"
-          :src="notificationItem.images[0]"
+          :src="notificationContent.item.images[0]"
         />
         <p
-          class="flex-grow my-auto text-xs font-semibold uppercase sm:text-base"
+          class="flex-grow my-auto mr-4 text-xs font-semibold uppercase sm:text-base"
         >
-          {{ notificationItem.name }}
+          {{ notificationContent.item.name }}
         </p>
         <p class="my-auto mr-10 text-xs sm:text-base">
-          {{ convertStripeAmount(notificationItem.amount) }} AUD
+          {{ convertStripeAmount(notificationContent.item.amount) }} AUD
         </p>
       </div>
     </div>
@@ -36,7 +36,7 @@ import { convertStripeAmount } from "../utils/stripeUtils";
 
 export default {
   computed: {
-    ...mapState(["showNotification", "notificationItem"]),
+    ...mapState("notifications", ["showNotification", "notificationContent"]),
   },
   methods: {
     convertStripeAmount,

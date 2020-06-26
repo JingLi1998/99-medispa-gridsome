@@ -1,14 +1,14 @@
 <template>
   <v-list-item>
-    <g-image class="object-contain w-24 h-24" :src="lineItem.images[0]" />
+    <g-image class="object-contain w-24 h-24" :src="item.images[0]" />
     <v-list-item-content>
       <p class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0">
-        {{ lineItem.name }}
+        {{ item.name }}
       </p>
       <p>Quantity: {{ quantity }}</p>
     </v-list-item-content>
     <p class="mr-4">
-      {{ convertStripeAmount(lineItem.amount) }}
+      {{ convertStripeAmount(item.amount) }}
     </p>
   </v-list-item>
 </template>
@@ -25,7 +25,7 @@ export default {
     VListItemContent,
   },
   props: {
-    lineItem: {
+    item: {
       type: Object,
       required: true,
     },

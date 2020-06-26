@@ -19,14 +19,17 @@
 
     <!-- SHOPPING CART lIST -->
     <div class="p-2 sm:p-8">
-      <p v-if="!lineItems.length">
+      <p v-if="!cartItems.length">
         Your cart is currently empty.
       </p>
       <template v-else>
         <v-list>
-          <template v-for="(item, index) in lineItems">
-            <hr v-if="index !== 0" :key="item.lineItem.price" class="my-2" />
-            <shopping-cart-list-item :key="item.lineItem.price" v-bind="item" />
+          <template v-for="(cartItem, index) in cartItems">
+            <hr v-if="index !== 0" :key="cartItem.item.price" class="my-2" />
+            <shopping-cart-list-item
+              :key="cartItem.item.price"
+              v-bind="cartItem"
+            />
           </template>
         </v-list>
       </template>
@@ -57,12 +60,13 @@ export default {
     VList,
   },
   computed: {
-    ...mapState(["lineItems"]),
+    ...mapState("cart", ["cartItems"]),
     total() {
       let total = 0;
-      if (this.lineItems.length) {
-        this.lineItems.forEach(
-          (item) => (total += Number(item.lineItem.amount) * item.quantity)
+      if (this.cartItems.length) {
+        this.cartItems.forEach(
+          (cartItem) =>
+            (total += Number(cartItem.item.amount) * cartItem.quantity)
         );
         return this.convertStripeAmount(total.toString());
       } else {

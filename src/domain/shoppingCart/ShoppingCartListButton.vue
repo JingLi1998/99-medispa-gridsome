@@ -1,9 +1,9 @@
 <template>
   <g-link to="/checkout/">
     <v-button
-      :class="{ 'opacity-50 cursor-default': !checkoutItems.length }"
+      :class="{ 'opacity-50 cursor-default': !lineItems.length }"
       class="w-full p-2 mt-6 text-white uppercase rounded bg-secondary"
-      :disabled="!checkoutItems.length"
+      :disabled="!lineItems.length"
       @click="$emit('closeCart')"
     >
       Checkout Now
@@ -16,7 +16,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["checkoutItems"]),
+    ...mapGetters("cart", ["lineItems"]),
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <g-link
     :to="`/products/${productNode.slug}/`"
-    class="relative flex flex-col transition transition-shadow duration-100 border-b border-r border-gray-300 card hover:shadow-lg"
+    class="relative flex flex-col transition-shadow duration-100 border-b border-r border-gray-300 card hover:shadow-lg"
   >
     <!-- PRODUCT IMAGE -->
     <div class="mt-1 card-image">
@@ -29,10 +29,6 @@ export default {
     productNode: {
       type: Object,
       required: true,
-    },
-    inCart: {
-      type: Boolean,
-      default: false,
     },
   },
   methods: {

@@ -31,7 +31,7 @@
           'hover:bg-opacity-50': !inCart,
         }"
         :disabled="inCart"
-        @click="addLineItem($context)"
+        @click="addCartItem({ item: $context, quantity: 1 })"
       >
         {{ inCart ? "Added To Cart" : "Add To Cart" }}
       </v-button>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 import { convertStripeAmount } from "../utils/stripeUtils";
 
@@ -53,19 +53,14 @@ export default {
     };
   },
   computed: {
-    ...mapState(["lineItems"]),
+    ...mapGetters("cart", ["isInCart"]),
     inCart() {
-      return !!this.lineItems.filter(
-        (item) => item.lineItem.name === this.$context.name
-      ).length;
+      return this.isInCart(this.$context.name);
     },
   },
   methods: {
-    ...mapActions(["addLineItem"]),
+    ...mapActions("cart", ["addCartItem"]),
     convertStripeAmount,
-    doThis() {
-      console.log(this.$context);
-    },
   },
 };
 </script>
