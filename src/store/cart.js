@@ -29,7 +29,9 @@ const store = {
         (_, index) => index !== removeIndex
       );
     },
-    UPDATE_CART_ITEM(state, updateIndex, cartItem) {
+    UPDATE_CART_ITEM(state, { updateIndex, cartItem }) {
+      console.log(updateIndex);
+      console.log(cartItem);
       const updatedCartItems = [...state.cartItems];
       updatedCartItems[updateIndex] = cartItem;
       state.cartItems = updatedCartItems;
@@ -47,14 +49,16 @@ const store = {
       }, 500);
       setTimeout(() => {
         dispatch("notifications/hideNotification", null, { root: true });
-        dispatch("notifications/clearNotification", null, { root: true });
+        dispatch("notifications/clearNotificationContent", null, {
+          root: true,
+        });
       }, 2000);
     },
     removeCartItem({ commit }, removeIndex) {
       commit("REMOVE_CART_ITEM", removeIndex);
     },
-    updateCartItem({ commit }, updateIndex, cartItem) {
-      commit("UPDATE_CART_ITEM", updateIndex, cartItem);
+    updateCartItem({ commit }, { updateIndex, cartItem }) {
+      commit("UPDATE_CART_ITEM", { updateIndex, cartItem });
     },
   },
 };

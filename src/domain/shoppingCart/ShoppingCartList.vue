@@ -24,11 +24,12 @@
       </p>
       <template v-else>
         <v-list>
-          <template v-for="(cartItem, index) in cartItems">
-            <hr v-if="index !== 0" :key="cartItem.item.price" class="my-2" />
+          <template v-for="({ item, quantity }, index) in cartItems">
+            <hr v-if="index !== 0" :key="item.name" class="my-2" />
             <shopping-cart-list-item
-              :key="cartItem.item.price"
-              v-bind="cartItem"
+              :key="item.price"
+              :item="item"
+              :quantity="quantity"
             />
           </template>
         </v-list>

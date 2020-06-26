@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-button
-      :class="{ 'opacity-50 cursor-default': !checkoutItems.length }"
+      :class="{ 'opacity-50 cursor-default': !lineItems.length }"
       class="w-full p-2 text-white uppercase bg-secondary"
-      :disabled="!checkoutItems.length"
+      :disabled="!lineItems.length"
       @click="checkout"
     >
       Go to checkout
@@ -27,14 +27,14 @@ export default {
   },
   computed: {
     ...mapState(["stripe"]),
-    ...mapGetters(["checkoutItems"]),
+    ...mapGetters("cart", ["lineItems"]),
   },
   methods: {
     async checkout() {
       this.error = null;
       try {
         const { error } = await this.stripe.redirectToCheckout({
-          lineItems: this.checkoutItems,
+          lineItems: this.lineItems,
           mode: "payment",
           successUrl: "https://dev--99medispa.netlify.app/success",
           cancelUrl: "https://dev--99medispa.netlify.app/cancelled",
