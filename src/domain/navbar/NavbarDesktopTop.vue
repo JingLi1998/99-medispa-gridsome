@@ -16,9 +16,9 @@
       <v-button
         class="inline w-8 h-8 mr-2 bg-black bg-opacity-0 rounded-full hover:bg-opacity-10"
       >
-        <g-link :to="'book'">
+        <a href="https://google.com">
           <font-awesome size="lg" :icon="['fas', 'calendar-alt']" />
-        </g-link>
+        </a>
       </v-button>
       <span class="mr-2 cursor-default">View Cart</span>
       <v-button

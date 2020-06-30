@@ -5,7 +5,7 @@
     <!-- PRODUCT IMAGE -->
     <div class="relative">
       <g-image
-        class="object-cover h-full mx-auto image"
+        class="object-contain h-full mx-auto image"
         :src="$context.images[0]"
       />
       <div
@@ -17,10 +17,14 @@
     </div>
 
     <!-- PRODUCT NAME AND PRICE -->
-    <div class="px-6 border-l md:py-10">
-      <h1 class="mb-8 text-2xl font-bold uppercase md:text-3xl">
+    <div class="px-6 pb-6 border-l card md:py-10">
+      <h1 class="mb-4 text-2xl font-bold uppercase md:text-3xl">
         {{ $context.name }}
       </h1>
+      <h2 class="text-xl font-medium uppercase">
+        {{ $context.metadata.brand }}
+      </h2>
+      <h2 class="my-2">Size: {{ $context.metadata.size }}</h2>
       <p class="text-xl font-medium">
         {{ convertStripeAmount($context.amount) }} AUD
       </p>
@@ -36,7 +40,19 @@
         {{ inCart ? "Added To Cart" : "Add To Cart" }}
       </v-button>
       <hr />
-      <p class="mt-4 mb-10 font-light">{{ $context.description }}</p>
+      <h2 class="mt-4 text-xl font-medium uppercase">
+        {{ $context.metadata.tagline }}
+      </h2>
+      <p class="mt-4 font-light">{{ $context.metadata.description }}</p>
+      <h3 class="mt-4 text-xl">Key Ingredients:</h3>
+      <ol>
+        <li
+          v-for="ingredient in $context.metadata.ingredients.split(',')"
+          :key="ingredient"
+        >
+          - {{ ingredient }}
+        </li>
+      </ol>
     </div>
   </div>
 </template>
@@ -67,9 +83,9 @@ export default {
 
 <style scoped>
 .card {
-  height: 500px;
+  min-height: 700px;
 }
 .image {
-  width: 400px;
+  width: 125px;
 }
 </style>

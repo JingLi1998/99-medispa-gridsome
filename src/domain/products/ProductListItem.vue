@@ -12,11 +12,20 @@
     </div>
 
     <!-- PRODUCT DESCRIPTION -->
-    <div class="h-full px-4">
-      <p class="my-2 text-sm font-medium uppercase md:mt-8">
-        {{ productNode.name }}
+    <div
+      class="flex flex-col justify-end h-full px-4 pb-4 sm:flex-row sm:justify-between sm:align-bottom"
+    >
+      <div>
+        <p class="my-2 text-sm font-medium uppercase md:mt-8">
+          {{ productNode.name }}
+        </p>
+        <p>{{ convertStripeAmount(productNode.amount) }} AUD</p>
+      </div>
+      <p
+        class="mt-2 text-sm font-light uppercase sm:text-right sm:mt-10 md:mt-16"
+      >
+        Filorga FillMed
       </p>
-      <p>{{ convertStripeAmount(productNode.amount) }} AUD</p>
     </div>
   </g-link>
 </template>
@@ -42,7 +51,16 @@ export default {
   height: 300px;
 }
 .card-image {
-  height: 200px;
+  width: 75px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+  .card-image {
+    height: 220px;
+    width: 110px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -50,7 +68,8 @@ export default {
     height: 350px;
   }
   .card-image {
-    height: 250px;
+    height: 220px;
+    width: 110px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -58,7 +77,8 @@ export default {
     height: 400px;
   }
   .card-image {
-    height: 300px;
+    height: 280px;
+    width: 140px;
   }
 }
 </style>

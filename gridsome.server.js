@@ -15,9 +15,11 @@ const downloadImage = (url, path, callback) => {
 
 module.exports = function (api) {
   api.loadSource(async (actions) => {
-    const { data: prices } = await stripe.prices.list();
-    const { data: products } = await stripe.products.list();
+    // get active prices and products from stripe api
+    const { data: prices } = await stripe.prices.list({ active: true });
+    const { data: products } = await stripe.products.list({ active: true });
 
+    // merge data from prices and products into singular object
     let merged = [];
 
     prices.forEach((price) => {
@@ -25,19 +27,18 @@ module.exports = function (api) {
       const url = product.images[0];
       const name = url.substring(31);
       const path = `./static/stripeImages/${name}.jpg`;
-      downloadImage(url, path, () => {
-        console.log(`${url} finished downloading`);
-      });
+      downloadImage(url, path, () => {});
 
       merged.push({
         ...price,
         images: [path.substring(8)],
         name: product.name,
-        description: product.description,
+        metadata: product.metadata,
         slug: product.name.replace(/ /g, "-").toLowerCase(),
       });
     });
 
+    // add to graphql collections
     const collection = actions.addCollection({
       typeName: "StripeProducts",
     });
@@ -47,6 +48,7 @@ module.exports = function (api) {
     });
   });
 
+  // generate single page for each product
   api.createPages(async ({ graphql, createPage }) => {
     const { data } = await graphql(`
       {
@@ -61,7 +63,13 @@ module.exports = function (api) {
               product
               images
               name
-              description
+              metadata {
+                tagline
+                description
+                size
+                brand
+                ingredients
+              }
             }
           }
         }
