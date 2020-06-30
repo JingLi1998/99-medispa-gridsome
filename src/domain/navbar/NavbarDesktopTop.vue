@@ -16,7 +16,9 @@
       <v-button
         class="inline w-8 h-8 mr-2 bg-black bg-opacity-0 rounded-full hover:bg-opacity-10"
       >
-        <a href="https://google.com">
+        <a
+          href="https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819"
+        >
           <font-awesome size="lg" :icon="['fas', 'calendar-alt']" />
         </a>
       </v-button>
