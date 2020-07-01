@@ -70,6 +70,13 @@ export default {
   metaInfo() {
     return {
       title: this.$context.name,
+      meta: [
+        {
+          name: "description",
+          key: "description",
+          content: this.$context.metadata.description,
+        },
+      ],
     };
   },
   // components: {

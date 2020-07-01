@@ -97,6 +97,18 @@ import VCheckoutButton from "../components/VCheckoutButton";
 import vSelect from "vue-select";
 
 export default {
+  metaInfo() {
+    return {
+      title: "Checkout",
+      meta: [
+        {
+          name: "description",
+          key: "description",
+          content: "Checkout page for 99 Medispa Skincare Products",
+        },
+      ],
+    };
+  },
   components: {
     VButton,
     VList,

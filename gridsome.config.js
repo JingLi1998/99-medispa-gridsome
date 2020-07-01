@@ -98,7 +98,19 @@ module.exports = {
       },
     },
     "@gridsome/plugin-sitemap",
-    "gridsome-plugin-robots-txt",
+    {
+      use: "gridsome-plugin-robots-txt",
+      options: {
+        host: "https://www.99medispa.com.au",
+        sitemap: "https://www.99medispa.com.au/sitemap.xml",
+        policy: [
+          {
+            userAgent: "*",
+            disallow: ["/checkout/", "/success/", "/cancelled/"],
+          },
+        ],
+      },
+    },
   ],
 
   // chainWebpack: (config) => {
