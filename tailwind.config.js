@@ -5,7 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 const defaultTheme = require("tailwindcss/defaultTheme");
-const plugin = require("tailwindcss/plugin");
+// const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   purge: ["src/assets/**/*.css", "src/**/*.vue", "src/**/*.js"],
@@ -77,20 +77,20 @@ module.exports = {
     // opacity: ["responsive", "hover", "focus", "disabled"],
   },
   plugins: [
-    plugin(function ({ addUtilities }) {
-      const newUtilities = {
-        ".v-select .vs__dropdown-toggle": {
-          borderColor: "#e2e8f0",
-          paddingTop: "0.25rem",
-          paddingBottom: "0.25rem",
-          paddingLeft: "0.75rem",
-        },
-        ".v-select .vs__selected": {
-          padding: 0,
-          margin: 0,
-        },
-      };
-      addUtilities(newUtilities);
-    }),
+    // plugin(function ({ addUtilities }) {
+    //   const newUtilities = {
+    //     ".v-select .vs__dropdown-toggle": {
+    //       borderColor: "#e2e8f0",
+    //       paddingTop: "0.25rem",
+    //       paddingBottom: "0.25rem",
+    //       paddingLeft: "0.75rem",
+    //     },
+    //     ".v-select .vs__selected": {
+    //       padding: 0,
+    //       margin: 0,
+    //     },
+    //   };
+    //   addUtilities(newUtilities);
+    // }),
   ],
 };

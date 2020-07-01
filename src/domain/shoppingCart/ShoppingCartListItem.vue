@@ -1,14 +1,14 @@
 <template>
   <v-list-item>
-    <g-image class="object-contain w-24 h-24" :src="item.images[0]" />
+    <g-image class="object-contain w-12 h-24 ml-4 mr-8" :src="item.images[0]" />
     <v-list-item-content>
-      <p class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0">
+      <p class="mr-3 text-sm font-semibold uppercase sm:text-base sm:mr-0">
         {{ item.name }}
       </p>
       <p>Quantity: {{ quantity }}</p>
     </v-list-item-content>
     <p class="mr-4">
-      {{ convertStripeAmount(item.amount) }}
+      {{ convertStripeAmount((Number(item.amount) * quantity).toString()) }}
     </p>
   </v-list-item>
 </template>

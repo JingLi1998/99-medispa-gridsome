@@ -33,6 +33,7 @@ import store from "./store";
 import { Fragment } from "vue-fragment";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import VButton from "./components/VButton";
+import "~/assets/main.css";
 
 config.autoAddCss = false;
 library.add(

@@ -3,11 +3,8 @@
     class="w-full mx-auto mt-20 md:mt-32 lg:w-10/12 lg:mt-40 lg:mb-8 md:grid md:grid-cols-2 md:border xl:w-8/12"
   >
     <!-- PRODUCT IMAGE -->
-    <div class="relative">
-      <g-image
-        class="object-contain h-full mx-auto image"
-        :src="$context.images[0]"
-      />
+    <div class="relative flex items-center py-10">
+      <g-image class="object-contain mx-auto image" :src="$context.images[0]" />
       <div
         class="absolute inset-0 flex w-16 h-16 transition duration-300 bg-black bg-opacity-0 border-b border-r cursor-pointer hover:bg-opacity-10 transition:opacity"
         @click="$router.go(-1)"
@@ -28,6 +25,12 @@
       <p class="text-xl font-medium">
         {{ convertStripeAmount($context.amount) }} AUD
       </p>
+      <!-- <v-select
+        v-model="quantity"
+        class="w-32 my-2 quantity"
+        :searchable="false"
+        :options="[1, 2]"
+      /> -->
       <v-button
         class="w-full py-2 my-4 text-center text-white bg-secondary"
         :class="{
@@ -35,7 +38,7 @@
           'hover:bg-opacity-50': !inCart,
         }"
         :disabled="inCart"
-        @click="addCartItem({ item: $context, quantity: 1 })"
+        @click="addCartItem({ item: $context, quantity })"
       >
         {{ inCart ? "Added To Cart" : "Add To Cart" }}
       </v-button>
@@ -59,6 +62,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+// import vSelect from "vue-select";
 
 import { convertStripeAmount } from "../utils/stripeUtils";
 
@@ -66,6 +70,14 @@ export default {
   metaInfo() {
     return {
       title: this.$context.name,
+    };
+  },
+  // components: {
+  //   vSelect,
+  // },
+  data() {
+    return {
+      quantity: 1,
     };
   },
   computed: {
@@ -86,6 +98,14 @@ export default {
   min-height: 700px;
 }
 .image {
-  width: 125px;
+  width: 150px;
+  height: 300px;
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    width: 200px;
+    height: 400px;
+  }
 }
 </style>

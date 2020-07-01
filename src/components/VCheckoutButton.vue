@@ -6,7 +6,7 @@
       :disabled="!lineItems.length"
       @click="checkout"
     >
-      Go to checkout
+      Checkout With Stripe
     </v-button>
     <!-- <transition name="fade">
       <p v-if="error" class="mt-4 text-sm text-red-600 md:text-base">

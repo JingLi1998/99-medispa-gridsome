@@ -7,14 +7,14 @@ query {
   products: allStripeProducts {
     edges {
       node {
-        price: id
-        active
-        currency
         amount: unit_amount_decimal
         product
         images
         name
         slug
+        metadata {
+          brand
+        }
       }
     }
   }

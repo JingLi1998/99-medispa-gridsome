@@ -3,6 +3,9 @@ const store = {
 
   state: {
     cartItems: [],
+    selectedItemIndex: null,
+    selectedItem: null,
+    showDeleteModal: false,
   },
 
   getters: {
@@ -15,6 +18,12 @@ const store = {
     isInCart: (state) => (name) => {
       return !!state.cartItems.filter((cartItem) => cartItem.item.name === name)
         .length;
+    },
+    total(state) {
+      return state.cartItems.reduce(
+        (total, { item, quantity }) => Number(item.amount) * quantity + total,
+        0
+      );
     },
   },
 
@@ -30,11 +39,21 @@ const store = {
       );
     },
     UPDATE_CART_ITEM(state, { updateIndex, cartItem }) {
-      console.log(updateIndex);
-      console.log(cartItem);
       const updatedCartItems = [...state.cartItems];
       updatedCartItems[updateIndex] = cartItem;
       state.cartItems = updatedCartItems;
+    },
+    SET_SELECTED_ITEM_INDEX(state, index) {
+      state.selectedItemIndex = index;
+    },
+    SET_SELECTED_ITEM(state, index) {
+      state.selectedItem = { ...state.cartItems[index] };
+    },
+    SHOW_DELETE_MODAL(state) {
+      state.showDeleteModal = true;
+    },
+    HIDE_DELETE_MODAL(state) {
+      state.showDeleteModal = false;
     },
   },
 
@@ -54,11 +73,26 @@ const store = {
         });
       }, 2000);
     },
-    removeCartItem({ commit }, removeIndex) {
+    removeCartItem({ commit, dispatch }, removeIndex) {
       commit("REMOVE_CART_ITEM", removeIndex);
+      dispatch("hideDeleteModal");
     },
     updateCartItem({ commit }, { updateIndex, cartItem }) {
       commit("UPDATE_CART_ITEM", { updateIndex, cartItem });
+    },
+    setSelectedItemIndex({ commit, dispatch }, index) {
+      commit("SET_SELECTED_ITEM_INDEX", index);
+      dispatch("setSelectedItem", index);
+      dispatch("showDeleteModal");
+    },
+    setSelectedItem({ commit }, index) {
+      commit("SET_SELECTED_ITEM", index);
+    },
+    showDeleteModal({ commit }) {
+      commit("SHOW_DELETE_MODAL");
+    },
+    hideDeleteModal({ commit }) {
+      commit("HIDE_DELETE_MODAL");
     },
   },
 };

@@ -4,9 +4,8 @@
     <navbar /> -->
     <navbar-desktop @openCart="openCart" @openMap="openMap" />
     <navbar-mobile @openCart="openCart" @openMap="openMap" />
-
     <transition name="page" appear>
-      <router-view v-show="showPage" />
+      <router-view v-show="showPage" class="min" />
     </transition>
 
     <transition name="page" appear>
@@ -18,8 +17,9 @@
       class="cursor-pointer"
       @closeCart="closeCart"
     />
-
     <map-panel :show="showMap" @closeMap="closeMap" />
+
+    <delete-product-modal />
 
     <v-notification />
 
@@ -38,6 +38,7 @@ import NavbarMobile from "./domain/navbar/NavbarMobile";
 import ShoppingCart from "./domain/shoppingCart/ShoppingCart";
 import MapPanel from "./domain/map/MapPanel";
 import VNotification from "./components/VNotification";
+import DeleteProductModal from "./domain/checkout/DeleteProductModal";
 
 export default {
   components: {
@@ -48,6 +49,7 @@ export default {
     FooterBar,
     VNotification,
     MapPanel,
+    DeleteProductModal,
   },
   data() {
     return {
@@ -96,5 +98,8 @@ export default {
 }
 .scrollbar-hidden {
   -ms-overflow-style: none;
+}
+.min {
+  min-height: calc(100vh - 320px - 5rem);
 }
 </style>

@@ -1,60 +1,94 @@
 <template>
-  <div class="px-4 pb-4 mt-20 bg-color">
-    <h1 class="text-xl font-semibold uppercase">My Shopping Cart</h1>
+  <div
+    class="w-10/12 py-4 mx-auto mt-20 page md:w-8/12 xl:w-6/12 md:py-20 md:mt-36"
+  >
+    <h1 class="mb-2 text-xl font-semibold uppercase md:text-3xl">
+      My Shopping Cart
+    </h1>
+    <hr />
     <p v-if="!cartItems.length" class="my-4">Cart is empty</p>
     <v-list v-else>
       <template v-for="({ item, quantity }, index) in cartItems">
         <div :key="item.price" class="mb-2 bg-white">
-          <div class="flex items-center justify-around p-2 border-b">
-            <g-image class="object-contain w-32 h-32" :src="item.images[0]" />
-            <div class="flex-grow">
-              <p
-                class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0"
-              >
-                {{ item.name }}
-              </p>
-              <v-button
-                class="w-8 h-8 mr-1 bg-black bg-opacity-0 border hover:bg-opacity-10"
-                @click="removeCartItem(index)"
-              >
-                <font-awesome :icon="['far', 'trash-alt']" />
-              </v-button>
+          <div class="p-2 border-b sm:flex">
+            <!-- IMAGE AND TITLE -->
+            <div class="flex flex-grow">
+              <g-image
+                class="object-contain w-16 h-32 ml-4 mr-8"
+                :src="item.images[0]"
+              />
+              <div class="flex-grow">
+                <p
+                  class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0"
+                >
+                  {{ item.name }}
+                </p>
+                <p>Brand: {{ item.metadata.brand }}</p>
+                <p>Size: {{ item.metadata.size }}</p>
+                <v-button
+                  class="w-8 h-8 mt-2 mr-1 bg-black bg-opacity-0 border hover:bg-opacity-10"
+                  @click="setSelectedItemIndex(index)"
+                >
+                  <font-awesome :icon="['far', 'trash-alt']" />
+                </v-button>
+              </div>
             </div>
-          </div>
-          <div class="flex items-center justify-around py-4">
-            <v-select
-              :value="quantity"
-              class="w-32 quantity"
-              :searchable="false"
-              :options="[1, 2]"
-              @input="
-                (e) =>
-                  updateCartItem({
-                    updateIndex: index,
-                    cartItem: { item, quantity: e },
-                  })
-              "
-            ></v-select>
-            <p>
-              {{ convertStripeAmount(item.amount) }}
-            </p>
+            <!-- <div class="px-2 mt-4">
+                <p>Brand: {{ item.metadata.brand }}</p>
+                <p>Size: {{ item.metadata.size }}</p>
+              </div> -->
+
+            <!-- QUANTITY AND PRICE -->
+            <div class="flex items-center justify-between px-2 py-4">
+              <v-select
+                :value="quantity"
+                class="w-32 quantity md:mr-16"
+                :searchable="false"
+                :options="[1, 2, 3, 4, 5]"
+                @input="
+                  (e) =>
+                    updateCartItem({
+                      updateIndex: index,
+                      cartItem: { item, quantity: e },
+                    })
+                "
+              />
+              <p class="md:text-xl">
+                {{
+                  convertStripeAmount(
+                    (Number(item.amount) * quantity).toString()
+                  )
+                }}
+              </p>
+            </div>
           </div>
         </div>
       </template>
     </v-list>
-    <v-checkout-button />
-    <g-link to="/products/">
-      <v-button
-        class="w-full p-2 mt-2 uppercase bg-white bg-opacity-50 border border-secondary text-secondary"
-      >
-        Continue shopping
-      </v-button>
-    </g-link>
+    <div v-if="cartItems.length" class="flex justify-between px-2 my-4 md:px-0">
+      <p class="my-auto text-xl font-bold uppercase">Total</p>
+      <p class="my-auto text-2xl uppercase md:text-3xl">
+        {{ convertStripeAmount(total.toString()) }} AUD
+      </p>
+    </div>
+    <div class="items-center justify-end block md:flex">
+      <g-link to="/products/">
+        <v-button
+          class="w-full p-2 mb-2 mr-2 uppercase bg-white bg-opacity-50 border md:mb-0 md:w-64 border-secondary text-secondary"
+        >
+          {{ !cartItems.length ? "Start" : "Continue" }} shopping
+        </v-button>
+      </g-link>
+      <v-checkout-button
+        v-if="cartItems.length"
+        class="border border-secondary md:w-64"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 import { convertStripeAmount } from "../utils/stripeUtils";
 import VList from "../components/VList";
@@ -69,25 +103,31 @@ export default {
     VCheckoutButton,
     vSelect,
   },
+  data() {
+    return {
+      showModal: false,
+      selectedItem: null,
+      selectedItemIndex: null,
+    };
+  },
   computed: {
     ...mapState("cart", ["cartItems"]),
+    ...mapGetters("cart", ["total"]),
   },
   methods: {
-    ...mapActions("cart", ["updateCartItem", "removeCartItem"]),
+    ...mapActions("cart", ["updateCartItem", "setSelectedItemIndex"]),
     convertStripeAmount,
   },
 };
 </script>
 
-<style>
-.bg-color {
-  background-color: rgb(245, 245, 245);
+<style scoped>
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.3s ease;
 }
-.v-select.quantity .vs__selected::before {
-  content: "Qty: ";
-  white-space: pre;
-}
-.v-select .vs__clear {
-  display: none;
+.fade-leave-to,
+.fade-enter {
+  opacity: 0;
 }
 </style>

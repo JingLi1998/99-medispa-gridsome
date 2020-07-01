@@ -37,11 +37,13 @@
       <hr class="mt-2 mb-8" />
 
       <!-- SHOPPING CART CHECKOUT -->
-      <div class="flex justify-between">
+      <div class="flex justify-between px-2 md:px-0">
         <p class="my-auto text-xl font-bold uppercase">Total</p>
-        <p class="my-auto text-3xl uppercase">{{ total }} AUD</p>
+        <p class="my-auto text-2xl uppercase md:text-3xl">{{ total }} AUD</p>
       </div>
-      <shopping-cart-list-button @closeCart="$emit('closeCart')" />
+      <div class="px-2 md:px-0">
+        <shopping-cart-list-button @closeCart="$emit('closeCart')" />
+      </div>
     </div>
   </div>
 </template>
