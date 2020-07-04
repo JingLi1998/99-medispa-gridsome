@@ -14,8 +14,13 @@ const store = new Vuex.Store({
   mutations: {
     SET_STRIPE(state) {
       const timer = setInterval(() => {
-        // eslint-disable-next-line
-        state.stripe = Stripe(process.env.GRIDSOME_SECRET_KEY);
+        if (process.env.NODE_ENV === "production") {
+          // eslint-disable-next-line
+          state.stripe = Stripe(process.env.GRIDSOME_SECRET_KEY);
+        } else {
+          // eslint-disable-next-line
+          state.stripe = Stripe(process.env.GRIDSOME_SECRET_KEY_TEST);
+        }
         if (state.stripe) clearInterval(timer);
       }, 500);
     },
