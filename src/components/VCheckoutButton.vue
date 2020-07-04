@@ -36,8 +36,8 @@ export default {
         const { error } = await this.stripe.redirectToCheckout({
           lineItems: this.lineItems,
           mode: "payment",
-          successUrl: "https://dev--99medispa.netlify.app/success",
-          cancelUrl: "https://dev--99medispa.netlify.app/cancelled",
+          successUrl: "https://99medispa.com.au/success",
+          cancelUrl: "https://99medispa.com.au/cancelled",
           shippingAddressCollection: {
             allowedCountries: ["AU"],
           },
