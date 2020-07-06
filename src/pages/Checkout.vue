@@ -8,62 +8,64 @@
     <hr />
     <p v-if="!cartItems.length" class="my-4">Cart is empty</p>
     <v-list v-else>
-      <template v-for="({ item, quantity }, index) in cartItems">
-        <div :key="item.price" class="mb-2 bg-white">
-          <div class="p-2 border-b sm:flex">
-            <!-- IMAGE AND TITLE -->
-            <div class="flex flex-grow">
-              <g-image
-                class="object-contain w-16 h-32 ml-4 mr-8"
-                :src="item.images[0]"
-              />
-              <div class="flex-grow">
-                <p
-                  class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0"
-                >
-                  {{ item.name }}
-                </p>
-                <p>Brand: {{ item.metadata.brand }}</p>
-                <p>Size: {{ item.metadata.size }}</p>
-                <v-button
-                  class="w-8 h-8 mt-2 mr-1 bg-black bg-opacity-0 border hover:bg-opacity-10"
-                  @click="setSelectedItemIndex(index)"
-                >
-                  <font-awesome :icon="['far', 'trash-alt']" />
-                </v-button>
+      <transition-group name="list">
+        <template v-for="({ item, quantity }, index) in cartItems">
+          <div :key="item.price" class="mb-2 bg-white">
+            <div class="p-2 border-b sm:flex">
+              <!-- IMAGE AND TITLE -->
+              <div class="flex flex-grow">
+                <g-image
+                  class="object-contain w-16 h-32 ml-4 mr-8"
+                  :src="item.images[0]"
+                />
+                <div class="flex-grow">
+                  <p
+                    class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0"
+                  >
+                    {{ item.name }}
+                  </p>
+                  <p>Brand: {{ item.metadata.brand }}</p>
+                  <p>Size: {{ item.metadata.size }}</p>
+                  <v-button
+                    class="w-8 h-8 mt-2 mr-1 bg-black bg-opacity-0 border hover:bg-opacity-10"
+                    @click="setSelectedItemIndex(index)"
+                  >
+                    <font-awesome :icon="['far', 'trash-alt']" />
+                  </v-button>
+                </div>
               </div>
-            </div>
-            <!-- <div class="px-2 mt-4">
+              <!-- <div class="px-2 mt-4">
                 <p>Brand: {{ item.metadata.brand }}</p>
                 <p>Size: {{ item.metadata.size }}</p>
               </div> -->
 
-            <!-- QUANTITY AND PRICE -->
-            <div class="flex items-center justify-between px-2 py-4">
-              <v-select
-                :value="quantity"
-                class="w-32 quantity md:mr-16"
-                :searchable="false"
-                :options="[1, 2, 3, 4, 5]"
-                @input="
-                  (e) =>
-                    updateCartItem({
-                      updateIndex: index,
-                      cartItem: { item, quantity: e },
-                    })
-                "
-              />
-              <p class="md:text-xl">
-                {{
-                  convertStripeAmount(
-                    (Number(item.amount) * quantity).toString()
-                  )
-                }}
-              </p>
+              <!-- QUANTITY AND PRICE -->
+              <div class="flex items-center justify-between px-2 py-4">
+                <v-select
+                  :value="quantity"
+                  class="w-32 quantity md:mr-16"
+                  :searchable="false"
+                  :options="[1, 2, 3, 4, 5]"
+                  @input="
+                    (e) =>
+                      updateCartItem({
+                        updateIndex: index,
+                        cartItem: { item, quantity: e },
+                      })
+                  "
+                />
+                <p class="md:text-xl">
+                  {{
+                    convertStripeAmount(
+                      (Number(item.amount) * quantity).toString()
+                    )
+                  }}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </template>
+        </template>
+      </transition-group>
     </v-list>
     <div v-if="cartItems.length" class="flex justify-between px-2 my-4 md:px-0">
       <p class="my-auto text-xl font-bold uppercase">Total</p>
@@ -141,5 +143,31 @@ export default {
 .fade-leave-to,
 .fade-enter {
   opacity: 0;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: 500ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+  transition-property: opacity, transform;
+}
+
+.list-enter {
+  opacity: 0;
+  transform: translateX(50px) scaleY(0.5);
+}
+
+.list-enter-to {
+  opacity: 1;
+  transform: translateX(0) scaleY(1);
+}
+
+.list-leave-active {
+  position: absolute;
+}
+
+.list-leave-to {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: center top;
 }
 </style>
