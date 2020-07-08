@@ -1,21 +1,22 @@
 <template>
-  <default-layout :background-node="backgroundNode">
+  <div>
+    <v-background-image v-bind="backgroundNode" />
     <v-information-panel
       v-for="(edge, index) in treatmentQueryEdges"
       :key="index"
       v-bind="edge.node"
       :reverse="index % 2 !== 0"
     />
-  </default-layout>
+  </div>
 </template>
 
 <script>
-import DefaultLayout from "./DefaultLayout";
 import VInformationPanel from "../components/VInformationPanel";
+import VBackgroundImage from "../components/VBackgroundImage";
 
 export default {
   components: {
-    DefaultLayout,
+    VBackgroundImage,
     VInformationPanel,
   },
   props: {

@@ -86,6 +86,7 @@
         class="border border-secondary md:w-64"
       />
     </div>
+    <delete-product-modal />
   </div>
 </template>
 
@@ -97,6 +98,7 @@ import VList from "../components/VList";
 import VButton from "../components/VButton";
 import VCheckoutButton from "../components/VCheckoutButton";
 import vSelect from "vue-select";
+import DeleteProductModal from "../domain/checkout/DeleteProductModal";
 
 export default {
   metaInfo() {
@@ -116,6 +118,7 @@ export default {
     VList,
     VCheckoutButton,
     vSelect,
+    DeleteProductModal,
   },
   data() {
     return {

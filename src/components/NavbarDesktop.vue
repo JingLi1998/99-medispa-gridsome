@@ -138,7 +138,7 @@ nav {
 }
 
 button {
-  @apply inline w-8 h-8 mr-2 bg-black bg-opacity-0 rounded-full;
+  @apply inline w-8 h-8  bg-black bg-opacity-0 rounded-full;
 }
 
 button:hover {

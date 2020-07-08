@@ -1,7 +1,8 @@
 <template>
-  <default-layout :background-node="$page.background.edges[0].node">
+  <div>
+    <v-background-image v-bind="$page.background.edges[0].node" />
     <contact-form />
-  </default-layout>
+  </div>
 </template>
 
 <page-query>
@@ -20,8 +21,8 @@ query {
 </page-query>
 
 <script>
-import DefaultLayout from "../layouts/DefaultLayout";
 import ContactForm from "../domain/contact/ContactForm";
+import VBackgroundImage from "../components/VBackgroundImage";
 
 export default {
   metaInfo: {
@@ -36,8 +37,8 @@ export default {
     ],
   },
   components: {
-    DefaultLayout,
     ContactForm,
+    VBackgroundImage,
   },
 };
 </script>

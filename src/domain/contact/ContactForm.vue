@@ -3,22 +3,20 @@
     id="contactForm"
     class="flex flex-col items-center w-full py-20 mx-auto bg-white rounded"
   >
-    <h1
-      class="text-4xl font-bold text-center sm:mb-3 sm:text-5xl md:text-6xl font-fancy text-secondary"
-    >
+    <h2>
       Enquiry Form
-    </h1>
+    </h2>
     <form
       class="w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12"
       @submit.prevent="submitForm"
     >
-      <div class="h-10">
+      <!-- <div class="h-10">
         <transition name="fade">
           <p v-show="error != ''" class="px-2 text-sm text-center text-red-400">
             {{ error }}
           </p>
         </transition>
-      </div>
+      </div> -->
       <div class="w-full sm:flex">
         <div class="w-full px-2 sm:w-1/2">
           <label class="block text-sm" for="fullName">Full Name</label>
@@ -38,26 +36,6 @@
           ></v-select>
         </div>
       </div>
-
-      <!-- <div class="w-1/2 px-2">
-          <label class="block text-sm" for="date">Consultation Date</label>
-          <date-picker
-            id="date"
-            v-model="formData.date"
-            :popover="{ visibility: 'click' }"
-          >
-            <input
-              id="date"
-              slot-scope="{ inputProps, inputEvents }"
-              type="text"
-              class="w-full px-3 py-2 leading-tight text-gray-700 border rounded focus:outline-none"
-              v-bind="inputProps"
-              v-on="inputEvents"
-            />
-            />
-          </date-picker>
-        </div> -->
-      <!-- </div> -->
 
       <div class="w-full sm:my-6 sm:flex">
         <div class="w-full px-2 sm:w-1/2">
@@ -193,5 +171,22 @@ export default {
 }
 .submit:active {
   top: 2px;
+}
+
+h2 {
+  @apply text-3xl leading-9 my-6 font-bold text-center font-fancy text-secondary;
+}
+
+@media (min-width: 640px) {
+  h2 {
+    @apply text-4xl my-9 leading-12;
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    @apply text-5xl my-12;
+    line-height: 3.75rem;
+  }
 }
 </style>

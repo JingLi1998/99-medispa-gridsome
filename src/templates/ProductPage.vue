@@ -14,25 +14,14 @@
     </div>
 
     <!-- PRODUCT NAME AND PRICE -->
-    <div class="px-6 pb-6 border-l card md:py-10">
-      <h1 class="mb-4 text-2xl font-bold uppercase md:text-3xl">
-        {{ $context.name }}
-      </h1>
-      <h2 class="text-xl font-medium uppercase">
+    <div class="card">
+      <h1>{{ $context.name }}</h1>
+      <h2>
         {{ $context.metadata.brand }}
       </h2>
-      <h2 class="my-2">Size: {{ $context.metadata.size }}</h2>
-      <p class="text-xl font-medium">
-        {{ convertStripeAmount($context.amount) }} AUD
-      </p>
-      <!-- <v-select
-        v-model="quantity"
-        class="w-32 my-2 quantity"
-        :searchable="false"
-        :options="[1, 2]"
-      /> -->
+      <h5>Size: {{ $context.metadata.size }}</h5>
+      <h4>{{ convertStripeAmount($context.amount) }} AUD</h4>
       <v-button
-        class="w-full py-2 my-4 text-center text-white bg-secondary"
         :class="{
           'opacity-50 cursor-default': inCart,
           'hover:bg-opacity-50': !inCart,
@@ -43,11 +32,11 @@
         {{ inCart ? "Added To Cart" : "Add To Cart" }}
       </v-button>
       <hr />
-      <h2 class="mt-4 text-xl font-medium uppercase">
+      <h2>
         {{ $context.metadata.tagline }}
       </h2>
-      <p class="mt-4 font-light">{{ $context.metadata.description }}</p>
-      <h3 class="mt-4 text-xl">Key Ingredients:</h3>
+      <p>{{ $context.metadata.description }}</p>
+      <h3>Key Ingredients:</h3>
       <ol>
         <li
           v-for="ingredient in $context.metadata.ingredients.split(',')"
@@ -62,7 +51,6 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-// import vSelect from "vue-select";
 
 import { convertStripeAmount } from "../utils/stripeUtils";
 
@@ -79,9 +67,6 @@ export default {
       ],
     };
   },
-  // components: {
-  //   vSelect,
-  // },
   data() {
     return {
       quantity: 1,
@@ -101,7 +86,43 @@ export default {
 </script>
 
 <style scoped>
+button {
+  @apply w-full py-2 mt-6 text-center text-white bg-secondary;
+}
+hr {
+  @apply my-6;
+}
+
+h1 {
+  @apply text-2xl my-6 font-bold uppercase leading-9;
+}
+
+h2 {
+  @apply text-xl my-3 font-medium uppercase;
+}
+
+h3 {
+  @apply text-xl my-6;
+}
+
+h4 {
+  @apply my-3 text-xl font-medium;
+}
+
+h5 {
+  @apply my-3;
+}
+
+p {
+  @apply my-6;
+}
+
+li {
+  @apply my-3;
+}
+
 .card {
+  @apply p-6 border-l;
   min-height: 700px;
 }
 .image {
@@ -110,6 +131,10 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+
   .image {
     width: 200px;
     height: 400px;

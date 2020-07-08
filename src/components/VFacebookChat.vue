@@ -5,7 +5,7 @@
 
     <!-- Your Chat Plugin code -->
     <div
-      class="fb-customerchat"
+      class="h-auto fb-customerchat"
       attribution="install_email"
       page_id="330611607561168"
       theme_color="#d4a88c"

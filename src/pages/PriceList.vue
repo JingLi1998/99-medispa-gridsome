@@ -1,5 +1,6 @@
 <template>
-  <default-layout :background-node="$page.background.edges[0].node">
+  <div>
+    <v-background-image v-bind="$page.background.edges[0].node" />
     <div class="bg-white">
       <div
         class="grid w-10/12 row-gap-8 py-20 mx-auto md:w-8/12 lg:col-gap-20 lg:grid-cols-2 xl:grid-cols-3"
@@ -12,7 +13,7 @@
         />
       </div>
     </div>
-  </default-layout>
+  </div>
 </template>
 
 <page-query>
@@ -43,7 +44,7 @@ query {
 </page-query>
 
 <script>
-import DefaultLayout from "../layouts/DefaultLayout";
+import VBackgroundImage from "../components/VBackgroundImage";
 import PriceListSection from "../components/PriceListSection";
 
 export default {
@@ -59,7 +60,7 @@ export default {
     ],
   },
   components: {
-    DefaultLayout,
+    VBackgroundImage,
     PriceListSection,
   },
   data() {

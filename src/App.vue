@@ -1,27 +1,10 @@
 <template>
   <div id="app">
-    <navbar-desktop @openCart="openCart" @openMap="openMap" />
-    <navbar-mobile @openCart="openCart" @openMap="openMap" />
-    <transition name="page" appear>
-      <router-view v-show="showPage" class="min" />
-    </transition>
-
-    <transition name="page" appear>
-      <footer-bar v-show="showPage" />
-    </transition>
-
-    <shopping-cart
-      :show="showCart"
-      class="cursor-pointer"
-      @closeCart="closeCart"
-    />
-    <map-panel :show="showMap" @closeMap="closeMap" />
-
-    <delete-product-modal />
-
-    <v-notification />
-
-    <v-facebook-chat />
+    <default-layout>
+      <transition name="page" appear>
+        <router-view />
+      </transition>
+    </default-layout>
   </div>
 </template>
 
@@ -29,82 +12,17 @@
 import { mapActions } from "vuex";
 import "@stripe/stripe-js";
 
-import VFacebookChat from "./components/VFacebookChat";
-import FooterBar from "./domain/footer/FooterBar";
-import NavbarDesktop from "./components/NavbarDesktop";
-import NavbarMobile from "./components/NavbarMobile";
-import ShoppingCart from "./domain/shoppingCart/ShoppingCart";
-import MapPanel from "./domain/map/MapPanel";
-import VNotification from "./components/VNotification";
-import DeleteProductModal from "./domain/checkout/DeleteProductModal";
+import DefaultLayout from "./layouts/DefaultLayout";
 
 export default {
   components: {
-    NavbarDesktop,
-    NavbarMobile,
-    VFacebookChat,
-    ShoppingCart,
-    FooterBar,
-    VNotification,
-    MapPanel,
-    DeleteProductModal,
-  },
-  data() {
-    return {
-      showPage: false,
-      showCart: false,
-      showMap: false,
-    };
+    DefaultLayout,
   },
   mounted() {
-    this.loadPage();
     this.setStripe();
-    document.body.classList.add("scrollbar-hidden");
   },
   methods: {
     ...mapActions(["setStripe"]),
-    openMap() {
-      this.showMap = true;
-    },
-    closeMap() {
-      this.showMap = false;
-    },
-    openCart() {
-      this.showCart = true;
-    },
-    closeCart() {
-      this.showCart = false;
-    },
-    loadPage() {
-      setTimeout(() => {
-        this.showPage = true;
-      }, 500);
-    },
   },
 };
 </script>
-
-<style scoped>
-.page-enter-active {
-  transition: opacity 0.8s ease-in-out;
-}
-.page-enter {
-  opacity: 0;
-}
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hidden {
-  -ms-overflow-style: none;
-}
-.min {
-  min-height: calc(100vh - 320px - 5rem);
-  margin-top: 4rem;
-}
-
-@media (min-width: 768px) {
-  .min {
-    margin-top: 8.5em;
-  }
-}
-</style>

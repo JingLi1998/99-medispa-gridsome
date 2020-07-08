@@ -2,8 +2,8 @@
   <div>
     <slideshow />
     <section class="bg-white">
-      <v-responsive :cols="10" :sm="8" :md="7" :lg="6" :xl="5">
-        <h2>Pioneers of Non-invasive Laser Treatments</h2>
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
+        <h2>Pioneers in Non-invasive Laser Treatments</h2>
         <p>
           Here at 99 medispa, our cosmetic doctors have perfected the art of
           non-surgical cosmetic treatments. For over 18 years we have used the
@@ -61,13 +61,15 @@
       </div>
     </section>
     <section class="bg-white">
-      <div>
-        <h2>Follow the 99 Medispa journey on Instagram</h2>
-        <p>
-          Stay up to date with our latest treatments and services and potential
-          discounts by following us on Instagram!
-        </p>
-      </div>
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
+        <div class="md:text-center">
+          <h2>Follow the 99 Medispa journey on Instagram</h2>
+          <p>
+            Stay up to date with our latest treatments and services and
+            potential discounts by following us on Instagram!
+          </p>
+        </div>
+      </v-responsive>
       <v-responsive :cols="10">
         <iframe
           src="https://cdn.lightwidget.com/widgets/a5bb06a79a9f5550983ceb07e4b7641f.html"
@@ -79,7 +81,7 @@
       </v-responsive>
     </section>
     <section class="bg-pink-100">
-      <v-responsive :cols="10" :sm="8" :md="7" :lg="6" :xl="5">
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
         <h2>Online Booking, Enquiry and Consultation</h2>
         <p>
           All our customers receive a complimentary consultation with our
@@ -119,6 +121,7 @@ export default {
           "With over 20 years of experience as a Laser Clinic in Australia, we at 99 Medispa take pride in providing our customers with a range of non-invasive cosmetic treatments. We use only TGA and FDA approved technologies including Picosure, Fotona, Ultherapy, Endymed, AquaPure, Coolsculpting and many more. ",
       },
     ],
+
     script: [
       {
         src: "https://cdn.lightwidget.com/widgets/lightwidget.js",

@@ -76,7 +76,7 @@ h2 {
 }
 
 p {
-  @apply text-xs my-3 leading-3;
+  @apply text-sm my-3;
 }
 
 button {

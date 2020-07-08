@@ -1,10 +1,45 @@
+/* DEFAULT STYLES */
 * {
   box-sizing: border-box;
 }
 
-body {
+html {
   @apply leading-6;
   letter-spacing: -1px;
+  font-size: 75%;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+/* UTILITY STYLES */
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* TRANSITION STYLES */
+.page-enter-active {
+  transition: opacity 0.8s ease-in-out;
+}
+.page-enter {
+  opacity: 0;
+}
+
+.slide-leave-active,
+.slide-enter-active {
+  transition: 0.8s ease;
+}
+.slide-enter {
+  transform: translate(100%, 0);
+}
+.slide-leave-to {
+  transform: translate(100%, 0);
 }
 
 /* V-SELECT STYLES */
