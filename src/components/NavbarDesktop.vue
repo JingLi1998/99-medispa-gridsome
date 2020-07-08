@@ -19,7 +19,7 @@
           </a>
         </v-button>
         <span class="mr-2 cursor-default">View Cart</span>
-        <v-button @click="$emit('openCart')">
+        <v-button class="mr-2" @click="$emit('openCart')">
           <font-awesome size="lg" :icon="['fas', 'shopping-bag']" />
         </v-button>
       </div>
