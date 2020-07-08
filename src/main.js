@@ -32,6 +32,7 @@ import store from "./store";
 // IMPORT GLOBAL COMPONENTS
 import { Fragment } from "vue-fragment";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import VResponsive from "./components/VResponsive";
 import VButton from "./components/VButton";
 import "~/assets/main.css";
 
@@ -64,6 +65,16 @@ export default function (Vue, { head, appOptions }) {
     },
     {
       rel: "stylesheet",
+      href:
+        "https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap",
+    },
+    {
+      rel: "stylesheet",
+      href:
+        "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap",
+    },
+    {
+      rel: "stylesheet",
       href: "https://fonts.googleapis.com/css2?family=Courgette&display=swap",
     }
   );
@@ -89,4 +100,5 @@ export default function (Vue, { head, appOptions }) {
   Vue.component("fragment", Fragment);
   Vue.component("font-awesome", FontAwesomeIcon);
   Vue.component("v-button", VButton);
+  Vue.component("v-responsive", VResponsive);
 }

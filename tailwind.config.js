@@ -15,18 +15,30 @@ module.exports = {
   },
   theme: {
     extend: {
+      screens: {
+        "2xl": "1440px",
+      },
       colors: {
         primary: "#1976D2",
         secondary: "#C79E81",
         grey: "#bababa",
       },
       fontFamily: {
-        sans: ["Barlow", "Roboto", ...defaultTheme.fontFamily.sans],
-        fancy: ["Times New Roman"],
+        sans: [
+          "Montserrat",
+          "Barlow",
+          "Roboto",
+          ...defaultTheme.fontFamily.sans,
+        ],
+        fancy: ["Libre Baskerville", "Times New Roman"],
       },
       fontSize: {
         "7xl": "5rem",
         "8xl": "6rem",
+      },
+      lineHeight: {
+        "11": "2.75rem",
+        "12": "3rem",
       },
       opacity: {
         "10": ".1",
@@ -39,6 +51,10 @@ module.exports = {
         "80": ".8",
         "90": ".9",
         "100": "1",
+      },
+      margin: {
+        "7": "1.75rem",
+        "9": "2.25rem",
       },
       height: {
         "100": "100px",
@@ -71,6 +87,7 @@ module.exports = {
     maxHeight: {
       "0": "0",
       full: "100%",
+      screen: "100vh",
     },
   },
   variants: {

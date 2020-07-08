@@ -1,37 +1,36 @@
 <template>
-  <fragment>
-    <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
-      <v-aspect-ratio class="w-full lg:w-1/2">
-        <div class="w-full h-full bg-white">
-          <div
-            class="flex flex-col justify-center w-10/12 h-full mx-auto xl:w-7/12"
-          >
-            <h1
-              class="text-xl font-bold uppercase sm:text-4xl font-fancy text-secondary"
-              v-html="title"
-            />
-            <p
-              class="text-xs leading-tight sm:leading-normal sm:mt-2 sm:mb-6 sm:text-base"
-              v-html="treatmentContent"
-            />
-            <g-link
-              :to="'contact'"
-              class="hidden w-40 py-2 font-normal text-center text-white uppercase rounded-lg sm:block focus:outline-none bg-secondary"
-            >
-              Enquire Now
-            </g-link>
+  <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
+    <v-responsive :cols="12" :lg="6">
+      <v-aspect-ratio class="bg-white">
+        <v-responsive
+          :cols="11"
+          :lg="10"
+          :xl2="8"
+          class="flex flex-col justify-center h-full mx-auto"
+        >
+          <div>
+            <h2 v-html="title" />
+            <p v-html="treatmentContent" />
+            <v-button>
+              <g-link to="/contact/">
+                Enquire Now
+              </g-link>
+            </v-button>
           </div>
-        </div>
+        </v-responsive>
       </v-aspect-ratio>
-      <v-aspect-ratio class="w-full lg:w-1/2">
+    </v-responsive>
+
+    <v-responsive :cols="12" :lg="6">
+      <v-aspect-ratio>
         <g-image
           class="object-cover w-full h-full"
           :src="image"
           :alt="altText"
         />
       </v-aspect-ratio>
-    </div>
-  </fragment>
+    </v-responsive>
+  </div>
 </template>
 
 <script>
@@ -70,3 +69,31 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+h2 {
+  @apply text-xl my-3 font-fancy text-secondary font-semibold uppercase;
+}
+
+p {
+  @apply text-xs my-3 leading-3;
+}
+
+button {
+  @apply hidden w-40 py-2 font-normal text-center text-white uppercase bg-secondary;
+}
+
+@media (min-width: 640px) {
+  h2 {
+    @apply text-4xl my-6 leading-9;
+  }
+
+  p {
+    @apply text-base my-6 leading-6;
+  }
+
+  button {
+    @apply block;
+  }
+}
+</style>

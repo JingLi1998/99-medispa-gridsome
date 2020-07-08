@@ -1,7 +1,6 @@
 <template>
   <g-link
-    class="inline-block text-xs font-medium tracking-widest uppercase"
-    active-class="border-b border-black"
+    active-class="active"
     :to="to"
     :exact="exact"
     :event="disabled ? '' : 'click'"
@@ -38,32 +37,26 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 a {
-  position: relative;
-  color: #000;
-  text-decoration: none;
-}
+  @apply inline-block text-xs font-medium tracking-widest uppercase relative text-black no-underline;
 
-a:hover {
-  color: #000;
-}
+  &.active {
+    @apply border-b border-black;
+  }
 
-a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  bottom: -1px;
-  left: 0;
-  background-color: #000;
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out 0s;
-}
+  &::before {
+    @apply absolute w-full left-0 bg-black invisible;
+    content: "";
+    height: 1px;
+    bottom: -1px;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+  }
 
-a:hover::before {
-  visibility: visible;
-  transform: scaleX(1);
+  &:hover::before {
+    @apply visible;
+    transform: scaleX(1);
+  }
 }
 </style>

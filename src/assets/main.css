@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply leading-6;
+  letter-spacing: -1px;
+}
+
+/* V-SELECT STYLES */
 .v-select.quantity .vs__selected::before {
   content: "Qty: ";
   white-space: pre;

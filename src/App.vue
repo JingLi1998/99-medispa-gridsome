@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!-- <top-navbar @openCart="openCart" @openMap="openMap" />
-    <navbar /> -->
     <navbar-desktop @openCart="openCart" @openMap="openMap" />
     <navbar-mobile @openCart="openCart" @openMap="openMap" />
     <transition name="page" appear>
@@ -33,8 +31,8 @@ import "@stripe/stripe-js";
 
 import VFacebookChat from "./components/VFacebookChat";
 import FooterBar from "./domain/footer/FooterBar";
-import NavbarDesktop from "./domain/navbar/NavbarDesktop";
-import NavbarMobile from "./domain/navbar/NavbarMobile";
+import NavbarDesktop from "./components/NavbarDesktop";
+import NavbarMobile from "./components/NavbarMobile";
 import ShoppingCart from "./domain/shoppingCart/ShoppingCart";
 import MapPanel from "./domain/map/MapPanel";
 import VNotification from "./components/VNotification";
@@ -101,5 +99,12 @@ export default {
 }
 .min {
   min-height: calc(100vh - 320px - 5rem);
+  margin-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .min {
+    margin-top: 8.5em;
+  }
 }
 </style>

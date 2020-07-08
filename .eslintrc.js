@@ -24,6 +24,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     "no-console": "off",
+    "scss(css-semicolonexpected)": "off",
     "vue/no-v-html": "off",
     "vue/max-attributes-per-line": "off",
     "vue/html-self-closing": "off",

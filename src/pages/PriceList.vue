@@ -1,6 +1,17 @@
 <template>
   <default-layout :background-node="$page.background.edges[0].node">
-    <price-list :price-edges="priceEdges" />
+    <div class="bg-white">
+      <div
+        class="grid w-10/12 row-gap-8 py-20 mx-auto md:w-8/12 lg:col-gap-20 lg:grid-cols-2 xl:grid-cols-3"
+      >
+        <price-list-section
+          v-for="(title, index) in pricesOrder"
+          :key="index"
+          :type="title"
+          :prices="priceObject[title]"
+        />
+      </div>
+    </div>
   </default-layout>
 </template>
 
@@ -16,77 +27,11 @@ query {
       }
     }
   }
-  # prices: allPrices {
-  #   edges {
-  #     node {
-  #       title
-  #       type
-  #       treatments {
-  #         name
-  #         price
-  #       }
-  #     }
-  #   }
-  # }
-  laserTreatment: allPrices(filter: {type: {eq: "Laser Treatment"}}) {
+  prices: allPrices {
     edges {
       node {
         title
-        treatments {
-          name
-          price
-        }
-      }
-    }
-  }
-  skinTreatment: allPrices(filter: {type: {eq: "Skin Treatment"}}) {
-    edges {
-      node {
-        title
-        treatments {
-          name
-          price
-        }
-      }
-    }
-  }
-  bodyTreatment: allPrices(filter: {type: {eq: "Body Treatment"}}) {
-    edges {
-      node {
-        title
-        treatments {
-          name
-          price
-        }
-      }
-    }
-  }
-  hairRemoval: allPrices(filter: {type: {eq: "Hair Removal"}}) {
-    edges {
-      node {
-        title
-        treatments {
-          name
-          price
-        }
-      }
-    }
-  }
-  microPlasticInjection: allPrices(filter: {type: {eq: "Micro Plastic Injection"}}) {
-    edges {
-      node {
-        title
-        treatments {
-          name
-          price
-        }
-      }
-    }
-  }
-  plasticSurgery: allPrices(filter: {type: {eq: "Plastic Surgery"}}) {
-    edges {
-      node {
-        title
+        type
         treatments {
           name
           price
@@ -99,7 +44,7 @@ query {
 
 <script>
 import DefaultLayout from "../layouts/DefaultLayout";
-import PriceList from "../domain/priceList/PriceList";
+import PriceListSection from "../components/PriceListSection";
 
 export default {
   metaInfo: {
@@ -115,18 +60,29 @@ export default {
   },
   components: {
     DefaultLayout,
-    PriceList,
+    PriceListSection,
+  },
+  data() {
+    return {
+      pricesOrder: [
+        "Laser Treatment",
+        "Skin Treatment",
+        "Body Treatment",
+        "Hair Removal",
+        "Micro Plastic Injection",
+        "Plastic Surgery",
+      ],
+    };
   },
   computed: {
-    priceEdges() {
-      return {
-        laserTreatment: this.$page.laserTreatment.edges,
-        skinTreatment: this.$page.skinTreatment.edges,
-        bodyTreatment: this.$page.bodyTreatment.edges,
-        hairRemoval: this.$page.hairRemoval.edges,
-        microPlasticInjection: this.$page.microPlasticInjection.edges,
-        plasticSurgery: this.$page.plasticSurgery.edges,
-      };
+    priceObject() {
+      return this.$page.prices.edges.reduce((memo, { node }) => {
+        if (!memo[node["type"]]) {
+          memo[node["type"]] = [];
+        }
+        memo[node["type"]].push(node);
+        return memo;
+      }, {});
     },
   },
 };
