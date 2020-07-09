@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div class="z-40">
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
 
@@ -10,7 +10,7 @@
       page_id="330611607561168"
       theme_color="#d4a88c"
     ></div>
-  </fragment>
+  </div>
 </template>
 
 <script>
