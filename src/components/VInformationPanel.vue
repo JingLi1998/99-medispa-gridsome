@@ -1,35 +1,3 @@
-<template>
-  <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
-    <v-responsive :cols="12" :lg="6">
-      <v-aspect-ratio class="bg-white">
-        <div
-          class="flex flex-col justify-center w-11/12 h-full mx-auto lg:w-10/12 2xl:w-8/12"
-        >
-          <div>
-            <h2 v-html="title" />
-            <p v-html="treatmentContent" />
-            <v-button>
-              <g-link to="/contact/">
-                Enquire Now
-              </g-link>
-            </v-button>
-          </div>
-        </div>
-      </v-aspect-ratio>
-    </v-responsive>
-
-    <v-responsive :cols="12" :lg="6">
-      <v-aspect-ratio>
-        <g-image
-          class="object-cover w-full h-full"
-          :src="image"
-          :alt="altText"
-        />
-      </v-aspect-ratio>
-    </v-responsive>
-  </div>
-</template>
-
 <script>
 import VAspectRatio from "./VAspectRatio";
 
@@ -66,6 +34,39 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
+    <v-responsive :cols="12" :lg="6">
+      <v-aspect-ratio class="bg-white">
+        <!-- avoid using v-responsive component as it doesn't work here  -->
+        <div
+          class="flex flex-col justify-center w-11/12 h-full mx-auto lg:w-10/12 2xl:w-8/12"
+        >
+          <div>
+            <h2 v-html="title" />
+            <p v-html="treatmentContent" />
+            <v-button>
+              <g-link to="/contact/">
+                Enquire Now
+              </g-link>
+            </v-button>
+          </div>
+        </div>
+      </v-aspect-ratio>
+    </v-responsive>
+
+    <v-responsive :cols="12" :lg="6">
+      <v-aspect-ratio>
+        <g-image
+          class="object-cover w-full h-full"
+          :src="image"
+          :alt="altText"
+        />
+      </v-aspect-ratio>
+    </v-responsive>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 h2 {

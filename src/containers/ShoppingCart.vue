@@ -30,9 +30,16 @@
           {{ convertStripeAmount(total.toString()) }} AUD
         </h4>
       </div>
-      <v-button class="checkout-button" @closeCart="$emit('closeCart')">
-        Go to Checkout
-      </v-button>
+      <g-link to="/checkout/">
+        <v-button
+          class="checkout-button"
+          :disabled="!cartItems.length"
+          :class="{ 'opacity-50 cursor-default': !cartItems.length }"
+          @click="$emit('closeCart')"
+        >
+          Go to Checkout
+        </v-button>
+      </g-link>
     </div>
   </v-responsive>
 </template>

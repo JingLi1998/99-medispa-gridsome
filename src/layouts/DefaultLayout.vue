@@ -63,8 +63,8 @@ export default {
 }
 
 .route-wrapper {
-  min-height: calc(100vh - 4rem);
-  margin-top: 4rem;
+  min-height: calc(100vh - 4.5rem);
+  margin-top: 4.5rem;
 }
 
 @media (min-width: 640px) {
@@ -77,7 +77,7 @@ export default {
 @media (min-width: 768px) {
   .route-wrapper {
     min-height: calc(100vh - 8.5rem);
-    margin-top: 4rem;
+    margin-top: 8.5rem;
   }
 }
 

@@ -1,104 +1,11 @@
-<template>
-  <div
-    class="w-10/12 py-4 mx-auto mt-20 page md:w-8/12 xl:w-6/12 md:py-20 md:mt-36"
-  >
-    <h1 class="mb-2 text-xl font-semibold uppercase md:text-3xl">
-      My Shopping Cart
-    </h1>
-    <hr />
-    <p v-if="!cartItems.length" class="my-4">Cart is empty</p>
-    <v-list v-else>
-      <transition-group name="list">
-        <template v-for="({ item, quantity }, index) in cartItems">
-          <div :key="item.price" class="mb-2 bg-white">
-            <div class="p-2 border-b sm:flex">
-              <!-- IMAGE AND TITLE -->
-              <div class="flex flex-grow">
-                <g-image
-                  class="object-contain w-16 h-32 ml-4 mr-8"
-                  :src="item.images[0]"
-                />
-                <div class="flex-grow">
-                  <p
-                    class="mr-2 text-sm font-semibold uppercase sm:text-base sm:mr-0"
-                  >
-                    {{ item.name }}
-                  </p>
-                  <p>Brand: {{ item.metadata.brand }}</p>
-                  <p>Size: {{ item.metadata.size }}</p>
-                  <v-button
-                    class="w-8 h-8 mt-2 mr-1 bg-black bg-opacity-0 border hover:bg-opacity-10"
-                    @click="setSelectedItemIndex(index)"
-                  >
-                    <font-awesome :icon="['far', 'trash-alt']" />
-                  </v-button>
-                </div>
-              </div>
-              <!-- <div class="px-2 mt-4">
-                <p>Brand: {{ item.metadata.brand }}</p>
-                <p>Size: {{ item.metadata.size }}</p>
-              </div> -->
-
-              <!-- QUANTITY AND PRICE -->
-              <div class="flex items-center justify-between px-2 py-4">
-                <v-select
-                  :value="quantity"
-                  class="w-32 quantity md:mr-16"
-                  :searchable="false"
-                  :options="[1, 2, 3, 4, 5]"
-                  @input="
-                    (e) =>
-                      updateCartItem({
-                        updateIndex: index,
-                        cartItem: { item, quantity: e },
-                      })
-                  "
-                />
-                <p class="md:text-xl">
-                  {{
-                    convertStripeAmount(
-                      (Number(item.amount) * quantity).toString()
-                    )
-                  }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </template>
-      </transition-group>
-    </v-list>
-    <div v-if="cartItems.length" class="flex justify-between px-2 my-4 md:px-0">
-      <p class="my-auto text-xl font-bold uppercase">Total</p>
-      <p class="my-auto text-2xl uppercase md:text-3xl">
-        {{ convertStripeAmount(total.toString()) }} AUD
-      </p>
-    </div>
-    <div class="items-center justify-end block md:flex">
-      <g-link to="/products/">
-        <v-button
-          class="w-full p-2 mb-2 mr-2 uppercase bg-white bg-opacity-50 border md:mb-0 md:w-64 border-secondary text-secondary"
-        >
-          {{ !cartItems.length ? "Start" : "Continue" }} shopping
-        </v-button>
-      </g-link>
-      <v-checkout-button
-        v-if="cartItems.length"
-        class="border border-secondary md:w-64"
-      />
-    </div>
-    <delete-product-modal />
-  </div>
-</template>
-
 <script>
-import { mapState, mapActions, mapGetters } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 import { convertStripeAmount } from "../utils/stripeUtils";
 import VList from "../components/VList";
-import VButton from "../components/VButton";
 import VCheckoutButton from "../components/VCheckoutButton";
-import vSelect from "vue-select";
 import DeleteProductModal from "../domain/checkout/DeleteProductModal";
+import CheckoutItem from "../components/CheckoutItem";
 
 export default {
   metaInfo() {
@@ -114,63 +21,99 @@ export default {
     };
   },
   components: {
-    VButton,
     VList,
     VCheckoutButton,
-    vSelect,
+    CheckoutItem,
     DeleteProductModal,
-  },
-  data() {
-    return {
-      showModal: false,
-      selectedItem: null,
-      selectedItemIndex: null,
-    };
   },
   computed: {
     ...mapState("cart", ["cartItems"]),
     ...mapGetters("cart", ["total"]),
   },
   methods: {
-    ...mapActions("cart", ["updateCartItem", "setSelectedItemIndex"]),
     convertStripeAmount,
   },
 };
 </script>
 
+<template>
+  <v-responsive :cols="10" :md="8" :xl="6" class="mx-auto py-9">
+    <h1>My Shopping Cart</h1>
+    <hr />
+    <v-list>
+      <transition-group name="list" mode="in-out">
+        <p v-if="!cartItems.length" key="checkout-empty" class="pb-6 border-b">
+          Cart is empty
+        </p>
+        <template v-else>
+          <checkout-item
+            v-for="({ item, quantity }, index) in cartItems"
+            :key="item.price"
+            :item="item"
+            :quantity="quantity"
+            :index="index"
+          />
+        </template>
+        <!-- transition component to fade between these two -->
+        <div v-if="cartItems.length" key="cart-total" class="cart-total">
+          <p class="cart-total-header">Total</p>
+          <p class="cart-total-amount">
+            {{ convertStripeAmount(total.toString()) }} AUD
+          </p>
+        </div>
+        <div key="cart-button" class="items-center justify-end block md:flex">
+          <g-link to="/products/">
+            <v-button class="md:mb-0 md:w-64 button-shopping">
+              {{ !cartItems.length ? "Start" : "Continue" }} shopping
+            </v-button>
+          </g-link>
+          <v-checkout-button
+            v-if="cartItems.length"
+            class="border border-secondary md:w-64"
+          />
+        </div>
+      </transition-group>
+    </v-list>
+    <delete-product-modal />
+  </v-responsive>
+</template>
+
 <style scoped>
-.fade-leave-active,
-.fade-enter-active {
-  transition: opacity 0.3s ease;
+h1 {
+  @apply mb-2 text-xl font-semibold uppercase;
 }
-.fade-leave-to,
-.fade-enter {
-  opacity: 0;
+p {
+  @apply my-6;
+}
+/* md:text-3xl */
+
+.cart-total {
+  @apply flex justify-between px-3 py-6;
 }
 
-.list-enter-active,
+.cart-total-header {
+  @apply my-6 text-xl font-bold uppercase;
+}
+
+.cart-total-amount {
+  @apply my-6 text-2xl uppercase;
+}
+/* md:text-3xl */
+.button-shopping {
+  @apply w-full p-2 mb-2 mr-2 uppercase bg-white bg-opacity-50 border border-secondary text-secondary;
+}
+
 .list-leave-active {
-  transition: 500ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+  transition: 0.5s ease-out;
   transition-property: opacity, transform;
-}
-
-.list-enter {
-  opacity: 0;
-  transform: translateX(50px) scaleY(0.5);
-}
-
-.list-enter-to {
-  opacity: 1;
-  transform: translateX(0) scaleY(1);
-}
-
-.list-leave-active {
   position: absolute;
+}
+
+.list-move {
+  transition: transform 1s;
 }
 
 .list-leave-to {
   opacity: 0;
-  transform: scaleY(0);
-  transform-origin: center top;
 }
 </style>
