@@ -8,7 +8,7 @@
     <footer-bar />
 
     <v-modal transition="slide" :show="showCart" @close="showCart = false">
-      <shopping-cart-list @closeCart="showCart = false" />
+      <shopping-cart @closeCart="showCart = false" />
     </v-modal>
 
     <v-modal :show="showMap" @close="showMap = false">
@@ -35,7 +35,7 @@ import VModal from "../components/VModal";
 import VNotification from "../components/VNotification";
 import VFacebookChat from "../components/VFacebookChat";
 
-import ShoppingCartList from "../domain/shoppingCart/ShoppingCartList";
+import ShoppingCart from "../containers/ShoppingCart";
 
 export default {
   components: {
@@ -44,14 +44,8 @@ export default {
     NavbarMobile,
     VModal,
     VNotification,
-    ShoppingCartList,
+    ShoppingCart,
     VFacebookChat,
-  },
-  props: {
-    backgroundNode: {
-      type: Object,
-      required: true,
-    },
   },
   data() {
     return {

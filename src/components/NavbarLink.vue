@@ -4,7 +4,7 @@
     :to="to"
     :exact="exact"
     :event="disabled ? '' : 'click'"
-    :class="{ 'cursor-default': disabled, 'ml-5': !dropdown }"
+    :class="{ 'cursor-default': disabled, 'ml-3': !dropdown }"
   >
     {{ name }}
   </g-link>
@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 a {
-  @apply inline-block text-xs font-medium tracking-widest uppercase relative text-black no-underline;
+  @apply inline-block text-xs font-medium tracking-normal uppercase relative text-black no-underline;
 
   &.active {
     @apply border-b border-black;

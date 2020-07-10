@@ -1,65 +1,3 @@
-<template>
-  <nav>
-    <div class="top">
-      <div>
-        <font-awesome class="mr-3" size="lg" :icon="['fas', 'mobile-alt']" />
-        <span class="mr-4">0452 008 115</span>
-        <v-button class="mr-1" @click="$emit('openMap')">
-          <font-awesome size="lg" :icon="['fas', 'map-marker-alt']" />
-        </v-button>
-        <span class="">1304/99 York St Sydney 2000</span>
-      </div>
-      <div>
-        <span class="mr-2 cursor-default">Book Now</span>
-        <v-button class="icon">
-          <a
-            href="https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819"
-          >
-            <font-awesome size="lg" :icon="['fas', 'calendar-alt']" />
-          </a>
-        </v-button>
-        <span class="mr-2 cursor-default">View Cart</span>
-        <v-button class="mr-2" @click="$emit('openCart')">
-          <font-awesome size="lg" :icon="['fas', 'shopping-bag']" />
-        </v-button>
-      </div>
-    </div>
-    <div class="main">
-      <g-image src="/images/logo_small.jpg" alt="99 Medispa Logo" />
-      <div>
-        <template v-for="link in links">
-          <navbar-link
-            v-if="!link.children"
-            :key="link.to"
-            :name="link.name"
-            :to="link.to"
-            exact
-          />
-          <navbar-link-dropdown v-else :key="link.to">
-            <template #link>
-              <navbar-link :name="link.name" :to="link.to" disabled />
-            </template>
-            <template #dropdown>
-              <div class="dropdown-wrapper">
-                <navbar-link
-                  v-for="(child, index) in link.children"
-                  :key="index"
-                  class="mt-4"
-                  :class="{ 'mb-4': index === link.children.length - 1 }"
-                  dropdown
-                  exact
-                  :name="child.name"
-                  :to="child.to"
-                />
-              </div>
-            </template>
-          </navbar-link-dropdown>
-        </template>
-      </div>
-    </div>
-  </nav>
-</template>
-
 <script>
 import NavbarLink from "./NavbarLink";
 import NavbarLinkDropdown from "./NavbarLinkDropdown";
@@ -119,6 +57,68 @@ export default {
   },
 };
 </script>
+
+<template>
+  <nav>
+    <div class="top">
+      <div>
+        <font-awesome class="mr-3" size="lg" :icon="['fas', 'mobile-alt']" />
+        <span class="mr-4">0452 008 115</span>
+        <v-button class="mr-1" @click="$emit('openMap')">
+          <font-awesome size="lg" :icon="['fas', 'map-marker-alt']" />
+        </v-button>
+        <span>1304 / 99 York St Sydney 2000</span>
+      </div>
+      <div>
+        <span class="mr-1 cursor-default">Book Now</span>
+        <v-button class="mr-2 icon">
+          <a
+            href="https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819"
+          >
+            <font-awesome size="lg" :icon="['fas', 'calendar-alt']" />
+          </a>
+        </v-button>
+        <span class="mr-1 cursor-default">View Cart</span>
+        <v-button @click="$emit('openCart')">
+          <font-awesome size="lg" :icon="['fas', 'shopping-bag']" />
+        </v-button>
+      </div>
+    </div>
+    <div class="main">
+      <g-image src="/images/logo_small.jpg" alt="99 Medispa Logo" />
+      <div>
+        <template v-for="link in links">
+          <navbar-link
+            v-if="!link.children"
+            :key="link.to"
+            :name="link.name"
+            :to="link.to"
+            exact
+          />
+          <navbar-link-dropdown v-else :key="link.to">
+            <template #link>
+              <navbar-link :name="link.name" :to="link.to" disabled />
+            </template>
+            <template #dropdown>
+              <div class="dropdown-wrapper">
+                <navbar-link
+                  v-for="(child, index) in link.children"
+                  :key="index"
+                  class="mt-4"
+                  :class="{ 'mb-4': index === link.children.length - 1 }"
+                  dropdown
+                  exact
+                  :name="child.name"
+                  :to="child.to"
+                />
+              </div>
+            </template>
+          </navbar-link-dropdown>
+        </template>
+      </div>
+    </div>
+  </nav>
+</template>
 
 <style lang="scss" scoped>
 nav {

@@ -1,70 +1,3 @@
-<template>
-  <nav>
-    <div>
-      <v-button @click="extendNavbar('navbar')">
-        <svg class="nav" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </v-button>
-      <v-button @click="$emit('openMap')">
-        <font-awesome :icon="['fas', 'map-marker-alt']" />
-      </v-button>
-    </div>
-    <g-image class="h-8" src="/images/logo_small.png" alt="99 Medispa Logo" />
-    <div>
-      <v-button class="mr-2">
-        <a
-          href="https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819"
-        >
-          <font-awesome :icon="['fas', 'calendar-alt']" />
-        </a>
-      </v-button>
-      <v-button @click="$emit('openCart')">
-        <font-awesome :icon="['fas', 'shopping-bag']" />
-      </v-button>
-    </div>
-    <v-collapsible :extended="extendedNavbar">
-      <template v-for="link in links">
-        <g-link
-          v-if="!link.children"
-          :key="link.name"
-          class="nav-link"
-          :to="link.to"
-        >
-          {{ link.name }}
-        </g-link>
-        <template v-else>
-          <g-link
-            :key="link.name"
-            class="nav-link"
-            :to="link.to"
-            event=""
-            @click.native.prevent="extendNavbar(link.name)"
-          >
-            {{ link.name }}
-          </g-link>
-          <v-collapsible
-            :key="link.name"
-            :extended="
-              link.name === 'Treatments' ? extendedTreatments : extendedOffers
-            "
-          >
-            <g-link
-              v-for="child in link.children"
-              :key="child.to"
-              class="mt-3 ml-2 text-sm nav-link"
-              :to="child.to"
-            >
-              {{ child.name }}
-            </g-link>
-          </v-collapsible>
-        </template>
-      </template>
-    </v-collapsible>
-  </nav>
-</template>
-
 <script>
 import VCollapsible from "../components/VCollapsible";
 
@@ -152,37 +85,89 @@ export default {
 };
 </script>
 
+<template>
+  <nav>
+    <div>
+      <v-button @click="extendNavbar('navbar')">
+        <svg class="nav" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </v-button>
+      <v-button @click="$emit('openMap')">
+        <font-awesome size="lg" :icon="['fas', 'map-marker-alt']" />
+      </v-button>
+    </div>
+    <g-image
+      class="h-12 sm:h-9"
+      src="/images/logo_small.png"
+      alt="99 Medispa Logo"
+    />
+    <div>
+      <v-button class="mr-2">
+        <a
+          href="https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819"
+        >
+          <font-awesome size="lg" :icon="['fas', 'calendar-alt']" />
+        </a>
+      </v-button>
+      <v-button @click="$emit('openCart')">
+        <font-awesome size="lg" :icon="['fas', 'shopping-bag']" />
+      </v-button>
+    </div>
+    <v-collapsible class="px-3" :extended="extendedNavbar">
+      <template v-for="link in links">
+        <g-link
+          v-if="!link.children"
+          :key="link.name"
+          class="nav-link"
+          :to="link.to"
+        >
+          {{ link.name }}
+        </g-link>
+        <template v-else>
+          <g-link
+            :key="link.name"
+            class="nav-link"
+            :to="link.to"
+            event=""
+            @click.native.prevent="extendNavbar(link.name)"
+          >
+            {{ link.name }}
+          </g-link>
+          <v-collapsible
+            :key="link.to"
+            :extended="
+              link.name === 'Treatments' ? extendedTreatments : extendedOffers
+            "
+          >
+            <g-link
+              v-for="child in link.children"
+              :key="child.to"
+              class="mt-3 ml-2 text-sm nav-link"
+              :to="child.to"
+            >
+              {{ child.name }}
+            </g-link>
+          </v-collapsible>
+        </template>
+      </template>
+    </v-collapsible>
+  </nav>
+</template>
+
 <style lang="scss" scoped>
 nav {
-  @apply fixed;
-  @apply top-0;
-  @apply z-20;
-  @apply flex;
-  @apply flex-wrap;
-  @apply items-center;
-  @apply justify-between;
-  @apply w-full;
-  @apply px-2;
-  @apply py-6;
-  @apply bg-white;
-  @apply border-b;
+  @apply fixed top-0 z-20 flex flex-wrap items-center justify-between w-full px-2 py-6 bg-white border-b;
   min-height: 4rem;
 }
 
 a.nav-link {
-  @apply block;
-  @apply mt-6;
-  @apply border-b;
-  @apply border-black;
+  @apply block mt-6 border-b border-black;
 }
 
 button {
-  @apply w-8;
-  @apply h-8;
-  @apply bg-black;
-  @apply bg-opacity-0;
-  @apply rounded-full;
-  @apply opacity-70;
+  @apply w-12 h-12 bg-black bg-opacity-0 rounded-full opacity-70;
 
   &:hover {
     @apply bg-opacity-10;
@@ -190,11 +175,13 @@ button {
 }
 
 svg.nav {
-  @apply inline-block;
-  @apply w-4;
-  @apply h-4;
-  @apply mb-1;
-  @apply fill-current;
+  @apply inline-block w-5 h-5 mb-1 fill-current;
+}
+
+@media (min-width: 640px) {
+  button {
+    @apply w-9 h-9;
+  }
 }
 
 @media (min-width: 768px) {

@@ -1,7 +1,7 @@
 <template>
   <div
     :class="classes"
-    class="flex flex-row items-center justify-between w-full p-2"
+    class="flex flex-row items-center justify-between w-full p-3"
   >
     <slot />
   </div>
