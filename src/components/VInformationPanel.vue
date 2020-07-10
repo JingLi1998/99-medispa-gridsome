@@ -2,11 +2,8 @@
   <div :class="{ 'lg:flex-row-reverse': reverse }" class="w-full lg:flex">
     <v-responsive :cols="12" :lg="6">
       <v-aspect-ratio class="bg-white">
-        <v-responsive
-          :cols="11"
-          :lg="10"
-          :xl2="8"
-          class="flex flex-col justify-center h-full mx-auto"
+        <div
+          class="flex flex-col justify-center w-11/12 h-full mx-auto lg:w-10/12 2xl:w-8/12"
         >
           <div>
             <h2 v-html="title" />
@@ -17,7 +14,7 @@
               </g-link>
             </v-button>
           </div>
-        </v-responsive>
+        </div>
       </v-aspect-ratio>
     </v-responsive>
 
