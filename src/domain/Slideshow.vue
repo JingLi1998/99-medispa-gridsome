@@ -2,9 +2,8 @@
   <div class="slideshow-wrapper">
     <g-image
       class="object-cover w-full h-full"
-      :immediate="true"
       :src="$static.slides.edges[1].node.image"
-      quality="0"
+      blur="40"
       :alt="$static.slides.edges[1].node.altText"
     />
     <div class="absolute inset-0 bg-black opacity-30" />
