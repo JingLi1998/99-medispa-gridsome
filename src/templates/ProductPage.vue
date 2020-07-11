@@ -1,50 +1,55 @@
 <template>
-  <div
-    class="w-full mx-auto mt-20 md:mt-32 lg:w-10/12 lg:mt-40 lg:mb-8 md:grid md:grid-cols-2 md:border xl:w-8/12"
-  >
-    <!-- PRODUCT IMAGE -->
-    <div class="relative flex items-center py-10">
-      <g-image class="object-contain mx-auto image" :src="$context.images[0]" />
-      <div
-        class="absolute inset-0 flex w-16 h-16 transition duration-300 bg-black bg-opacity-0 border-b border-r cursor-pointer hover:bg-opacity-10 transition:opacity"
-        @click="$router.go(-1)"
-      >
-        <span class="m-auto text-xl">&larr;</span>
-      </div>
-    </div>
-
-    <!-- PRODUCT NAME AND PRICE -->
-    <div class="card">
-      <h1>{{ $context.name }}</h1>
-      <h2>
-        {{ $context.metadata.brand }}
-      </h2>
-      <h5>Size: {{ $context.metadata.size }}</h5>
-      <h4>{{ convertStripeAmount($context.amount) }} AUD</h4>
-      <v-button
-        :class="{
-          'opacity-50 cursor-default': inCart,
-          'hover:bg-opacity-50': !inCart,
-        }"
-        :disabled="inCart"
-        @click="addCartItem({ item: $context, quantity })"
-      >
-        {{ inCart ? "Added To Cart" : "Add To Cart" }}
-      </v-button>
-      <hr />
-      <h2>
-        {{ $context.metadata.tagline }}
-      </h2>
-      <p>{{ $context.metadata.description }}</p>
-      <h3>Key Ingredients:</h3>
-      <ol>
-        <li
-          v-for="ingredient in $context.metadata.ingredients.split(',')"
-          :key="ingredient"
+  <div class="py-6 sm:py-3 md:py-0 lg:py-6">
+    <div
+      class="w-full mx-auto lg:w-10/12 md:grid md:grid-cols-2 xl:w-8/12 lg:border"
+    >
+      <!-- PRODUCT IMAGE -->
+      <div class="relative flex items-center py-10">
+        <g-image
+          class="object-contain mx-auto image"
+          :src="$context.images[0]"
+        />
+        <div
+          class="absolute inset-0 flex w-16 h-16 transition duration-300 bg-black bg-opacity-0 border-b border-r cursor-pointer hover:bg-opacity-10 transition:opacity"
+          @click="$router.go(-1)"
         >
-          - {{ ingredient }}
-        </li>
-      </ol>
+          <span class="m-auto text-xl">&larr;</span>
+        </div>
+      </div>
+
+      <!-- PRODUCT NAME AND PRICE -->
+      <div class="card">
+        <h1>{{ $context.name }}</h1>
+        <h2>
+          {{ $context.metadata.brand }}
+        </h2>
+        <h5>Size: {{ $context.metadata.size }}</h5>
+        <h4>{{ convertStripeAmount($context.amount) }} AUD</h4>
+        <v-button
+          :class="{
+            'opacity-50 cursor-default': inCart,
+            'hover:bg-opacity-50': !inCart,
+          }"
+          :disabled="inCart"
+          @click="addCartItem({ item: $context, quantity })"
+        >
+          {{ inCart ? "Added To Cart" : "Add To Cart" }}
+        </v-button>
+        <hr />
+        <h2>
+          {{ $context.metadata.tagline }}
+        </h2>
+        <p>{{ $context.metadata.description }}</p>
+        <h3>Key Ingredients:</h3>
+        <ol>
+          <li
+            v-for="ingredient in $context.metadata.ingredients.split(',')"
+            :key="ingredient"
+          >
+            - {{ ingredient }}
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 </template>

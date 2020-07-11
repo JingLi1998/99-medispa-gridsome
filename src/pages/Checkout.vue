@@ -54,8 +54,7 @@ export default {
             :index="index"
           />
         </template>
-        <!-- transition component to fade between these two -->
-        <div v-if="cartItems.length" key="cart-total" class="cart-total">
+        <div key="cart-total" class="cart-total">
           <p class="cart-total-header">Total</p>
           <p class="cart-total-amount">
             {{ convertStripeAmount(total.toString()) }} AUD
@@ -63,7 +62,7 @@ export default {
         </div>
         <div key="cart-button" class="items-center justify-end block md:flex">
           <g-link to="/products/">
-            <v-button class="md:mb-0 md:w-64 button-shopping">
+            <v-button class="button-shopping">
               {{ !cartItems.length ? "Start" : "Continue" }} shopping
             </v-button>
           </g-link>
@@ -101,6 +100,12 @@ p {
 /* md:text-3xl */
 .button-shopping {
   @apply w-full p-2 mb-2 mr-2 uppercase bg-white bg-opacity-50 border border-secondary text-secondary;
+}
+
+@media (min-width: 768px) {
+  .button-shopping {
+    @apply mb-0 w-64;
+  }
 }
 
 .list-leave-active {

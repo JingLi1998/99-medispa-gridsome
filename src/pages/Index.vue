@@ -1,109 +1,3 @@
-<template>
-  <div>
-    <slideshow />
-    <section class="bg-white">
-      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
-        <h2>Pioneers in Non-invasive Laser Treatments</h2>
-        <p>
-          Here at 99 medispa, our cosmetic doctors have perfected the art of
-          non-surgical cosmetic treatments. For over 18 years we have used the
-          most advanced, state of the art TGA and FDA approved technologies to
-          provide our customers with face and body enhancements.
-        </p>
-        <p>
-          Our unique success lies within our deep understanding of the
-          underlying scientific foundations of each treatment, allowing us to
-          align the best selection of treatments to your unique skin type. We
-          place immense value on the client-doctor relationship and will always
-          strive to bring you the ultimate in anti-aging, body slimming and skin
-          rejuvenation services.
-        </p>
-      </v-responsive>
-    </section>
-    <section class="bg-pink-100">
-      <v-responsive :cols="10" :sm="8" :md="7" :lg="6" :xl="5">
-        <v-aspect-ratio ratio="wide">
-          <iframe
-            frameborder="0"
-            class="w-full h-full"
-            :src="src"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </v-aspect-ratio>
-      </v-responsive>
-    </section>
-    <section id="counter" class="text-white bg-black">
-      <div class="grid grid-cols-1 row-gap-10 text-center md:grid-cols-3">
-        <div>
-          <h4>{{ targets[0].current }}+</h4>
-          <p class="">Years of Experience</p>
-        </div>
-        <div>
-          <h4>
-            {{ targets[1].current }}
-          </h4>
-          <p class="">VIP Clients*</p>
-        </div>
-        <div>
-          <h4>
-            {{ targets[2].current }}
-          </h4>
-          <p class="mx-12">
-            FDA/TGA Approved Machines
-          </p>
-        </div>
-      </div>
-      <div class="mt-4">
-        <small class="font-fancy">
-          * Contact us to find out more about our special VIP membership plan
-        </small>
-      </div>
-    </section>
-    <section class="bg-white">
-      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
-        <div class="md:text-center">
-          <h2>Follow the 99 Medispa journey on Instagram</h2>
-          <p>
-            Stay up to date with our latest treatments and services and
-            potential discounts by following us on Instagram!
-          </p>
-        </div>
-      </v-responsive>
-      <v-responsive :cols="10">
-        <iframe
-          src="https://cdn.lightwidget.com/widgets/a5bb06a79a9f5550983ceb07e4b7641f.html"
-          scrolling="no"
-          allowtransparency="true"
-          class="lightwidget-widget"
-          style="width: 100%; border: 0; overflow: hidden;"
-        ></iframe>
-      </v-responsive>
-    </section>
-    <section class="bg-pink-100">
-      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
-        <h2>Online Booking, Enquiry and Consultation</h2>
-        <p>
-          All our customers receive a complimentary consultation with our
-          experienced professionals prior to performing treatment. This allows
-          us to best align the most suitable treatments with your personal goals
-          and unique skin and body type.
-        </p>
-        <p>
-          Feel free to book with us directly online or if you'd like to know
-          more about a particular treatment make call us now or make an email
-          enquiry. Begin your journey towards better health, wellbeing and
-          beauty today!
-        </p>
-        <div class="flex justify-between">
-          <v-button>Book Online</v-button>
-          <v-button>Make an Enquiry</v-button>
-        </div>
-      </v-responsive>
-    </section>
-  </div>
-</template>
-
 <script>
 import Slideshow from "../domain/Slideshow";
 import VResponsive from "../components/VResponsive";
@@ -212,6 +106,108 @@ export default {
 };
 </script>
 
+<template>
+  <div>
+    <slideshow />
+    <section class="bg-white">
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
+        <h2>Pioneers in Non-invasive Laser Treatments</h2>
+        <p>
+          Here at 99 medispa, our cosmetic doctors have perfected the art of
+          non-surgical cosmetic treatments. For over 18 years we have used the
+          most advanced, state of the art TGA and FDA approved technologies to
+          provide our customers with face and body enhancements.
+        </p>
+        <p>
+          Our unique success lies within our deep understanding of the
+          underlying scientific foundations of each treatment, allowing us to
+          align the best selection of treatments to your unique skin type. We
+          place immense value on the client-doctor relationship and will always
+          strive to bring you the ultimate in anti-aging, body slimming and skin
+          rejuvenation services.
+        </p>
+      </v-responsive>
+    </section>
+    <section class="bg-pink-100">
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6" :xl="5">
+        <v-aspect-ratio ratio="wide">
+          <iframe
+            frameborder="0"
+            class="w-full h-full"
+            :src="src"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </v-aspect-ratio>
+      </v-responsive>
+    </section>
+    <section id="counter" class="text-white bg-black">
+      <div class="grid grid-cols-1 row-gap-10 text-center md:grid-cols-3">
+        <div>
+          <span class="target">{{ targets[0].current }}+</span>
+          <span>Years of Experience</span>
+        </div>
+        <div>
+          <span class="target"> {{ targets[1].current }} </span>
+          <span>VIP Clients*</span>
+        </div>
+        <div>
+          <span class="target"> {{ targets[2].current }} </span>
+          <span class="mx-12">
+            FDA/TGA Approved Machines
+          </span>
+        </div>
+      </div>
+      <div class="mt-4">
+        <small class="font-fancy">
+          * Contact us to find out more about our special VIP membership plan
+        </small>
+      </div>
+    </section>
+    <section class="bg-white">
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
+        <div class="md:text-center">
+          <h2>Follow the 99 Medispa journey on Instagram</h2>
+          <p>
+            Stay up to date with our latest treatments and services and
+            potential discounts by following us on Instagram!
+          </p>
+        </div>
+      </v-responsive>
+      <v-responsive :cols="10">
+        <iframe
+          src="https://cdn.lightwidget.com/widgets/a5bb06a79a9f5550983ceb07e4b7641f.html"
+          scrolling="no"
+          allowtransparency="true"
+          class="lightwidget-widget"
+          style="width: 100%; border: 0; overflow: hidden;"
+        ></iframe>
+      </v-responsive>
+    </section>
+    <section class="bg-pink-100">
+      <v-responsive :cols="10" :sm="8" :md="7" :lg="6">
+        <h2>Online Booking, Enquiry and Consultation</h2>
+        <p>
+          All our customers receive a complimentary consultation with our
+          experienced professionals prior to performing treatment. This allows
+          us to best align the most suitable treatments with your personal goals
+          and unique skin and body type.
+        </p>
+        <p>
+          Feel free to book with us directly online or if you'd like to know
+          more about a particular treatment make call us now or make an email
+          enquiry. Begin your journey towards better health, wellbeing and
+          beauty today!
+        </p>
+        <div class="flex justify-between">
+          <v-button>Book Online</v-button>
+          <v-button>Make an Enquiry</v-button>
+        </div>
+      </v-responsive>
+    </section>
+  </div>
+</template>
+
 <style scoped>
 section {
   @apply flex flex-col items-center justify-center py-6;
@@ -221,12 +217,8 @@ h2 {
   @apply text-4xl font-medium text-secondary my-6 leading-12 font-fancy;
 }
 
-h4 {
-  @apply my-3 text-4xl font-semibold leading-9;
-}
-
 p {
-  @apply leading-9 my-9;
+  @apply my-6;
 }
 
 small {
@@ -238,12 +230,13 @@ button {
   width: 49.5%;
 }
 
+.target {
+  @apply my-3 text-4xl font-semibold leading-9 block;
+}
+
 @media (min-width: 768px) {
   section {
     @apply py-24;
   }
-}
-
-@media (min-width: 1024px) {
 }
 </style>
