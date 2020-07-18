@@ -2,8 +2,7 @@
   <transition name="fade">
     <div
       v-if="show"
-      class="fixed py-4 mx-auto text-center text-white rounded-lg shadow-2xl bg-secondary"
-      style="width: 60vh; top: 125px;"
+      class="fixed py-4 mx-auto text-center text-white rounded-lg shadow-2xl bg-secondary snackbar"
     >
       {{ text }}
     </div>
@@ -32,5 +31,10 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+.snackbar {
+  width: 60vh;
+  top: 150px;
 }
 </style>
