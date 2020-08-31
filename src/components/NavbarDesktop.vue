@@ -20,6 +20,10 @@ export default {
               to: "/treatments/laser-treatment/",
             },
             {
+              name: "Emsculpt Contouring",
+              to: "/treatments/emsculpt",
+            },
+            {
               name: "Cosmetic Injection",
               to: "treatments/cosmetic-injection",
             },
@@ -64,7 +68,7 @@ export default {
       <div>
         <font-awesome class="mr-3" size="lg" :icon="['fas', 'mobile-alt']" />
         <span class="mr-4">0452 008 115</span>
-        <v-button class="mr-1" @click="$emit('openMap')">
+        <v-button class="mr-1" @click="$emit('open-map')">
           <font-awesome size="lg" :icon="['fas', 'map-marker-alt']" />
         </v-button>
         <span>1304 / 99 York St Sydney 2000</span>
@@ -79,7 +83,7 @@ export default {
           </a>
         </v-button>
         <span class="mr-1 cursor-default">View Cart</span>
-        <v-button @click="$emit('openCart')">
+        <v-button @click="$emit('open-cart')">
           <font-awesome size="lg" :icon="['fas', 'shopping-bag']" />
         </v-button>
       </div>

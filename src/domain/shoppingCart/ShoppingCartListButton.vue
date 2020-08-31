@@ -4,7 +4,7 @@
       :class="{ 'opacity-50 cursor-default': !lineItems.length }"
       class="w-full p-2 mt-6 text-white uppercase bg-secondary"
       :disabled="!lineItems.length"
-      @click="$emit('closeCart')"
+      @click="$emit('close-cart')"
     >
       Go To Checkout
     </v-button>

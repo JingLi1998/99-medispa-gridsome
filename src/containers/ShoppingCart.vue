@@ -2,7 +2,7 @@
   <v-responsive class="cart-wrapper" :cols="12" :sm="8" :md="7" :lg="6" :xl="5">
     <div class="cart-header">
       <h3>Your Shopping Cart</h3>
-      <v-button class="cart-close" @click="$emit('closeCart')">X</v-button>
+      <v-button class="cart-close" @click="$emit('close-cart')">X</v-button>
     </div>
 
     <div>
@@ -35,7 +35,7 @@
           class="checkout-button"
           :disabled="!cartItems.length"
           :class="{ 'opacity-50 cursor-default': !cartItems.length }"
-          @click="$emit('closeCart')"
+          @click="$emit('close-cart')"
         >
           Go to Checkout
         </v-button>
