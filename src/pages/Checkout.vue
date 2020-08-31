@@ -42,10 +42,15 @@ export default {
     <hr />
     <v-list>
       <transition-group name="list" mode="in-out">
-        <p v-if="!cartItems.length" key="checkout-empty" class="pb-6 border-b">
-          Cart is empty
-        </p>
-        <template v-else>
+        <div key="empty-wrapper">
+          <transition name="fade" mode="in-out">
+            <p v-if="!cartItems.length" class="pb-6 border-b">
+              Cart is empty
+            </p>
+          </transition>
+        </div>
+
+        <template v-if="cartItems.length">
           <checkout-item
             v-for="({ item, quantity }, index) in cartItems"
             :key="item.price"
@@ -119,6 +124,15 @@ p {
 }
 
 .list-leave-to {
+  opacity: 0;
+}
+
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.3s ease;
+}
+.fade-leave-to,
+.fade-enter {
   opacity: 0;
 }
 </style>

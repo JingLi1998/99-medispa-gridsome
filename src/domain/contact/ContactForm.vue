@@ -80,14 +80,20 @@
           type="text"
         />
       </div>
-
-      <div class="px-2">
-        <button
-          class="block w-full p-2 text-white uppercase rounded submit focus:outline-none bg-secondary"
+      <transition name="fade" mode="in-out">
+        <p v-if="error != ''" class="px-2 pb-4 text-center text-red-400">
+          {{ error }}
+        </p>
+      </transition>
+      <div class="p-2">
+        <v-button
+          class="block w-full p-2 text-white uppercase submit focus:outline-none bg-secondary"
+          :disabled="disabled"
+          :class="{ 'opacity-50 cursor-default': disabled }"
           type="submit"
         >
           Submit Form
-        </button>
+        </v-button>
       </div>
     </form>
 
@@ -123,6 +129,7 @@ export default {
       },
       show: false,
       error: "",
+      disabled: false,
     };
   },
   methods: {
@@ -136,6 +143,7 @@ export default {
         this.formData.comments
       ) {
         this.error = "";
+        this.disabled = true;
         try {
           await axios.post(
             "https://dicwjr8992.execute-api.ap-southeast-2.amazonaws.com/dev/email/send",
@@ -145,12 +153,15 @@ export default {
           Object.keys(this.formData).forEach((k) => (this.formData[k] = ""));
           setTimeout(() => {
             this.show = false;
+            this.disabled = false;
           }, 5000);
         } catch (error) {
           this.error = "Something went wrong, please try again";
+          this.disabled = false;
         }
       } else {
         this.error = "Please fill in all required fields before submitting";
+        this.disabled = false;
       }
     },
   },
@@ -188,5 +199,22 @@ h2 {
     @apply text-5xl my-12;
     line-height: 3.75rem;
   }
+}
+.list-leave-active {
+  transition: 0.5s ease-out;
+  transition-property: opacity, transform;
+  position: absolute;
+}
+
+.list-move {
+  transition: transform 1s;
+}
+
+.list-leave-to {
+  opacity: 0;
+}
+
+.move-transition {
+  transition: transform 1s;
 }
 </style>

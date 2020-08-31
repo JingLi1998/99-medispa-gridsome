@@ -200,8 +200,15 @@ export default {
           beauty today!
         </p>
         <div class="flex justify-between">
-          <v-button>Book Online</v-button>
-          <v-button>Make an Enquiry</v-button>
+          <a
+            href="https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819"
+            class="contact-button"
+          >
+            <v-button>Book Online</v-button>
+          </a>
+          <g-link to="/contact/" class="contact-button">
+            <v-button>Make an Enquiry</v-button>
+          </g-link>
         </div>
       </v-responsive>
     </section>
@@ -225,8 +232,8 @@ small {
   @apply text-sm my-3;
 }
 
-button {
-  @apply bg-grey py-3 text-white;
+.contact-button {
+  @apply bg-grey py-3 text-white text-center;
   width: 49.5%;
 }
 

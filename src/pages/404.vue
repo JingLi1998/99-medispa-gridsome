@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="flex flex-col w-10/12 h-auto pt-24 pb-10 mx-auto font-medium text-center md:pb-40 md:h-screen md:pt-40"
-  >
-    <div class="my-auto">
+  <div class="flex flex-col items-center pt-24 font-medium text-center wrapper">
+    <div class="w-10/12">
       <font-awesome class="opacity-50" size="10x" :icon="['far', 'frown']" />
       <h1 class="mt-4 font-medium leading-none opacity-50 text-8xl">
         404
@@ -39,3 +37,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.wrapper {
+  min-height: calc(100vh - 4.5rem);
+  margin-top: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    min-height: calc(100vh - 8.5rem);
+    margin-top: 8.5rem;
+  }
+}
+</style>
