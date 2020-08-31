@@ -7,7 +7,7 @@
 
 <page-query>
 query {
-  treatments: allTreatments(filter: {type: {eq:"Body Treatment"}}) {
+  treatments: allTreatments(filter: {type: {eq:"Emsculpt"}}) {
     edges {
       node {
         title
@@ -17,7 +17,7 @@ query {
       }
     }
   }
-  background: allBackgrounds(filter: {title: {eq: "Body Treatment"}}) {
+  background: allBackgrounds(filter: {title: {eq: "Emsculpt"}}) {
     edges {
       node {
         title
@@ -41,7 +41,7 @@ export default {
         key: "description",
         name: "description",
         content:
-          "99 Medispa now offers EmSculpt treatment, a new form of non-invasive body contouring treatment. Unlike fat-freezing treatments, this revolutionary technology achieves body countring by simultaneously building muscle whilst also burning fat, delivering the equivalent of 20,000 sit-ups or squats in a single 30 minute session!",
+          "99 Medispa now offers EmSculpt treatment, a new form of non-invasive body contouring treatment. Unlike fat-freezing treatments, this revolutionary technology achieves body contouring by simultaneously building muscle whilst also burning fat, delivering the equivalent of 20,000 sit-ups or squats in a single 30 minute session!",
       },
     ],
   },
