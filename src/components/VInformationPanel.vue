@@ -83,6 +83,10 @@ button {
   @apply hidden w-40 py-2 font-normal text-center text-white uppercase bg-secondary;
 }
 
+.research {
+  color: blue;
+}
+
 .wrapper {
   padding-bottom: 150%;
 }
