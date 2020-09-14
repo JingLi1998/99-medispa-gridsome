@@ -4,7 +4,7 @@
       <v-overlay
         v-if="show"
         class="cursor-default"
-        @clicked="$emit('closeCart')"
+        @clicked="$emit('close-cart')"
       />
     </transition>
 
@@ -12,7 +12,7 @@
       <shopping-cart-list
         v-if="show"
         class="cursor-default"
-        @closeCart="$emit('closeCart')"
+        @closeCart="$emit('close-cart')"
       />
     </transition>
   </div>

@@ -94,7 +94,7 @@ export default {
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
         </svg>
       </v-button>
-      <v-button @click="$emit('openMap')">
+      <v-button @click="$emit('open-map')">
         <font-awesome size="lg" :icon="['fas', 'map-marker-alt']" />
       </v-button>
     </div>
@@ -111,7 +111,7 @@ export default {
           <font-awesome size="lg" :icon="['fas', 'calendar-alt']" />
         </a>
       </v-button>
-      <v-button @click="$emit('openCart')">
+      <v-button @click="$emit('open-cart')">
         <font-awesome size="lg" :icon="['fas', 'shopping-bag']" />
       </v-button>
     </div>

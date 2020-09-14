@@ -1,14 +1,14 @@
 <template>
   <div id="defaultLayout">
-    <navbar-desktop @openCart="showCart = true" @openMap="showMap = true" />
-    <navbar-mobile @openCart="showCart = true" @openMap="showMap = true" />
+    <navbar-desktop @open-cart="showCart = true" @open-map="showMap = true" />
+    <navbar-mobile @open-cart="showCart = true" @open-map="showMap = true" />
     <div class="route-wrapper">
       <slot />
     </div>
     <footer-bar />
 
     <v-modal transition="slide" :show="showCart" @close="showCart = false">
-      <shopping-cart @closeCart="showCart = false" />
+      <shopping-cart @close-cart="showCart = false" />
     </v-modal>
 
     <v-modal :show="showMap" @close="showMap = false">
@@ -16,7 +16,7 @@
         class="map centered"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13251.018307582943!2d151.205775!3d-33.8702153!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdab6ea0ecb5e72f4!2s99%20Medispa!5e0!3m2!1sen!2sau!4v1591761213204!5m2!1sen!2sau"
         frameborder="0"
-        style="border: 0;"
+        style="border: 0"
         allowfullscreen=""
         aria-hidden="false"
         tabindex="0"

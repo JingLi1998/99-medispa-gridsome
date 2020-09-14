@@ -153,9 +153,7 @@ export default {
         </div>
         <div>
           <span class="target"> {{ targets[2].current }} </span>
-          <span class="mx-12">
-            FDA/TGA Approved Machines
-          </span>
+          <span class="mx-12"> FDA/TGA Approved Machines </span>
         </div>
       </div>
       <div class="mt-4">
@@ -180,7 +178,7 @@ export default {
           scrolling="no"
           allowtransparency="true"
           class="lightwidget-widget"
-          style="width: 100%; border: 0; overflow: hidden;"
+          style="width: 100%; border: 0; overflow: hidden"
         ></iframe>
       </v-responsive>
     </section>
