@@ -97,7 +97,12 @@ module.exports = {
         publicPath: `/admin`,
       },
     },
-    "@gridsome/plugin-sitemap",
+    {
+      use: "@gridsome/plugin-sitemap",
+      options: {
+        exclude: ["/checkout/", "/success/", "/cancelled/"],
+      },
+    },
     {
       use: "gridsome-plugin-robots-txt",
       options: {
