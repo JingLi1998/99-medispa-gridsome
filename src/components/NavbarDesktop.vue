@@ -45,7 +45,6 @@ export default {
             },
           ],
         },
-        { name: "Price List", to: "/price-list/", children: null },
         {
           name: "Offers",
           to: "/offers/",
