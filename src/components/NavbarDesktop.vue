@@ -123,19 +123,18 @@ export default {
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 nav {
   @apply fixed top-0 z-20 bg-white hidden w-full;
-
-  .top {
-    @apply h-10 flex items-center justify-between px-9 text-sm border-b;
-  }
-
-  .main {
-    @apply flex items-center justify-between px-9 border-b min-h-24;
-  }
 }
 
+.top {
+  @apply h-10 flex items-center justify-between px-9 text-sm border-b;
+}
+
+.main {
+  @apply flex items-center justify-between px-9 border-b min-h-24;
+}
 .dropdown-wrapper {
   @apply px-4 border border-gray-300;
 }

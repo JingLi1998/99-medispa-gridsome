@@ -93,7 +93,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .slideshow-wrapper {
   position: relative;
   height: 60vw;
@@ -115,6 +115,13 @@ export default {
   text-decoration: none;
   opacity: 50%;
 
+  &:hover {
+    opacity: 100%;
+  }
+}
+
+.prev,
+.next {
   &:hover {
     opacity: 100%;
   }

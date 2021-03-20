@@ -37,26 +37,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 a {
   @apply inline-block text-xs font-medium tracking-normal uppercase relative text-black no-underline;
+}
 
-  &.active {
-    @apply border-b border-black;
-  }
+a.active {
+  @apply border-b border-black;
+}
 
-  &::before {
-    @apply absolute w-full left-0 bg-black invisible;
-    content: "";
-    height: 1px;
-    bottom: -1px;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-  }
+a::before {
+  @apply absolute w-full left-0 bg-black invisible;
+  content: "";
+  height: 1px;
+  bottom: -1px;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
 
-  &:hover::before {
-    @apply visible;
-    transform: scaleX(1);
-  }
+a:hover::before {
+  @apply visible;
+  transform: scaleX(1);
 }
 </style>

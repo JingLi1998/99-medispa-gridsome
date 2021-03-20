@@ -66,7 +66,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .cart-wrapper {
   @apply fixed top-0 right-0 z-50 bg-white h-screen overflow-y-auto;
 }

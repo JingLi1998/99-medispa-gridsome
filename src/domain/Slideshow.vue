@@ -9,12 +9,8 @@
     <div class="absolute inset-0 bg-black opacity-30" />
     <div class="absolute inset-0 z-10 flex items-center justify-end">
       <div class="box">
-        <h1>
-          99 Medispa Sydney
-        </h1>
-        <h6>
-          Elevate your beauty to the next level
-        </h6>
+        <h1>99 Medispa Sydney</h1>
+        <h6>Elevate your beauty to the next level</h6>
       </div>
     </div>
   </div>
@@ -35,7 +31,7 @@ query {
 }
 </static-query>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h1 {
   @apply text-2xl font-medium my-3;
 }
@@ -99,10 +95,11 @@ h6 {
   transition: 0.7s ease;
   text-decoration: none;
   opacity: 50%;
+}
 
-  &:hover {
-    opacity: 100%;
-  }
+.prev:hover,
+.next:hover {
+  opacity: 100%;
 }
 
 .next {

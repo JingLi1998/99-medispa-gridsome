@@ -43,7 +43,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 img {
   @apply object-contain w-12 h-24 ml-3 mr-9;
 }

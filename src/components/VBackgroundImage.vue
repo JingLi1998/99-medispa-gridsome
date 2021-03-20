@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h1 {
   @apply text-2xl font-medium my-3;
 }

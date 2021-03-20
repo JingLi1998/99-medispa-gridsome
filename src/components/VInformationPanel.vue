@@ -48,9 +48,7 @@ export default {
               <h2 v-html="title" />
               <p v-html="treatmentContent" />
               <v-button>
-                <g-link to="/contact/">
-                  Enquire Now
-                </g-link>
+                <g-link to="/contact/"> Enquire Now </g-link>
               </v-button>
             </div>
           </div>
@@ -70,7 +68,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h2 {
   @apply text-2xl my-3 font-fancy text-secondary font-semibold uppercase;
 }

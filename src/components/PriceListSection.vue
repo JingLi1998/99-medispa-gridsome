@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 h2 {
   @apply text-3xl leading-9 my-6 font-bold text-secondary font-fancy;
 }

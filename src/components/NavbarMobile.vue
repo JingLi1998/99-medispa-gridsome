@@ -155,7 +155,7 @@ export default {
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 nav {
   @apply fixed top-0 z-20 flex flex-wrap items-center justify-between w-full px-2 py-6 bg-white border-b;
   min-height: 4rem;
@@ -167,10 +167,10 @@ a.nav-link {
 
 button {
   @apply w-12 h-12 bg-black bg-opacity-0 rounded-full opacity-70;
+}
 
-  &:hover {
-    @apply bg-opacity-10;
-  }
+button:hover {
+  @apply bg-opacity-10;
 }
 
 svg.nav {

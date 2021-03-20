@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .collapsible {
   transition: max-height 0.75s ease-in-out;
   &.extended {
@@ -29,9 +29,10 @@ export default {
   @apply overflow-hidden;
   @apply max-h-0;
   transition: max-height 0.75s ease-in-out;
-  &.extended {
-    max-height: 100vh;
-  }
+}
+
+.collapsible.extended {
+  max-height: 100vh;
 }
 
 @media (min-width: 768px) {

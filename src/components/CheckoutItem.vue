@@ -65,7 +65,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 img {
   @apply object-contain w-16 h-32 ml-4 mr-8;
 }
@@ -76,10 +76,10 @@ img {
 
 .button-delete {
   @apply w-8 h-8 mt-2 mr-1 bg-black bg-opacity-0 border;
+}
 
-  &:hover {
-    @apply bg-opacity-10;
-  }
+.button-delete:hover {
+  @apply bg-opacity-10;
 }
 
 .item-name {
