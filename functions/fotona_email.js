@@ -3,11 +3,30 @@ const sgMail = require("@sendgrid/mail");
 
 exports.handler = async function (event, context) {
   sgMail.setApiKey(process.env.SEND_GRID);
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({
+        message: "Invalid HTTP Method",
+      }),
+    };
+  }
+  const { name, email, phone, message } = event.body;
   const msg = {
     to: "jing_li1998@hotmail.com",
     from: "jing.li.1998.jl@gmail.com",
     subject: "Test",
-    html: "<div>Fotona Form Submitted</div>",
+    html: `
+    <div>
+      <h4>Fotona Form Submitted</h4> 
+      <ul>
+        <li>Name: ${name}</li>
+        <li>Email: ${email}</li>
+        <li>Phone: ${phone}</li>
+        <li>Message: ${message}</li>
+      </ul>
+    </div>
+    `,
   };
   try {
     const res = await sgMail.send(msg);
