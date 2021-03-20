@@ -190,7 +190,7 @@ FRAC3® Step 3: PIANO® and Step 4: SUPERFICIAL™.`,
         this.disabled = true;
         try {
           await axios.post(
-            "https://dicwjr8992.execute-api.ap-southeast-2.amazonaws.com/dev/email/send",
+            "https://dev--99medispa.netlify.app/.netlify/functions/fotona_email",
             this.formData
           );
           this.show = true;
