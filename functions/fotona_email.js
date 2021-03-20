@@ -13,16 +13,20 @@ exports.handler = async function (event, context) {
     await sgMail.send(msg);
     return {
       statusCode: 200,
-      httpMethod: event.httpMethod,
-      body: JSON.stringify({ message: "Function invoked" }),
-      received: JSON.stringify(event.body),
+      body: JSON.stringify({
+        httpMethod: event.httpMethod,
+        message: "Function invoked",
+        received: event.body,
+      }),
     };
   } catch {
     return {
       statusCode: 400,
-      httpMethod: event.httpMethod,
-      body: JSON.stringify({ message: "Function failed" }),
-      received: JSON.stringify(event.body),
+      body: JSON.stringify({
+        httpMethod: event.httpMethod,
+        message: "Function failed",
+        received: event.body,
+      }),
     };
   }
 };
