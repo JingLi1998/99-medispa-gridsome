@@ -14,6 +14,7 @@
     "@sendgrid/mail": "^7.4.2",
     "@stripe/stripe-js": "^1.7.0",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "gridsome-plugin-robots-txt": "^1.0.2",

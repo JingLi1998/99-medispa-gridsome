@@ -1,3 +1,4 @@
+require("dotenv").config();
 const sgMail = require("@sendgrid/mail");
 
 exports.handler = async function (event, context) {
@@ -14,6 +15,7 @@ exports.handler = async function (event, context) {
     .then(() => {
       return {
         statusCode: 200,
+        httpMethod: event.httpMethod,
         body: JSON.stringify({ message: "Function invoked" }),
         received: JSON.stringify(event.body),
       };
@@ -21,6 +23,7 @@ exports.handler = async function (event, context) {
     .catch(() => {
       return {
         statusCode: 400,
+        httpMethod: event.httpMethod,
         body: JSON.stringify({ message: "Function failed" }),
         received: JSON.stringify(event.body),
       };
