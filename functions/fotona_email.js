@@ -4,11 +4,10 @@ const sgMail = require("@sendgrid/mail");
 exports.handler = async function (event, context) {
   sgMail.setApiKey(process.env.SEND_GRID);
   const msg = {
-    to: "jing.li.1998.jl@gmail.com",
+    to: "jing_li1998@hotmail.com",
     from: "jing.li.1998.jl@gmail.com",
     subject: "Test",
-    text: "Test text",
-    html: "<strong>Test html</strong>",
+    html: "<div>Fotona Form Submitted</div>",
   };
   sgMail
     .send(msg)
