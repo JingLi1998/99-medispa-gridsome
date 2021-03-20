@@ -97,11 +97,12 @@
 </template>
 
 <script>
-import VBackgroundImage from "../../components/VBackgroundImage";
+// import VBackgroundImage from "../../components/VBackgroundImage";
+import axios from "axios";
 
 export default {
   components: {
-    VBackgroundImage,
+    // VBackgroundImage,
   },
   data() {
     return {
