@@ -9,22 +9,20 @@ exports.handler = async function (event, context) {
     subject: "Test",
     html: "<div>Fotona Form Submitted</div>",
   };
-  sgMail
-    .send(msg)
-    .then(() => {
-      return {
-        statusCode: 200,
-        httpMethod: event.httpMethod,
-        body: JSON.stringify({ message: "Function invoked" }),
-        received: JSON.stringify(event.body),
-      };
-    })
-    .catch(() => {
-      return {
-        statusCode: 400,
-        httpMethod: event.httpMethod,
-        body: JSON.stringify({ message: "Function failed" }),
-        received: JSON.stringify(event.body),
-      };
-    });
+  try {
+    await sgMail.send(msg);
+    return {
+      statusCode: 200,
+      httpMethod: event.httpMethod,
+      body: JSON.stringify({ message: "Function invoked" }),
+      received: JSON.stringify(event.body),
+    };
+  } catch {
+    return {
+      statusCode: 400,
+      httpMethod: event.httpMethod,
+      body: JSON.stringify({ message: "Function failed" }),
+      received: JSON.stringify(event.body),
+    };
+  }
 };
