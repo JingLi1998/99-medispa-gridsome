@@ -11,7 +11,7 @@ exports.handler = async function (event, context) {
       }),
     };
   }
-  const { name, email, phone, message } = event.body;
+  const { name, email, phone, message } = JSON.parse(event.body);
   const msg = {
     to: "jing_li1998@hotmail.com",
     from: "jing.li.1998.jl@gmail.com",
