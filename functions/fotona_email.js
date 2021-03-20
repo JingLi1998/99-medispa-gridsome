@@ -10,7 +10,8 @@ exports.handler = async function (event, context) {
     html: "<div>Fotona Form Submitted</div>",
   };
   try {
-    await sgMail.send(msg);
+    const res = await sgMail.send(msg);
+    console.log(res);
     return {
       statusCode: 200,
       body: JSON.stringify({
@@ -19,7 +20,8 @@ exports.handler = async function (event, context) {
         received: event.body,
       }),
     };
-  } catch {
+  } catch (e) {
+    console.log(e);
     return {
       statusCode: 400,
       body: JSON.stringify({
