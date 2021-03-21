@@ -377,6 +377,10 @@ hr {
     margin-right: 0;
   }
 
+  iframe {
+    max-width: 640px;
+  }
+
   .form-section {
     margin-top: 2rem;
     max-width: 400px;
