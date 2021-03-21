@@ -99,6 +99,17 @@
 import axios from "axios";
 
 export default {
+  metaInfo: {
+    title: "Fotona 4D Sydney",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content:
+          "99 Medispa has over 20 years of experience with Fotona 4D, providing skin tightening, acne and acne scar removal, stretch mark removal and gynaecology treatments.",
+      },
+    ],
+  },
   components: {
     // VBackgroundImage,
   },
@@ -345,6 +356,7 @@ hr {
 @media screen and (min-width: 1280px) {
   /* 2 column grid */
   .grid {
+    font-size: 16px;
     grid-template-areas:
       "hero hero"
       "content form"
