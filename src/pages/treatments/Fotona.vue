@@ -110,6 +110,113 @@ export default {
       },
     ],
   },
+  script: [
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      name: "What is Fotona 4D?",
+      author: {
+        "@type": "Person",
+        name: "99 Medispa",
+      },
+      articleBody:
+        'The 4D Skin Rejuvenation system uses a combination of the er:YAG and nd:YAG lasers to offer\ncombinations of various settings to stimulate your natural healing process and new collagen growth at\ndifferent levels of penetration. The fotona 4D involves in Step 1: SMOOTHLIFTIN™ Step 2:\nFRAC3® Step 3: PIANO® and Step 4: SUPERFICIAL™.</P><H3 data-v-807c893c="">Step 1: SMOOTHLIFTIN™</H3><P data-v-807c893c="">This step starts around the walls of your mouth as most signs of aging starts around sagging mouth, loose jowls, deep nasolabial folds (fine lines) and loss of volume, tightness in lower half face. This step uses laser for oral tightening of the tissues, minimizing and correcting issues mentioned above. During this painless step, our technician will be using gloves to open your mouth wider for better access to the targeted areas. </P><H3 data-v-807c893c="">Step 2: FRAC3®</H3><P data-v-807c893c="">This step uses non-ablative mode to generate heat and targets deep lines, fine lines, sun damage and wrinkles. It helps to achieve smoother, more even skin tone to bring a youthful texture and complexion. </P><H3 data-v-807c893c="">Step 3: PIANO®</H3><P data-v-807c893c="">A brushing technique is used to regenerate skin’s lost structure, increase volume. This step provides maximum lifting and tightening, as well as firming. This step is especially beneficial for saggy jowls as our skin’s collagen decreases. </P><H3 data-v-807c893c="">Step 4: SUPERIFICIAL®</H3><P data-v-807c893c="">This last step is a light laser peel to improve appearances of surface-level imperfections such as acne scars, pores, uneven skin tone and more. This step offers a skin renewal and you will notice an immediately refreshed, tighter and glowy look!',
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      name: "Advantages of Fotona 4D",
+      author: {
+        "@type": "Person",
+        name: "99 Medispa",
+      },
+      articleBody:
+        'Tightening and volumization without the need for fillers or toxins</H3><P data-v-807c893c="">Fotona 4D is a natural treatment that promotes new collagen growth. As we age, our collagen growth slows down when we are in our late 20s and early 30s. other factors such as sun exposure causes our skin to loose its structure, tightness and gain fine lines and pigmentation. Whilst these outside factors damage our skin protein, fotona laser can give our skin an encouragement to COMBAT and CORRECT these issues.</P><H3 data-v-807c893c="">A full lifting treatment from the inside out for Immediate tightening and glow, also beneficial for wrinkles and hyperpigmentation </H3><P data-v-807c893c="">Fotona 4D is a 4 in 1 laser treatment, therefore is more economically WORTH IT than many other treatments that only target one benefit. When our body stops producing enough collagen, our skin will show signs of wear and tear in forms of wrinkles and pigmentation. This happens as our skin responds to our muscle contractions, causing indentations on our skin. Fotona 4D will increase our collagen levels and decrease these issues. if you do not have any wrinkles or pigmentation, fotona can PREVENT wrinkles and fine lines. </P><H3 data-v-807c893c="">Little or no downtime, surgery, needles or anesthesia</H3><P data-v-807c893c="">Fotona 4D is a revolutionary treatment due to its ability to allow clients to come during their lunch time breaks and carry on with daily activities as usual afterwards. It is quick, simple and effective. For clients who are worried of going out on the day of the treatment, do not worry, this will not be an issue!',
+    },
+    {
+      type: "application/ld+json",
+      json: [
+        {
+          "@context": "http://schema.org",
+          "@type": "QAPage",
+          mainEntity: {
+            "@type": "Question",
+            name: "How long does the treatment take?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Fotona 4D is quick and simple. One basic Fotona 4D treatment will take approximately 30 – 45 mins depending on individual situations. Some Fotona treatments can last up to 1.5 hours as we customise this treatment depending on clients needs, making this 4D into 5D or 6D treatments. It is important to do a consultation before any Fotona treatments for a customised plan",
+            },
+          },
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "QAPage",
+          mainEntity: {
+            "@type": "Question",
+            name: "Is this treatment safe?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "This treatment is very safe and effective for our skins. It works on all Fitzpatrick skin types. The treatment has no downtime and some clients only receive mild pinkness around cheeks that last for 30 minutes maximum",
+            },
+          },
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "QAPage",
+          mainEntity: {
+            "@type": "Question",
+            name: "Does this treatment hurt?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "This treatment might have some warmth in certain areas on our faces but most patients do not report any pain or discomfort during treatment. After the treatment is done, clients usually feel warm on their face for 10 minutes maximum.",
+            },
+          },
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "QAPage",
+          mainEntity: {
+            "@type": "Question",
+            name: "How many sessions and how often will I need?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Fotona 4D is a layering treatment, which means clients need 3-5 sessions for maximum results. With one session, clients can see a difference, but for tighter skin and longer lasting results, we always recommend more sessions. When you require 3-5 sessions, it will be spaced out with one session per month. During this journey, clients are recommended to use facial masks to keep skin hydrated",
+            },
+          },
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "QAPage",
+          mainEntity: {
+            "@type": "Question",
+            name: "Which areas are included in the Fotona 4D treatment?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "The 4D treatment areas vary depend on your areas of concern. Our laser technician will give you a consultation and depending on your budget, it can be done on face and neck. Fotona can also do eyes but it is called SMOOTH EYES treatment. It is excluded from the 4D but can be added on upon discussion with your technician. Fotona TIGHTSCULPTING is another treatment that can be added onto the 4D, it is commonly called “fat melting” to help clients with double chins and loose jowls due to fat cells on face, causing faces to sag.",
+            },
+          },
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "QAPage",
+          mainEntity: {
+            "@type": "Question",
+            name: "What is the price range like in Sydney?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Fotona 4D prices in Sydney range around $500 - $880 per session depending on which areas you choose. For SMOOTH EYES, it is usually $400 - $600 per session and for TIGHTSCULPTING, it will be roughly $600. If you are doing a Fotona session with all of the areas added on, discounts usually apply",
+            },
+          },
+        },
+      ],
+    },
+  ],
   components: {
     // VBackgroundImage,
   },
