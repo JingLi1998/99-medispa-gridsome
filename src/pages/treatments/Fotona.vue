@@ -8,12 +8,10 @@
         <p class="subtitle">{{ subHeading }}</p>
       </div>
     </section>
-    <section>
+    <section class="content-section">
       <article>
         <p>{{ introduction }}</p>
         <iframe
-          width="640"
-          height="360"
           src="https://www.youtube.com/embed/q4b1hEGZiXo"
           title="YouTube video player"
           frameborder="0"
@@ -62,13 +60,13 @@
         <p>{{ answer6 }}</p>
       </article>
       <hr />
-      <article>
+      <!-- <article>
         <h2>{{ heading5 }}</h2>
-      </article>
+      </article> -->
     </section>
-    <section>
-      <h2>Enquiry Form</h2>
+    <section class="form-section">
       <form @submit.prevent="submitForm">
+        <h2>Enquiry Form</h2>
         <div>
           <label for="fullName">Full Name</label>
           <input id="fullName" v-model="formData.name" type="text" />
@@ -83,7 +81,7 @@
         </div>
         <div>
           <label for="message"> Enquiry Message </label>
-          <input id="message" v-model="formData.message" type="text" />
+          <input id="message" v-model="formData.comments" type="text" />
         </div>
         <transition name="fade" mode="in-out">
           <p v-if="error != ''" class="px-2 text-center text-red-400">
@@ -111,6 +109,7 @@ export default {
         phone: null,
         email: null,
         message: null,
+        treatment: "Fotona 4D",
       },
       show: false,
       error: "",
@@ -184,13 +183,13 @@ FRAC3® Step 3: PIANO® and Step 4: SUPERFICIAL™.`,
         this.formData.name &&
         this.formData.phone &&
         this.formData.email &&
-        this.formData.message
+        this.formData.comments
       ) {
         this.error = "";
         this.disabled = true;
         try {
           await axios.post(
-            "https://dev--99medispa.netlify.app/.netlify/functions/fotona_email",
+            "https://dicwjr8992.execute-api.ap-southeast-2.amazonaws.com/dev/email/send",
             this.formData
           );
           this.show = true;
@@ -214,48 +213,56 @@ FRAC3® Step 3: PIANO® and Step 4: SUPERFICIAL™.`,
 
 <style lang="postcss" scoped>
 .grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "hero"
+    "content"
+    "form";
+  padding-bottom: 3em;
   line-height: 1.5;
+  font-size: 14px;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2em;
   font-weight: 600;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   font-weight: 500;
 }
 
 section {
-  width: 640px;
+  margin: 0 auto;
 }
 
 article {
+  width: 90%;
+  max-width: 640px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 2.25rem 0;
+  gap: 1em;
+  margin: 2.25em auto;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  gap: 1em;
+  width: 90%;
+  margin: 1.5em auto;
+  max-width: 640px;
 }
 
 label {
-  font-size: 0.875rem;
+  font-size: 0.875em;
   font-weight: 500;
 }
 
@@ -264,7 +271,7 @@ input {
   width: 100%;
   border-radius: 5px;
   border: 1px solid rgb(215, 224, 231);
-  padding: 0.5rem;
+  padding: 0.5em;
   transition: all 0.3s ease-in-out;
 }
 
@@ -276,7 +283,7 @@ input:focus {
 button {
   background-color: rgba(211, 151, 112, 1);
   color: white;
-  padding: 0.5rem 0;
+  padding: 0.5em 0;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
 }
@@ -285,26 +292,89 @@ button:hover {
   background-color: rgba(211, 151, 112, 0.75);
 }
 
+iframe {
+  max-width: 480px;
+  width: 100%;
+  margin: 1.5rem auto;
+  aspect-ratio: calc(16 / 9);
+}
+
 .title-section {
   width: 100%;
   background-color: rgba(211, 151, 112, 1);
   color: rgba(255, 255, 255, 0.897);
   text-align: center;
-  padding: 2.5rem 0;
+  padding: 2.5em 0;
+  grid-area: hero;
 }
 
 .title-text {
-  width: 640px;
+  max-width: 640px;
+  width: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1em;
 }
 
 .subtitle,
 .tagline {
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.25em;
+}
+
+.content-section {
+  display: block;
+  grid-area: content;
+}
+
+.form-section {
+  width: 100%;
+  grid-area: form;
+  border: none;
+}
+
+hr {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* max-width: 640px; */
+}
+
+@media screen and (min-width: 1280px) {
+  /* 2 column grid */
+  .grid {
+    grid-template-areas:
+      "hero hero"
+      "content form"
+      "content .";
+    column-gap: 1.5em;
+  }
+
+  article,
+  hr {
+    width: 640px;
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 0;
+  }
+
+  .form-section {
+    margin-top: 2rem;
+    max-width: 400px;
+    border-left: 1px solid rgb(215, 224, 231);
+    padding: 0 1.5em;
+    margin-left: 0;
+  }
+
+  form {
+    margin-top: 0;
+  }
 }
 </style>
