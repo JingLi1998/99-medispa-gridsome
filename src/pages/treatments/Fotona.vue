@@ -36,11 +36,13 @@
       <hr />
       <article>
         <h2>{{ heading5 }}</h2>
-        <carousel>
-          <slide v-for="i in 8" :key="i">
-            <g-image :src="`../../images/fotona/image${i + 3}.jpeg`" />
-          </slide>
-        </carousel>
+        <client-only>
+          <carousel>
+            <slide v-for="i in 8" :key="i">
+              <g-image :src="`../../images/fotona/image${i + 3}.jpeg`" />
+            </slide>
+          </carousel>
+        </client-only>
       </article>
       <hr />
       <article>
@@ -102,7 +104,7 @@
 
 <script>
 // import VBackgroundImage from "../../components/VBackgroundImage";
-import { Carousel, Slide } from "vue-carousel";
+import ClientOnly from "../../components/ClientOnly";
 import axios from "axios";
 
 export default {
@@ -232,8 +234,15 @@ export default {
   },
   components: {
     // VBackgroundImage,
-    Carousel,
-    Slide,
+    ClientOnly,
+    Carousel: () =>
+      import("vue-carousel")
+        .then((m) => m.Carousel)
+        .catch(),
+    Slide: () =>
+      import("vue-carousel")
+        .then((m) => m.Slide)
+        .catch(),
   },
   data() {
     return {
