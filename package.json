@@ -21,6 +21,7 @@
     "netlify-cms": "^2.10.49",
     "stripe": "^8.60.0",
     "v-calendar": "^1.0.0-beta.23",
+    "vue-carousel": "^0.18.0",
     "vue-fragment": "^1.5.1",
     "vue-select": "^3.10.3",
     "vuex": "^3.4.0"

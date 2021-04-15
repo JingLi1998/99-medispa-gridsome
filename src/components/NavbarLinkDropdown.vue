@@ -11,7 +11,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .dropdown {
   @apply relative inline-block;
 }

@@ -21,6 +21,10 @@ export default {
               to: "/treatments/laser-treatment/",
             },
             {
+              name: "Fotona 4D",
+              to: "/treatments/fotona/",
+            },
+            {
               name: "Cosmetic Injection",
               to: "treatments/cosmetic-injection",
             },
@@ -41,6 +45,10 @@ export default {
               to: "/treatments/plastic-surgery/",
             },
           ],
+        },
+        {
+          name: "Price List",
+          to: "https://www.fresha.com/providers/99-medispa-xd1tjw01?pId=364819",
         },
         {
           name: "Offers",
