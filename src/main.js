@@ -1,40 +1,37 @@
 // IMPORT FONTAWESOME LIBRARY
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import "vue-select/dist/vue-select.css";
-
 import {
   faFacebookSquare,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faShoppingCart,
-  faShoppingBag,
-  faShoppingBasket,
-  faMobileAlt,
-  faLocationArrow,
-  faMapMarker,
-  faMapMarkerAlt,
-  faCalendar,
-  faCalendarAlt,
-  faArrowLeft,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFrown,
   faCheckCircle,
+  faFrown,
   faTimesCircle,
   faTrashAlt,
 } from "@fortawesome/free-regular-svg-icons";
-
-// IMPORT VUEX STORE
-import store from "./store";
-
+import {
+  faArrowLeft,
+  faCalendar,
+  faCalendarAlt,
+  faLocationArrow,
+  faMapMarker,
+  faMapMarkerAlt,
+  faMobileAlt,
+  faShoppingBag,
+  faShoppingBasket,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 // IMPORT GLOBAL COMPONENTS
 import { Fragment } from "vue-fragment";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import VResponsive from "./components/VResponsive";
-import VButton from "./components/VButton";
+import "vue-select/dist/vue-select.css";
 import "~/assets/main.css";
+import VButton from "./components/VButton";
+import VResponsive from "./components/VResponsive";
+// IMPORT VUEX STORE
+import store from "./store";
 
 config.autoAddCss = false;
 library.add(
